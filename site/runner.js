@@ -1,6 +1,6 @@
-import {installMotion,setMotionPreference,measuredProgress,progressPhase} from './motion.js?v=craft-24';
-import {load} from './store.js?v=craft-24';
-import {saveBlob} from './transfer.js?v=craft-24';
+import {installMotion,setMotionPreference,measuredProgress,progressPhase} from './motion.js?v=craft-25';
+import {load} from './store.js?v=craft-25';
+import {saveBlob} from './transfer.js?v=craft-25';
 setMotionPreference(load().value.interfaceMotion);installMotion();
 const $=s=>document.querySelector(s),token=location.hash.slice(1);let blob,path,url,autoStart=false,opening=false,expectedBytes=0;
 function start(manual=false){

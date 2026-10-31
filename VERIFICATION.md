@@ -1,6 +1,46 @@
 # Verification report — 31 October 2026 UTC
 
-## Current release: Real Minecraft / Purple Glass 2.4
+## Current release: Player Profiles / Real 3D Skin Studio 2.5
+
+The unchanged 2.4 background and launch behavior described below remain intact.
+New renderer: locally bundled MIT skinview3d 3.4.2 + skinview-utils 0.7.1 +
+Three.js 0.156.1, lazy loaded only on Skins. Original licensed pixel defaults,
+not official Mojang Steve/Alex textures. See `PROFILES.md` for exact persistence,
+lifecycle, compatibility and identity boundaries.
+
+### 2.5 completed verification
+
+**87 grouped checks passed:** core 9; existing browser 15; extended 8; Dusk 7;
+motion 14; panorama 13; UI polish 5; new profiles 16. Existing axe checks for four
+launcher states and 13 themes are clean; new profile-page and native-dialog axe
+scans also have no violations. The browser harness uses headless Chromium with
+SwiftShader, not a physical-device or Safari certification.
+
+New checks exercise actual WebGL drawing/camera changes; wheel/reset; walking and
+outer layers; zero continuous frames under reduced motion, preparation, running
+game and simulated hidden-tab states; create/activate/edit/delete; profile build
+and mode controlling the real dock; reload persistence of multiple profiles and
+PNG Blobs; byte-identical skin export; slim/classic and real legacy conversion;
+signature/size rejection retaining the prior PNG; 150% phone/tablet/desktop layouts;
+renderer cleanup on navigation; renderer-load failure fallback; denied storage;
+and no application page errors. Node tests also exercise metadata validation,
+24-profile bounds and denied-database mutation/deletion safety.
+
+An existing regression caught immediate reload racing an asynchronous profile
+metadata write. Fixed with a synchronous active-profile checkpoint and existing
+launcher preferences reconciliation; the original browser suite now passes.
+One parallel test batch exceeded its tool wait limit during panorama testing;
+panorama was then run separately to completion (all 13 checks). No failed suite
+is counted as passed. Reports are in `verification/` (original browser report
+also remains under ignored `artifacts/` as in previous releases).
+
+Limits: physical touch/pinch/iPad/Safari, cross-tab conflict resolution, exact
+physical-device FPS and all-game compatibility are not asserted. Idle/Walk updates
+are capped at 30 Hz with a 1.5 pixel-ratio cap; only active visible rendering runs.
+There is no authenticated account service or verified per-build identity adapter,
+and no claim that launcher names/skins appear inside a game.
+
+## Previous release: Real Minecraft / Purple Glass 2.4
 
 This supersedes older background descriptions below. Default is an actual Minecraft
 Beta gameplay screenshot by Xbox México, CC BY 3.0, stored locally with visible

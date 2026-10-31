@@ -54,3 +54,31 @@ placeholder actions, live counts, gameplay preview or simulated readiness.
 
 The snapshot research does not certify legal compliance of the game collection,
 physical-device performance, native haptics, or 60/120 FPS on every device.
+
+## 2.5 profile studio research and actual application
+
+All four were revisited for the profile task, not just the earlier homepage work:
+
+- **Uiverse** — https://uiverse.io/cssbuttons-io/wonderful-baboon-62 : public full
+  gradient-frame/inner-surface CSS, MIT. Restrained highlighted primary buttons,
+  pressed feedback, touch targets and explicit keyboard focus adapt that pattern;
+  existing Uiverse-derived launch controls remain. License already shipped.
+- **60fps** — https://60fps.design/snippets/selection-to-illustration-animation :
+  public selection feedback description and partial SwiftUI snippet inspected;
+  remaining 128 lines are PRO-gated. Adapted selected-card/character state linkage,
+  restrained transitions and modal entry. No inaccessible code/video copied; full
+  playback/frame-by-frame inspection is not claimed. All work remains tied to real
+  state, without invented loading delays or reduced-motion overrides.
+- **Glass3D** — https://glass3d.dev/ : generator CSS inspected again: directional
+  inset light, tint, blur and layered shadows adapted for the studio and dialogs.
+  No external generator example art/noise/fish assets are bundled. Original CSS
+  uses existing Dusk theme tokens and preserves the real screenshot backdrop.
+- **21st.dev** — https://21st.dev/@jahed/components/spotlight-card : public preview,
+  description and usage inspected. Full implementation requires a free account;
+  not copied. Independently implemented CSS-variable pointer spotlight, responsive
+  selected profile cards, native dialog UI and focus restoration. No React,
+  Tailwind, inaccessible component source or paid template is introduced.
+
+The 3D model itself is licensed skinview3d geometry, not artwork borrowed from
+these design sites and not an AI model. See `PROFILES.md` and runtime licenses.
+The earlier statement that Skins is only a 2D tool is superseded by release 2.5.

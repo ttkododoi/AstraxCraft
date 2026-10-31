@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "renderer is lazy/local and renders genuine WebGL geometry",
+    "drag rotates actual camera; wheel zoom and camera reset work",
+    "walking/overlay controls work; reduced motion stops all continuous 3D frames",
+    "native create dialog activates profile and applies real build/mode to launch dock",
+    "slim geometry, custom PNG Blob import and byte-identical export",
+    "active profile, imported PNG, model and profile build/mode survive reload",
+    "profile selection isolates skin/model/build/mode and viewer preferences",
+    "64×32 legacy conversion/classic enforcement, signature and 2 MiB rejection preserve previous skin",
+    "preparation, running-game and hidden-tab states stop scheduled character frames",
+    "edit, modal rendering pause, Escape/cancel and confirmed delete retain one profile and game data",
+    "axe: character page and modal have no violations",
+    "phone/tablet/desktop at 150%: no horizontal overflow, imports and dialogs reachable",
+    "navigation disposes renderer and removes its canvas",
+    "failed renderer load leaves honest graphics fallback and working skin/profile controls",
+    "denied IndexedDB has honest session-only warning and functional profile UI",
+    "no application page errors"
+  ],
+  "errors": []
+}

@@ -2,12 +2,22 @@
 
 A real, buildless browser launcher for Astrax Interactive, featuring the **Dusk Edition minimal smoked-glass workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is a purple-glass Minecraft-inspired workspace with an original AstraxCraft mark, yellow splash and functional Quick Play. The default background is a real Xbox México Minecraft gameplay screenshot, CC BY 3.0, served locally with visible attribution. No procedural/generated scenery ships. Official Tiny Takeover textures are not bundled; authorized local cubemap import remains available. No charts or dashboard counters. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
 
+## Player profiles and real 3D skins · 2.5
+
+Open **Skins** or the sidebar profile switcher for multiple persistent browser-local
+profiles, a real drag/zoom 3D Minecraft skin viewer, classic/slim models, walk/idle,
+outer layers, PNG import/export, and per-profile build/Blob/Popup preferences.
+Licensed skinview3d is bundled locally and lazy-loaded. Original Astrax default
+textures use Steve/Alex proportions, not unlicensed Mojang default artwork.
+No account authentication or in-game username/skin injection is claimed.
+
 ## Downloads and documentation
 
 - [Portable source ZIP](downloads/Astrax-Launcher-source.zip) — unzip and follow the startup command below.
 - [Complete machine-readable inventory](site/catalog.json) — all 143 tracked upstream files and 140 HTML entries, with exact filenames, sizes and Git blob hashes.
 - [Inspected design resources and adaptations](DESIGN_RESEARCH.md).
 - [Panorama setup, asset rights and performance](PANORAMA.md).
+- [Player profiles, 3D controls, privacy and renderer rebuild](PROFILES.md).
 - [Verification report](VERIFICATION.md) — actual tests, execution boundaries and remaining features.
 - [Reference audit](REFERENCE_AUDIT.md) and [credits / third-party notices](THIRD_PARTY_NOTICES.md).
 - [GitHub pull request](https://github.com/ttkododoi/AstraxCraft/pull/1) — development history and review.

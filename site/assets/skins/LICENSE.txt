@@ -1,0 +1,13 @@
+Original Astrax classic and slim pixel textures
+
+classic.png and slim.png are original 64x64 pixel clothing/face designs made by
+an explicit drawing script (tools/default-skins.py), not copied Mojang Steve or
+Alex textures. Steve and Alex refer here only to standard model proportions.
+No third-party texture inputs or AI image/model generator is used.
+
+Permission is granted, free of charge, to use, copy, modify, publish, distribute,
+sublicense and sell these two original textures for any purpose, without
+attribution. Provided AS IS, without warranty of any kind.
+
+This does not grant rights to Minecraft trademarks or user-imported skins.
+The 3D geometry/UV implementation is provided by MIT-licensed skinview3d.

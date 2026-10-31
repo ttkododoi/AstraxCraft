@@ -10,3 +10,20 @@
 - Dev dependencies (not shipped as launcher runtime): Playwright/@playwright/test and @axe-core/playwright (Apache-2.0) and @sparticuz/chromium (MIT package wrapper; Chromium includes its own BSD-style and third-party notices). Install from the pinned package lock for tests; consult installed LICENSE files and Chromium notices for browser redistribution. Portable source does not include node_modules or browser binaries.
 
 No additional license for third-party game code is granted by this repository. The absence of a bundled upstream license is a dependency to resolve before copying the full collection onto another public host.
+
+## 2.5 local 3D profile studio
+
+- **skinview3d 3.4.2**, Kent Rasmussen, Haowei Wen, Sean Boult and contributors,
+  https://github.com/bs-community/skinview3d — MIT. Actual Minecraft skin geometry,
+  model UVs, legacy conversion and animations. **skinview-utils 0.7.1** — MIT.
+- **Three.js 0.156.1**, Three.js Authors, https://github.com/mrdoob/three.js — MIT;
+  renderer and OrbitControls. These three are locally bundled runtime code, even
+  though npm lists them as development inputs for the committed static bundle.
+  All full licenses and extracted legal comments are in `site/vendor/`.
+- **esbuild 0.25.12**, Evan Wallace — MIT, development bundler only; not runtime.
+- **Original Astrax classic/slim PNGs**: independently scripted pixel textures,
+  not Mojang Steve/Alex artwork. Permission in `site/assets/skins/LICENSE.txt`;
+  source in `tools/default-skins.py`. No AI-generated model or skin pack.
+- Profile-specific Uiverse/60fps/Glass3D/21st research and access restrictions are
+  recorded in `DESIGN_RESEARCH.md`. Only licensed CSS/pattern adaptations and
+  independent implementations are used; no gated source is redistributed.
