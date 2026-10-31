@@ -1,6 +1,6 @@
 # Astrax Launcher
 
-A real, buildless browser launcher for Astrax Interactive, featuring the **Aurora purple glass UI**, grouped navigation, searchable builds, favorites and verified HTML preparation. Originally inspired by GX's compact desktop composition, now styled with translucent panels and reduced-motion-aware transitions. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
+A real, buildless browser launcher for Astrax Interactive, featuring the **Orbit Edition purple workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is an original orbital workspace with floating navigation, an interactive home, glass surfaces and reduced-motion-aware transitions—not a GX lookalike. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
 
 ## Downloads and documentation
 
@@ -109,3 +109,11 @@ To finish source-dependent parity, provide an authorized WISP bundle + supported
 ## Aurora visual update
 
 The current UI defaults to **Purple**, with translucent glass panels, tinted depth, grouped Play / Tools & Content / Launcher navigation, and refined spacing. Eleven theme choices remain available, including the original red Default theme. Existing explicit theme preferences are preserved; choose Purple in Launcher Settings to switch an older saved profile. Scanlines are off for new profiles. Panel entrances, artwork reveal and launch-button sheen are finite or interaction-triggered, never continuous background effects. All transitions/entrances honor reduced motion. Glass effects have solid-color fallbacks where backdrop filtering is unavailable.
+
+## Orbit Edition · 1.2
+
+The new home replaces the GX-style artwork screen with an original orbital identity. It includes four catalog-backed category shortcuts, real category counts, an on-device favorites shortlist, selected-build/source details, and a floating launch dock. **Ctrl/Command K** opens and focuses the searchable library. Import, selection, preparation, saving and source details use the original working pipeline—no fake launch animation.
+
+Motion includes staggered content arrivals, spring-like hover lifts, click ripples, selection feedback, launch-button sheen and pointer-responsive orbital artwork. There are no endless animation loops. Reduced motion disables decorative entrances, ripples, hover transforms and parallax. The home scrolls independently while the launch dock remains available, including on phones.
+
+Additional interaction test: `node tests/orbit.mjs` (requires the local server). The existing launcher browser regression suite also remains available.

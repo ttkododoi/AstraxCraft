@@ -78,3 +78,9 @@ These are disclosed limitations, not a claim of complete GX equivalence.
 ## Aurora UI follow-up
 
 Purple was added as the new-profile default without discarding existing theme choices. Glass panels, grouped sidebar navigation, refined settings/library rows, and finite entrance/hover motion replace the earlier squared red treatment at the user's request. Existing theme preferences remain intact. Scanlines default off for new profiles. `npm test` (4/4) and `npm run test:browser` (15 recorded groups) were rerun after this change and passed, including six viewport sizes and mobile/tablet/desktop 150% scale checks. This update changes the user's requested visual direction; the earlier GX pixel-parity constraints are no longer the target for the new glass treatment. No additional game compatibility is claimed.
+
+## Orbit Edition follow-up
+
+The user explicitly requested a unique design rather than GX resemblance. The home, visual identity, shell spacing, floating navigation/dock, category shortcuts and library layout now follow the original Orbit direction. Finite staggered arrivals, native Web Animations click ripples, selection feedback and event-driven artwork parallax were added. No perpetual animation or new network service is introduced. The original launcher source/integrity boundaries remain unchanged.
+
+`npm test` passed 4 grouped cases. The existing browser regression passed 15 groups after the layout and outside-pointer handling change. `node tests/orbit.mjs` passed 6 new groups: original home/category rendering, Explore + Ctrl K, category/favorites/selection synchronization, selected source details, reduced-motion suppression, and phone dock/body bounds. Evidence is in `verification/orbit-results.json`. Real desktop and phone screenshots were captured and visually inspected; no current GX screenshot comparison is claimed or targeted. No new game compatibility claim follows from this visual redesign.
