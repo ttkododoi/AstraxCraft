@@ -344,3 +344,117 @@ body { position: relative; isolation: isolate; }
 .aurora-two { background: radial-gradient(ellipse,#607ca8a1,transparent 64%); }
 .aurora-three { background: radial-gradient(ellipse,#985d8b80,transparent 65%); }
 .play-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; padding: 1px; background: linear-gradient(135deg,#ffffff55,#ffffff03 32%,#c3a4ed24 70%,#ffffff22); -webkit-mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+/* Dusk Motion 2.2 — one motion language, no redesign or extra dashboard UI. */
+:root {
+  --motion-press: 110ms;
+  --motion-hover: 180ms;
+  --motion-icon: 200ms;
+  --motion-panel: 270ms;
+  --motion-page: 360ms;
+  --motion-smooth: cubic-bezier(.22,1,.36,1);
+  --motion-snappy: cubic-bezier(.16,1,.3,1);
+  --motion-natural: cubic-bezier(.2,.8,.2,1);
+}
+:root[data-motion='subtle'] { --motion-press: 90ms; --motion-hover: 140ms; --motion-icon: 160ms; --motion-panel: 220ms; --motion-page: 260ms; }
+/* The controller owns entrances. Disable older CSS entrances so they cannot stack. */
+.motion-ready .quiet-intro, .motion-ready .play-card, .motion-ready .page,
+.motion-ready #picker, .motion-ready #toast, .motion-ready .boot-screen.is-leaving { animation: none !important; }
+.hero-line { display: block; }
+.quiet-intro h1 { white-space: normal; }
+button {
+  transition: scale var(--motion-press) var(--motion-snappy), transform var(--motion-hover) var(--motion-smooth), background-color var(--motion-hover), border-color var(--motion-hover), color var(--motion-hover), box-shadow var(--motion-hover);
+  transform-origin: center;
+}
+button:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 4px 12px #0b061a12; }
+button:active:not(:disabled) { transform: none; }
+button.is-pressed:not(:disabled) { scale: .982; transform: translateY(0); transition-duration: var(--motion-press); }
+button:disabled { scale: 1; transform: none; box-shadow: none; }
+.navrow:hover:not(:disabled) { transform: none; color: var(--accent); box-shadow: none; }
+.navrow svg { transition: scale var(--motion-icon) var(--motion-snappy), translate var(--motion-icon) var(--motion-smooth); }
+.navrow:hover:not(:disabled) svg { scale: 1.045; translate: 1px 0; }
+.navrow.is-pressed:not(:disabled) { transform: none; }
+aside { position: relative; }
+.motion-ready .navrow { position: relative; z-index: 1; }
+.motion-ready .navrow.active, :root[data-surface='dark'] .motion-ready .navrow.active { background: transparent; border-color: transparent; box-shadow: none; }
+#navHighlight {
+  position: absolute; pointer-events: none; z-index: 0; transform-origin: top left;
+  border: 1px solid color-mix(in srgb,var(--accent) 24%,transparent); border-radius: 11px;
+  background: linear-gradient(130deg,color-mix(in srgb,var(--accent) 10%,transparent),#ffffff05);
+  box-shadow: inset 0 1px #ffffff17,0 3px 12px #0b061a08;
+}
+.play-card {
+  transition: transform 220ms var(--motion-smooth), box-shadow 220ms var(--motion-smooth), border-color 220ms;
+}
+.play-card:hover { transform: translateY(-2px); border-color: color-mix(in srgb,var(--accent) 26%,var(--glass-border)); box-shadow: 0 18px 44px #0b061a24,inset 0 1px #ffffff27; }
+.play-card::before, .launchbar::before { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; z-index: -1; background: radial-gradient(320px ellipse at var(--light-x,25%) var(--light-y,0%),#ffffff12,transparent 75%); }
+.launchbar { position: relative; isolation: isolate; }
+#launch { position: relative; overflow: hidden; transition: scale var(--motion-press) var(--motion-snappy), transform var(--motion-hover) var(--motion-smooth), background-color var(--motion-hover), box-shadow var(--motion-hover); }
+#launch::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg,transparent 25%,#ffffff24 50%,transparent 75%); translate: -120% 0; transition: translate 420ms var(--motion-smooth); }
+#launch:hover:not(:disabled)::after { translate: 120% 0; }
+#launch:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 7px 20px color-mix(in srgb,var(--accent) 15%,transparent),inset 0 1px #ffffff40; }
+#launch.is-pressed:not(:disabled) { scale: .978; transform: translateY(0); }
+#launch #playLabel { padding: 0; translate: none; }
+#launch .play-arrow { padding-left: 12px; transition: translate var(--motion-icon) var(--motion-smooth), opacity var(--motion-icon); }
+#launch[aria-busy='true'] .play-arrow { opacity: 0; }
+#launch[aria-busy='true']::before { content: ''; position: absolute; width: 10px; height: 10px; left: 15px; top: calc(50% - 6px); border: 1.5px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: loading-turn 1s linear infinite; }
+#launch[aria-busy='true'] { opacity: .75; }
+.dock-cancel-slot { flex: 0 0 66px; width: 66px; }
+.dock-cancel-slot #cancel { width: 100%; }
+.launchbar[data-outcome='error'] { border-color: #bb8692; }
+#version .chevron { transition: rotate var(--motion-icon) var(--motion-smooth), color var(--motion-icon); }
+#version[aria-expanded='true'] { border-color: var(--accent); }
+#version[aria-expanded='true'] .chevron { rotate: 180deg; color: var(--accent); }
+#picker { transform-origin: center bottom; }
+#picker[data-state='closed'] { pointer-events: none; }
+input, select { transition: border-color var(--motion-hover), background-color var(--motion-hover), box-shadow var(--motion-hover); }
+#search:focus { border-color: var(--accent); background: color-mix(in srgb,var(--raised) 75%,transparent); box-shadow: 0 0 0 3px var(--tint); }
+:root[data-surface='dark'] #search:focus { background: #ffffff0b; }
+.result { transition: background-color 150ms,border-color 150ms; }
+.result .choose:hover:not(:disabled) { transform: none; box-shadow: none; }
+.result .choose.is-pressed:not(:disabled) { scale: .99; }
+.star:hover:not(:disabled) { transform: none; box-shadow: none; background: var(--tint); }
+.star { transition: color 160ms,background-color 160ms,scale var(--motion-press) var(--motion-snappy); }
+.library-row { transition: transform 180ms var(--motion-smooth),background-color 180ms,border-color 180ms; }
+.library-row:hover { transform: translateY(-2px); border-color: color-mix(in srgb,var(--accent) 22%,var(--glass-border)); }
+.settings-grid input[type='checkbox'] {
+  appearance: none; -webkit-appearance: none; width: 36px; height: 22px; min-height: 22px; padding: 0; position: relative;
+  background: color-mix(in srgb,var(--muted) 20%,transparent); border-radius: 20px; border: 1px solid var(--border); cursor: pointer;
+}
+.settings-grid input[type='checkbox']::before { content: ''; width: 14px; height: 14px; position: absolute; top: 3px; left: 3px; background: var(--bright); border-radius: 50%; box-shadow: 0 1px 4px #0002; transition: translate 180ms var(--motion-snappy),background-color 180ms; }
+.settings-grid input[type='checkbox']:checked { background: var(--accent); border-color: var(--accent); }
+.settings-grid input[type='checkbox']:checked::before { translate: 14px 0; background: var(--launch-text); }
+.boot-logo { animation: boot-materialize 580ms var(--motion-snappy) both; }
+.boot-logo::before { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: linear-gradient(120deg,transparent 20%,#ffffff2e 50%,transparent 80%); animation: boot-glint 850ms 80ms var(--motion-smooth) both; }
+.boot-card > p { animation: boot-message 350ms var(--motion-smooth) both; }
+.boot-screen.is-leaving { pointer-events: none; }
+.progress-accessible { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.measured-track { height: 5px; width: 100%; overflow: hidden; background: var(--tint); border-radius: 8px; margin: 12px 0; }
+.measured-track > span { display: block; width: 100%; height: 100%; background: var(--accent); border-radius: inherit; transform: scaleX(0); transform-origin: left; transition: transform 160ms var(--motion-smooth); }
+.measured-track.indeterminate > span { width: 30%; transform: none; animation: measured-wait 1.4s ease-in-out infinite; }
+progress[hidden] + .measured-track { display: none; }
+.launchbar .measured-track { position: absolute; bottom: 2px; left: 12px; right: 12px; width: auto; height: 2px; margin: 0; }
+.aurora-one { animation-duration: 27s; }
+.aurora-two { animation-duration: 35s; }
+.aurora-three { animation-duration: 31s; }
+@keyframes dusk-drift-one { 0% { transform: translate(-5%,-2%) scale(.95); opacity:.48; } 42% { transform: translate(12%,8%) scale(1.04); opacity:.57; } 100% { transform: translate(28%,20%) scale(1.15); opacity:.52; } }
+@keyframes dusk-drift-two { 0% { transform: translate(6%,8%) scale(1); opacity:.5; } 65% { transform: translate(-12%,-4%) scale(1.08); opacity:.6; } 100% { transform: translate(-27%,-15%) scale(1.12); opacity:.52; } }
+@keyframes dusk-drift-three { 0% { transform: translate(-15%,-14%) scale(.8); opacity:.48; } 54% { transform: translate(2%,7%) scale(1.05); opacity:.57; } 100% { transform: translate(18%,20%) scale(1.2); opacity:.5; } }
+@keyframes boot-materialize { from { opacity:0; scale:.94; box-shadow:0 0 0 #bfa6f400; } to { opacity:1; scale:1; box-shadow:inset 0 1px #ffffff27,0 10px 30px #bfa6f410; } }
+@keyframes boot-glint { from { opacity:0; translate:-85% 0; } 35% { opacity:.6; } to { opacity:0; translate:85% 0; } }
+@keyframes boot-message { from { opacity:.25; translate:0 4px; } to { opacity:1; translate:0 0; } }
+@keyframes loading-turn { to { rotate:360deg; } }
+@keyframes measured-wait { from { translate:-100% 0; } to { translate:430% 0; } }
+:root[data-motion='off'] button, :root[data-motion='off'] input, :root[data-motion='off'] select, :root[data-motion='off'] .play-card, :root[data-motion='off'] .library-row, :root[data-motion='off'] .navrow svg, :root[data-motion='off'] .chevron, :root[data-motion='off'] #launch span, :root[data-motion='off'] #launch::after, :root[data-motion='off'] .measured-track > span { transition: none !important; }
+:root[data-motion='off'] button:hover:not(:disabled), :root[data-motion='off'] .play-card:hover, :root[data-motion='off'] .library-row:hover, :root[data-motion='off'] button.is-pressed { transform:none !important; scale:1 !important; }
+:root[data-motion='off'] .boot-logo, :root[data-motion='off'] .boot-logo::before, :root[data-motion='off'] .boot-card > p { animation:none !important; }
+@media(max-width:580px) { .dock-cancel-slot { flex-basis:62px; width:62px; }.launchbar .measured-track { bottom:2px; }.quiet-intro h1 .hero-line { line-height:1.12; } }
+@media(prefers-reduced-motion:reduce) { .boot-logo::before { display:none; }.play-card:hover { transform:none; }#launch:hover:not(:disabled)::after { translate:-120% 0; }.measured-track.indeterminate > span { animation:none !important; width:100%; opacity:.4; } }
+:root[data-motion='off'] #launch[aria-busy='true']::before, :root[data-motion='off'] .measured-track.indeterminate > span { animation: none !important; }
+.boot-screen.has-error .boot-logo, .boot-screen.has-error .boot-card > p { animation:none !important; }
+.boot-screen.has-error .boot-logo::before { animation:none !important; opacity:0; }
+#shell, aside, .launchbar, .play-card h2, .play-card > p, .sectionbar { transition: background-color var(--motion-hover), color var(--motion-hover), border-color var(--motion-hover); }
+/* Keep the selection card's physical hover transition alongside theme interpolation. */
+.play-card { transition: transform 220ms var(--motion-smooth),box-shadow 220ms var(--motion-smooth),border-color var(--motion-hover),background-color var(--motion-hover); }
+:root[data-motion='off'] #shell, :root[data-motion='off'] aside, :root[data-motion='off'] .launchbar, :root[data-motion='off'] .play-card h2, :root[data-motion='off'] .play-card > p, :root[data-motion='off'] .sectionbar, :root[data-motion='off'] .settings-grid input[type='checkbox']::before { transition:none !important; }
+button { transition: scale 210ms var(--motion-snappy),transform var(--motion-hover) var(--motion-smooth),background-color var(--motion-hover),border-color var(--motion-hover),color var(--motion-hover),box-shadow var(--motion-hover),opacity var(--motion-hover); }
+button.is-pressed:not(:disabled), #launch.is-pressed:not(:disabled) { transition-duration:var(--motion-press); }

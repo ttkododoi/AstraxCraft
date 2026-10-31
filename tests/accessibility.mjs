@@ -7,7 +7,7 @@ const browser=await chromium.launch(await options()),context=await browser.newCo
 try {
  await page.goto('http://localhost:8080/');await page.locator('#startup').waitFor({state:'detached'});await page.emulateMedia({reducedMotion:'reduce'});
  for(const target of ['Game','Launcher Settings','Downloads']) {
-  await page.getByRole('button',{name:target,exact:true}).click();
+  await page.getByRole('button',{name:target,exact:true}).click();if(target==='Game')await page.locator('.quiet-home').waitFor();else await page.getByRole('heading',{name:target,exact:true}).waitFor();await page.waitForFunction(()=>!document.querySelector('#content').inert);
   const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
   results.push({page:target,violations:result.violations.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.map(n=>({html:n.html,failureSummary:n.failureSummary}))}))});
  }

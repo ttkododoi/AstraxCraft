@@ -1,6 +1,29 @@
 # Verification report — 31 October 2026 UTC
 
-## Current release: Dusk Edition 2.1
+## Current release: Dusk Motion 2.2
+
+Animation/interactions extend the existing Dusk workspace; no layout/framework rewrite or charts. `site/motion.js` owns keyed, cancelable Web Animations, serialized page/picker transitions, FLIP navigation, startup/page staggering, scoped selection/favorite feedback and toast lifetimes. Selection retains the existing hero/card DOM. Button compression is delegated on pointer/key down with CSS release feedback, replacing the former generic click spring rather than stacking another one.
+
+- Standard/Subtle/Off interface animation is an optional schema-3 field, independent of the background flag. OS reduced motion takes precedence. Turning motion off mid-navigation flushes pending content once.
+- Startup exit follows actual catalog/font completion and immediately unlocks the shell. No minimum wait or fake percentage. Catalog and module failures retain a working Retry.
+- Byte progress uses actual counts; the integrity-check phase is genuinely indeterminate. A delayed SHA-1 test verifies no success/ready state is shown before validation. No animation waits before game navigation.
+- Picker closing immediately removes hit-testing and makes its contents inert; Escape restores focus. Interrupted page/popover/toast animations continue from current visual values rather than resetting their opacity.
+- The aurora uses transform/opacity, not animated blur/video/WebGL. Panel reflections use a short-lived interpolator, not an idle frame loop. Existing hidden/loading/game/background/reduced-motion pauses remain.
+
+### Actual checks for 2.2
+
+- Core: **5 grouped cases passed**, including interface-motion defaults/validation and legacy preference migration.
+- Main browser regressions: **15 groups passed**, including search, real-byte preparation/downloads, persistent settings/bookmarks, local import, denied storage, six viewport sizes and 150% scale. Tests now await the committed destination instead of asserting counts on outgoing inert content.
+- Extended: **8 groups passed**. Dusk/default one-click launch: **7 groups passed**, including actual hash-verified 4K execution and representative local same-origin hosting (not full collection hosting).
+- New motion suite: **14 groups passed**. See `verification/motion-results.json` for exact checks and one measured synchronous search update (not a device-wide performance benchmark). Rapid navigation, interrupted picker/toasts, pointer-down scale, stable home/card nodes, live favorites, Cancel/dock geometry, Off/reduced-motion persistence, pending-transition flush, real delayed startup, catalog/module Retry and delayed validation are covered.
+- Axe: **4 tested states** with zero reported scoped A/AA violations; contrast: **13 homepage themes** with zero reported scoped issues. Not full/manual WCAG certification.
+- Desktop/mobile screenshots reviewed locally. Software-keyboard bounds are simulated via reduced `visualViewport.height`, **not** verified on a physical phone/iPad. No Firefox/Safari, native desktop, frame-rate, GPU/memory or all-game compatibility claims.
+
+The existing game-hosting and origin-safety limitations below are unchanged: `baseUrl:null`, full 2.88 GB tree not deployed, upstream redistribution rights unresolved. Source ZIP includes launcher code/tests/evidence, not games or browser binaries. Former reports below are historical, not current animation descriptions.
+
+---
+
+## Previous release: Dusk Edition 2.1
 
 This section supersedes the older chart/light-theme/autostart descriptions below. Historical reports are retained, not represented as current UI.
 

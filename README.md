@@ -71,6 +71,10 @@ python tools/mirror.py --file Eaglercraft-4k-JS.html --transport api
 python tools/mirror.py --file 'Aero Client JS.html' --transport api
 python tools/mirror.py --file EaglercraftX_1.8_WASM-GC.html --transport api
 npm run test:browser
+npm run test:extended
+npm run test:dusk
+npm run test:motion
+npm run test:a11y
 node tests/extended.mjs
 # Optional: executes the two larger third-party game files in isolated test browser contexts:
 node tests/execution.mjs
@@ -131,7 +135,16 @@ Additional interaction test: `node tests/dusk.mjs` (requires the local server). 
 
 Charts are included where there is meaningful data; identity/settings/skins do not invent metrics just to fill a graph. Download validation and all previously disclosed game/mod/WISP/skin compatibility limitations remain unchanged.
 
-## Dusk Edition · 2.1 (current)
+## Dusk Edition · 2.2 (current)
+
+### Premium motion, same focused workspace
+
+The dependency-free motion controller coordinates real startup completion, accessible line-by-line hero entrances, interruption-safe page changes, a single moving navigation highlight, upward picker transitions, stable in-place selection updates, button press/release feedback, favorites and notifications. Pointer reflections gently interpolate across the selection card and dock; the original aurora remains slow and restrained. No framework, charts, artificial loading delay or animation dependency was added.
+
+**Interface animation: Standard / Subtle / Off** is separate from **Animated background**, persists with existing schema-3 preferences and honors device reduced motion. Real byte progress smoothly interpolates; integrity checking has its own unknown-duration phase and never implies validated readiness early. Cancel has a reserved dock slot. Play still opens its window synchronously and animation never delays game navigation.
+
+`npm run test:motion` adds 14 regression groups covering interruptions, focus, stable DOM, dock geometry, genuine startup/errors/Retry, progress validation and motion preferences. Keyboard containment is tested with a simulated visual-viewport reduction; physical software keyboards and Safari/iOS hardware were not tested.
+
 
 The user requested removal of the charts and bright dashboard. The current UI contains **no charts, metrics tiles, category cards, or data graphs**. It uses one focused selection card, a quieter seven-item navigation, a persistent Play dock, and optional favorites. Informational mod/release notes moved under Sources/About.
 

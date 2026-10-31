@@ -10,7 +10,7 @@ test('schema-3 migration and pinned host URL validation',async()=>{
  const {hostedURL}=await import('../site/transfer.js');
  const migrated=clean({schema:2,theme:'Pearl',name:'Kept',favorites:['path-id'],selected:'build-id',mode:'Popup',autoStart:false,backgroundMotion:false});
  assert.equal(migrated.schema,3);assert.equal(migrated.theme,'Dusk');assert.equal(migrated.name,'Kept');assert.deepEqual(migrated.favorites,['path-id']);assert.equal(migrated.selected,'build-id');assert.equal(migrated.mode,'Popup');assert.equal(migrated.autoStart,false);assert.equal(migrated.backgroundMotion,false);
- assert.equal(clean({schema:3,theme:'Pearl'}).theme,'Pearl');assert.equal(clean({}).autoStart,true);
+ assert.equal(clean({schema:3,theme:'Pearl'}).theme,'Pearl');assert.equal(clean({}).autoStart,true);assert.equal(clean({}).interfaceMotion,'Standard');assert.equal(clean({interfaceMotion:'invalid'}).interfaceMotion,'Standard');for(const interfaceMotion of ['Standard','Subtle','Off'])assert.equal(clean({interfaceMotion}).interfaceMotion,interfaceMotion);assert.equal(migrated.interfaceMotion,'Standard');
  const host={baseUrl:'https://games.example/commit/',commit:'abc'};
  assert.equal(hostedURL(host,'abc','Eaglercraft 1.8.8 .html','https://launcher.example/'),'https://games.example/commit/Eaglercraft%201.8.8%20.html');
  assert.throws(()=>hostedURL(host,'other','x.html','https://launcher.example/'),/revision/);
