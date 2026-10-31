@@ -1,6 +1,6 @@
 # Astrax Launcher
 
-A real, buildless browser launcher for Astrax Interactive, featuring the **Glass Edition light pearl/lavender workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is a minimal, light workspace with locally hosted Inter typography, genuinely translucent panels, catalog-backed charts and reduced-motion-aware transitions—not a GX lookalike. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
+A real, buildless browser launcher for Astrax Interactive, featuring the **Dusk Edition minimal smoked-glass workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is a minimal dusk-purple workspace with locally hosted Inter, a genuinely animated original aurora background, smoked translucent glass and no charts or dashboard counters. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
 
 ## Downloads and documentation
 
@@ -23,8 +23,8 @@ python -m http.server 8080 --bind 0.0.0.0 --directory site
 Open http://localhost:8080. Do not open `index.html` using `file://`: the catalog must be fetched over HTTP. Production preparation needs HTTPS because integrity verification uses Web Crypto. A localhost development origin is supported. All shell URLs are relative, including catalog and runner; subpath hosting works without an SPA fallback.
 
 1. Open **Select a version**, search the actual filenames, optionally star a build, then select it.
-2. **Launch** opens a preparation tab synchronously. The pinned original HTML is streamed, size checked and Git-blob SHA-1 checked. No game code is executed during selection or preparation.
-3. In the preparation tab, **Start Game** asks for confirmation before navigating to a Blob document. Tab opened / bytes ready are not game readiness.
+2. **Play** opens a loading tab synchronously. The pinned original HTML is streamed, sized and Git-blob SHA-1 checked. Selection itself never executes a game. No installation or manual file-save step is required.
+3. Repository builds **automatically open after validation**, because Play is the explicit execution action. Optional preparation-only mode and local imports still wait for Start Game. Some games require a subsequent in-game gesture for sound/input. A document opening is not proof that a playable world has booted.
 4. **Save HTML** downloads the verified original using its exact filename. No popup is needed. If your platform ignores downloads, use the pinned GitHub source from Details or the mirror command below.
 5. Local HTML stays in memory until replacement/reload, is never uploaded, and must be self-contained. Sibling JS/WASM/EPK files are not resolved/imported. Basic HTML validation is not a safety audit.
 
@@ -50,7 +50,7 @@ Allow **at least 3 GB free plus temporary headroom** for the pinned tree. It con
 
 - `site/`: complete static public application, original SVG artwork/favicon, no build step or third-party runtime dependency.
 - `site/transfer.js`: streamed fetch, size/HTML/LFS/MIME/integrity validation and original downloads.
-- `site/store.js`: validated schema-2 metadata storage (including a schema-1 migration) with safe defaults/session fallback. Future incompatible migrations must be reviewed; no game databases are inspected or reset.
+- `site/store.js`: validated schema-3 metadata storage (with earlier-schema migrations) with safe defaults/session fallback. Future incompatible migrations must be reviewed; no game databases are inspected or reset.
 - `site/runner.*`: explicit preparation/execution boundary, channel handshake, progress and cancellation.
 - `tools/sync-catalog.py`: fetch current metadata, resolve main to a commit, generate reviewable catalog. Refuses truncated recursive trees; if a future tree truncates, add subtree enumeration before publishing. Run deliberately; never called on page load.
 - `tools/verify-catalog.py`: offline checks for this pinned release.
@@ -76,7 +76,7 @@ node tests/extended.mjs
 node tests/execution.mjs
 ```
 
-Additional current-release checks: `node tests/glass.mjs`, `node tests/accessibility.mjs`, and `node tests/theme-contrast.mjs`.
+Additional current-release checks: `node tests/dusk.mjs`, `node tests/accessibility.mjs`, and `node tests/theme-contrast.mjs`.
 
 The locked @sparticuz/chromium package supplies the Linux x64 test browser and libraries, unpacked under `/tmp`. Other platforms: set `PLAYWRIGHT_EXECUTABLE_PATH` to a compatible local Chromium. Browser tests intercept the pinned raw request with **real hash-verified upstream bytes** because the sandbox cannot reach raw.githubusercontent.com. This tests the browser pipeline, not live raw-host CORS/service availability. Normal users' browsers need access to that raw host. There is no silent third-party mirror fallback. See VERIFICATION.md.
 
@@ -99,7 +99,7 @@ Also, upstream has **no detected license**. Publicly accessible source is not bl
 - Skins supports original PNG import, signature/decode/dimension validation, crisp 2D texture preview and original-byte download. **No 3D model, gallery, slim conversion or automatic game application.** Local 3D preview remains a technical parity gap, not a licensing blocker.
 - WISP-named files are listed; no injection bundle, default endpoint, authenticated-server bypass or unreviewed server adapter is supplied.
 - Personal server bookmarks work. No fabricated live directory, player counts, TCP ping or automatic client mutation.
-- Twelve theme choices include a new light Pearl default, light accent themes and optional dark tinted variants. Inter is hosted locally under OFL 1.1 with system fallbacks. The Glass home uses factual SVG charts, not GX artwork. Scale/profile/settings persist.
+- Thirteen theme choices include a new soft Dusk default, opt-in light themes and dark tinted variants. Inter is hosted locally under OFL 1.1 with system fallbacks. The Dusk home removes graphs and uses original CSS aurora artwork, not GX imagery. Scale/profile/settings persist.
 - Profile is a local display label, not login. Connectivity reflects navigator.onLine, not an authenticated account.
 - No service worker/offline cache, bulk offline archive, cloud saves, automatic world migration or fake hardware controls.
 - Full Firefox/Safari/iPad/touch-game testing has not occurred. A responsive launcher does not make games touch-compatible. WebAssembly presence is not GC/SIMD/thread support; source filenames are not proof of those capabilities.
@@ -108,19 +108,19 @@ Also, upstream has **no detected license**. Publicly accessible source is not bl
 
 To finish source-dependent parity, provide an authorized WISP bundle + supported-client list, an EF_MODS-compatible runtime/mod source + license, and (if desired) a permitted skin collection. Existing functionality does not depend on those additions.
 
-## Aurora visual update
+## Historical Aurora visual update
 
 The current UI defaults to **Purple**, with translucent glass panels, tinted depth, grouped Play / Tools & Content / Launcher navigation, and refined spacing. Eleven theme choices remain available, including the original red Default theme. Existing explicit theme preferences are preserved; choose Purple in Launcher Settings to switch an older saved profile. Scanlines are off for new profiles. Panel entrances, artwork reveal and launch-button sheen are finite or interaction-triggered, never continuous background effects. All transitions/entrances honor reduced motion. Glass effects have solid-color fallbacks where backdrop filtering is unavailable.
 
-## Orbit Edition · 1.2
+## Historical Orbit Edition · 1.2
 
 The new home replaces the GX-style artwork screen with an original orbital identity. It includes four catalog-backed category shortcuts, real category counts, an on-device favorites shortlist, selected-build/source details, and a floating launch dock. **Ctrl/Command K** opens and focuses the searchable library. Import, selection, preparation, saving and source details use the original working pipeline—no fake launch animation.
 
 Motion includes staggered content arrivals, spring-like hover lifts, click ripples, selection feedback, launch-button sheen and pointer-responsive orbital artwork. There are no endless animation loops. Reduced motion disables decorative entrances, ripples, hover transforms and parallax. The home scrolls independently while the launch dock remains available, including on phones.
 
-Additional interaction test: `node tests/orbit.mjs` (requires the local server). The existing launcher browser regression suite also remains available.
+Additional interaction test: `node tests/dusk.mjs` (requires the local server). The existing launcher browser regression suite also remains available.
 
-## Glass Edition · 2.0 (current)
+## Historical Glass Edition · 2.0 (superseded by Dusk 2.1)
 
 - **Readable local Inter variable font**, bundled with its OFL license and pinned provenance in `site/assets/fonts/`. No Google Fonts or external CSS request. Startup waits for the local typeface, with a 2.5-second system-font fallback if it stalls.
 - **Light Pearl and lavender surfaces** with real `backdrop-filter` blur/saturation, translucent fills, layered edge reflections and pointer-responsive specular highlights. This is a web glass treatment, not a claim of Apple system-level optical refraction. Unsupported browsers receive opaque readable fallbacks.
@@ -130,3 +130,33 @@ Additional interaction test: `node tests/orbit.mjs` (requires the local server).
 - A schema-2 migration converts the old Purple default to Pearl once, preserving favorites, bookmarks, selection and launch preferences. Explicit schema-2 theme choices remain intact.
 
 Charts are included where there is meaningful data; identity/settings/skins do not invent metrics just to fill a graph. Download validation and all previously disclosed game/mod/WISP/skin compatibility limitations remain unchanged.
+
+## Dusk Edition · 2.1 (current)
+
+The user requested removal of the charts and bright dashboard. The current UI contains **no charts, metrics tiles, category cards, or data graphs**. It uses one focused selection card, a quieter seven-item navigation, a persistent Play dock, and optional favorites. Informational mod/release notes moved under Sources/About.
+
+The original aurora background really moves using CSS transforms. Smoked panels blur/saturate the moving backdrop and add layered specular borders. No externally hosted video/animation is required. This is a web glass effect, not Apple-native physical optics. Motion is visible by default but respects device reduced-motion; **Animated background** can be disabled in settings. It pauses when the tab is hidden, while loading, or while a launched repository game tab remains open.
+
+**Auto-start repository games after validation** is enabled by default. Local imported active content keeps a separate confirmation. You can turn automatic starting off to restore preparation-only mode. Main/extended regression tests deliberately turn it off to test the preparation boundary; `tests/dusk.mjs` tests default one-click automatic execution separately.
+
+### Full self-hosting: not deployed yet
+
+The collection is **2,877,361,421 bytes**, whereas a published GitHub Pages site may be no larger than **1 GB**. Putting all game HTML under `site/` would make this Pages deployment invalid. A Git repository and a Pages site have different limits; storing GBs outside the site would still add large repository/history and bandwidth costs and would not turn raw URLs into directly HTML-serving pages. No GB-scale game copy was committed or silently republished. Upstream still has no detected repository license, so review redistribution rights before publishing elsewhere.
+
+**Current production configuration:** `site/hosting.json` has `baseUrl: null`. Bytes are loaded from the exact pinned UserArham repository, then automatically opened after integrity checks. This already requires no game installation. It is **not a full self-hosted collection** and network transfer/validation are not instantaneous.
+
+For an authorized, size-capable separate static host:
+
+```sh
+# Acquire all 143 original files (not executed):
+python tools/mirror.py --all
+# Verify every file, then stage unmodified originals outside the Pages site:
+python tools/configure-host.py --prepare --confirm-redistribution-rights
+# Upload game-host/COMMIT/ to your chosen host, preserving exact filenames.
+# Only AFTER deployment and MIME/CORS checks, configure its real pinned URL:
+python tools/configure-host.py --base-url 'https://YOUR-GAME-HOST/COMMIT/' --confirm-redistribution-rights
+```
+
+Replace both placeholders with the real deployed host and catalog commit. Staging needs roughly **6 GB plus headroom** if retaining both mirror and staged copies. Correct MIME types, CORS for the launcher origin and immutable caching must be configured on the game host. The `configure-host.py` script does **not** upload or test the remote origin. Browser integrity checks remain mandatory and there is no silent fallback if a configured host fails. Never serve an SPA index fallback for missing game files.
+
+A representative 4K file was actually loaded from a local same-origin HTTP game path with upstream raw access blocked. The complete 143-file mirror was not obtained, staged, or deployed. A staging failure test confirmed that the current incomplete mirror is refused rather than presented as ready. A chosen host and permission to republish are still needed for full self-hosting.

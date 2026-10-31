@@ -1,5 +1,6 @@
 /** Small spring-based transitions; no continuous global animation loop. */
 export function installMotion({onSearch}){
+ const visibility=()=>document.body.classList.toggle('tab-hidden',document.hidden);document.addEventListener('visibilitychange',visibility);visibility();
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const spring=[{transform:'scale(.985)',opacity:.8},{transform:'scale(1.008)',opacity:1,offset:.65},{transform:'scale(1)',opacity:1}];
  document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();onSearch();}});

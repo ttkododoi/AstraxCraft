@@ -1,6 +1,6 @@
 import {options} from '../tools/browser-runtime.mjs';
 import {chromium} from 'playwright';import serverChromium from '@sparticuz/chromium';import assert from 'node:assert/strict';import fs from 'node:fs/promises';
-const browser=await chromium.launch(await options());const context=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true});const page=await context.newPage();const checks=[];const record=s=>{console.log('PASS',s);checks.push(s);};const url='http://localhost:8080/';
+const browser=await chromium.launch(await options());const context=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true});await context.addInitScript(()=>{try{const p=JSON.parse(localStorage.getItem('astrax-v1'))||{};p.autoStart=false;localStorage.setItem('astrax-v1',JSON.stringify(p));}catch{}});const page=await context.newPage();const checks=[];const record=s=>{console.log('PASS',s);checks.push(s);};const url='http://localhost:8080/';
 async function select(name){await page.locator('#version').click();await page.locator('#search').fill(name);await page.locator('.choose').filter({has:page.locator('strong')}).first().click();}
 try{
  await page.goto(url);await page.locator('.hero').waitFor();

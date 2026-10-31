@@ -1,13 +1,13 @@
 {
   "name": "astrax-launcher",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.js",
     "test:browser": "node tests/browser.mjs",
-    "test:glass": "node tests/glass.mjs",
-    "test:a11y": "node tests/accessibility.mjs && node tests/theme-contrast.mjs"
+    "test:a11y": "node tests/accessibility.mjs && node tests/theme-contrast.mjs",
+    "test:dusk": "node tests/dusk.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.10.2",

@@ -6,13 +6,13 @@ const bytes=new TextEncoder().encode('<!doctype html><html><body>test</body></ht
 test('correct Git blob integrity, size, HTML, LFS and mismatch validation',async()=>{assert.equal((await validate(bytes,entry)).type,'text/html');await assert.rejects(validate(bytes,{...entry,size:1}),/size/);await assert.rejects(validate(bytes,{...entry,sha:'0'.repeat(40)}),/SHA-1/);await assert.rejects(validate(new TextEncoder().encode('version https://git-lfs.github.com/spec/v1'),{}),/LFS/);await assert.rejects(validate(new TextEncoder().encode('404 not found'),{}),/signature/);});
 test('streaming transfer success and HTTP/MIME/size/CORS/cancel failures',async()=>{const original=global.fetch;try{let progress=0;global.fetch=async()=>new Response(bytes,{headers:{'content-type':'text/plain'}});const blob=await fetchGame(entry,'commit',new AbortController().signal,n=>progress=n,()=>{});assert.equal(blob.size,bytes.length);assert.equal(progress,bytes.length);for(const code of [403,404]){global.fetch=async()=>new Response('',{status:code});await assert.rejects(fetchGame(entry,'c',new AbortController().signal,()=>{},()=>{}),new RegExp(String(code)));}global.fetch=async()=>new Response(bytes,{headers:{'content-type':'image/png'}});await assert.rejects(fetchGame(entry,'c',new AbortController().signal,()=>{},()=>{}),/MIME/);global.fetch=async()=>{throw TypeError('Failed to fetch');};await assert.rejects(fetchGame(entry,'c',new AbortController().signal,()=>{},()=>{}),/CORS/);global.fetch=async()=>new Response(bytes,{headers:{'content-type':'text/html'}});const c=new AbortController();c.abort();await assert.rejects(fetchGame(entry,'c',c.signal,()=>{},()=>{}),{name:'AbortError'});await assert.rejects(fetchGame({...entry,size:LIMIT+1},'c',c.signal,()=>{},()=>{}),/large/);}finally{global.fetch=original;}});
 
-test('chart totals and schema-2 theme migration preserve factual metadata',async()=>{
- const {categorySummary,runtimeSummary}=await import('../site/charts.js');
- const categories=categorySummary(catalog.entries),runtimes=runtimeSummary(catalog.entries);
- assert.equal(categories.length,7);assert.equal(categories.reduce((n,x)=>n+x.value,0),140);
- assert.deepEqual(runtimes.map(x=>x.value),[51,38,51]);
- const migrated=clean({schema:1,theme:'Purple',name:'Kept',favorites:['path-id'],selected:'build-id',mode:'Popup'});
- assert.equal(migrated.schema,2);assert.equal(migrated.theme,'Pearl');assert.equal(migrated.name,'Kept');assert.deepEqual(migrated.favorites,['path-id']);assert.equal(migrated.selected,'build-id');assert.equal(migrated.mode,'Popup');
- assert.equal(clean({schema:2,theme:'Purple'}).theme,'Purple');
- assert.equal(clean({schema:1,theme:'Blue'}).theme,'Blue');
+test('schema-3 migration and pinned host URL validation',async()=>{
+ const {hostedURL}=await import('../site/transfer.js');
+ const migrated=clean({schema:2,theme:'Pearl',name:'Kept',favorites:['path-id'],selected:'build-id',mode:'Popup',autoStart:false,backgroundMotion:false});
+ assert.equal(migrated.schema,3);assert.equal(migrated.theme,'Dusk');assert.equal(migrated.name,'Kept');assert.deepEqual(migrated.favorites,['path-id']);assert.equal(migrated.selected,'build-id');assert.equal(migrated.mode,'Popup');assert.equal(migrated.autoStart,false);assert.equal(migrated.backgroundMotion,false);
+ assert.equal(clean({schema:3,theme:'Pearl'}).theme,'Pearl');assert.equal(clean({}).autoStart,true);
+ const host={baseUrl:'https://games.example/commit/',commit:'abc'};
+ assert.equal(hostedURL(host,'abc','Eaglercraft 1.8.8 .html','https://launcher.example/'),'https://games.example/commit/Eaglercraft%201.8.8%20.html');
+ assert.throws(()=>hostedURL(host,'other','x.html','https://launcher.example/'),/revision/);
+ for(const url of ['javascript:alert(1)','https://u:p@example/','https://example/?secret=x'])assert.throws(()=>hostedURL({...host,baseUrl:url},'abc','x.html','https://launcher.example/'),/Invalid/);
 });

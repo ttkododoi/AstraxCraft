@@ -297,3 +297,50 @@ progress { accent-color: var(--accent); width: 100%; height: 7px; border-radius:
 .boot-card h1 { color: #262137; }
 .boot-card p { color: #686276; }
 .boot-card button { color: #6d4ad8 !important; background: #ffffff90 !important; border-color: #d7d2e4; }
+/* Dusk 2.1 — a calm canvas, one useful card, and visible, original aurora motion. */
+:root[data-surface='dark'] { --glass: #30283c66; --glass-border: #ffffff24; --glass-shadow: 0 14px 40px #0b061a20, inset 0 1px #ffffff25, inset 0 -1px #ffffff07; }
+:root[data-surface='dark'] body { background: #211c2b; }
+:root[data-surface='dark'] #shell { background: #241d301c; border-color: #ffffff19; box-shadow: 0 24px 80px #08040f26, inset 0 1px #ffffff13; }
+:root[data-surface='dark'] .glass-panel::before { opacity: .55; background: radial-gradient(300px circle at var(--light-x,20%) var(--light-y,0%), #ffffff17, transparent 75%); }
+:root[data-surface='dark'] .glass-panel, :root[data-surface='dark'] aside, :root[data-surface='dark'] .launchbar { backdrop-filter: blur(26px) saturate(145%); -webkit-backdrop-filter: blur(26px) saturate(145%); }
+.ambient { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; isolation: isolate; }
+.aurora { position: absolute; display: block; width: 65vw; height: 65vw; min-width: 500px; min-height: 500px; border-radius: 45%; filter: blur(55px); opacity: .6; will-change: transform; }
+.aurora-one { top: -40%; left: -18%; background: radial-gradient(ellipse,#8758ae70,transparent 65%); animation: dusk-drift-one 12s ease-in-out infinite alternate; }
+.aurora-two { bottom: -50%; right: -16%; background: radial-gradient(ellipse,#556f9c80,transparent 64%); animation: dusk-drift-two 15s ease-in-out infinite alternate; }
+.aurora-three { top: 12%; left: 24%; background: radial-gradient(ellipse,#9f60884d,transparent 65%); animation: dusk-drift-three 10s ease-in-out infinite alternate; }
+.ambient-grain { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%,transparent,#18132144); }
+@keyframes dusk-drift-one { from { transform: translate(-5%, -2%) scale(.95); } to { transform: translate(28%, 20%) scale(1.15); } }
+@keyframes dusk-drift-two { from { transform: translate(6%, 8%) scale(1); } to { transform: translate(-27%, -15%) scale(1.12); } }
+@keyframes dusk-drift-three { from { transform: translate(-15%, -14%) scale(.8); } to { transform: translate(18%, 20%) scale(1.2); } }
+.motion-off .aurora, .tab-hidden .aurora, .is-preparing .aurora, .game-session .aurora { animation-play-state: paused; will-change: auto; }
+.quiet-home { min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 38px 20px !important; }
+.quiet-intro { text-align: center; margin-bottom: 23px; animation: quiet-arrive .8s var(--ease) both; }
+.quiet-eyebrow { color: var(--accent); font-size: 10px; letter-spacing: 2px; }
+.quiet-intro h1 { white-space: pre-line; font-size: clamp(32px, 4vw, 52px); font-weight: 570; letter-spacing: -1.8px; line-height: 1.12; margin: 16px 0; }
+.quiet-intro p { font-size: 13px; margin: 0; }
+.play-card { width: min(570px, 100%); padding: 27px 30px; animation: quiet-arrive .85s .08s var(--ease) both; }
+.play-card h2 { margin: 10px 0; font-size: 23px; font-weight: 550; letter-spacing: -.6px; }
+.play-card > p { font-size: 12px; margin: 8px 0 21px; max-width: 430px; }
+.play-card .text-action { margin-top: 13px; }
+.play-card .home-actions { gap: 10px; }
+.quiet-favorites { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+.quiet-favorites .saved-build { background: transparent; border: 0; padding: 7px 0; margin-top: 4px; }
+.play-disclosure { font-size: 10px; text-align: center; max-width: 450px; margin: 20px 10px 0; opacity: .85; }
+:root[data-surface='dark'] #picker { background: #2c2439e8; backdrop-filter: blur(34px) saturate(145%); -webkit-backdrop-filter: blur(34px) saturate(145%); }
+:root[data-surface='dark'] .group { background: #2c2439; }
+:root[data-surface='dark'] .launchbar { background: #352c424d; }
+.boot-screen { background: #211c2bf2; }
+.boot-card { background: #38304475; border-color: #ffffff22; box-shadow: 0 25px 90px #0c071c25,inset 0 1px #ffffff22; color: #e4ddec; }
+.boot-card h1 { color: #f2edf9; }.boot-card p { color: #c2b8d1; }
+.boot-logo { background: linear-gradient(145deg,#5d496d,#30283d); color: #d9c5ff; box-shadow: inset 0 1px #ffffff27,0 10px 25px #08041122; }
+.boot-logo::after { border-color: #bfa6f420; border-top-color: #bfa6f4; }
+@keyframes quiet-arrive { from { opacity: 0; transform: translateY(17px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media(max-width:580px){.quiet-home{padding:26px 5px !important;justify-content:center}.quiet-intro h1{font-size:36px}.quiet-intro p{font-size:12px;max-width:270px}.play-card{padding:22px 18px}.play-card h2{font-size:21px}.play-card .primary-action,.play-card .secondary-action{font-size:11px}.play-disclosure{font-size:9px}.aurora{filter:blur(35px);min-width:380px;min-height:380px}}
+@media(prefers-reduced-motion:reduce){.aurora{animation:none!important;will-change:auto}.quiet-intro,.play-card{animation:none!important}}
+body { position: relative; isolation: isolate; }
+:root[data-surface='dark'] .navrow { background: transparent; border-color: transparent; }
+:root[data-surface='dark'] .navrow.active { background: #ffffff0b; border-color: #ffffff26; }
+.aurora-one { background: radial-gradient(ellipse,#8c5cbaa6,transparent 65%); }
+.aurora-two { background: radial-gradient(ellipse,#607ca8a1,transparent 64%); }
+.aurora-three { background: radial-gradient(ellipse,#985d8b80,transparent 65%); }
+.play-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; padding: 1px; background: linear-gradient(135deg,#ffffff55,#ffffff03 32%,#c3a4ed24 70%,#ffffff22); -webkit-mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }

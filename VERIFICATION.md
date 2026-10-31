@@ -1,6 +1,32 @@
 # Verification report — 31 October 2026 UTC
 
-## Current release: Glass Edition 2.0
+## Current release: Dusk Edition 2.1
+
+This section supersedes the older chart/light-theme/autostart descriptions below. Historical reports are retained, not represented as current UI.
+
+- All chart generation, chart UI, metric tiles and category cards have been removed. Home is a single smoked-glass selection card with optional favorites. Informational mods/release notes moved under About.
+- Default theme is Dusk, migrated from older Pearl/Purple/Light profiles without resetting bookmarks or favorites. The original CSS aurora has genuinely changing transforms, verified over time—not a static image described as animated. Backdrop filtering and reflective edging are active. Reduced-motion and a persisted background setting work. Ambient motion pauses for hidden tabs, loading, and launched game tabs.
+- One Play click on a repository build opens the loading page synchronously, verifies the bytes, then automatically navigates to its HTML Blob. There is no manual installation, file-save or second Start button on that default path. No readiness is inferred from document navigation. Local HTML and optional prepare-only mode retain explicit confirmation. Some clients retain their own sound/input gesture requirements.
+- `site/hosting.json` explicitly selects the source. Production remains **baseUrl=null: pinned upstream raw bytes**. Full 2.88 GB self-hosting is **not deployed**, nor is the whole collection downloaded. GitHub Pages' 1 GB published-site ceiling prevents packaging the complete tree into this Pages site. A separately authorized, size-capable host is required for this approach. No additional public repository or host was silently created.
+- `tools/configure-host.py` validates/stages all original files and configures a pinned game URL; it does not upload or pretend to verify a remote origin. Its tested incomplete-tree refusal reports **140 missing files** (three originals previously mirrored). See `verification/host-staging-check.json`.
+
+### Actual tests for 2.1
+
+- `npm test`: **5 grouped cases passed**; includes schema-3 preference migration, optional auto-start/background state, exact hosted-path encoding, revision mismatch and unsafe URL rejection.
+- Main browser regression: **15 groups passed**, including 150% scaling. These tests explicitly choose prepare-only mode so preparation/no-execution assertions remain meaningful.
+- Extended browser checks: **8 groups passed**, also in prepare-only mode.
+- `tests/dusk.mjs`: **7 groups passed**: no charts/tiles; actual aurora motion plus computed glass filtering; real 4K automatic single-Play execution; non-automatic local-import execution; motion toggle/persistence/reduced motion; six viewport sizes; and representative real same-origin hosting.
+- For the hosting test, the real, hash-verified 66,325-byte `Eaglercraft-4k-JS.html` was temporarily served by the local HTTP server under a commit-pinned game path. Browser configuration was pointed to that path and raw upstream requests were blocked. It reached the `Minecraft 4k` document automatically. The staged test file was removed afterward. **This does not prove the full collection is hosted or that all games boot.**
+- Axe automated scans: zero reported A/AA violations on the tested home, settings, downloads and picker views; separate homepage contrast checks passed **13 themes**. Not a manual/full WCAG certification.
+- Desktop and phone screenshots were captured; no external animated asset license or network dependency was introduced.
+
+Current evidence: `verification/dusk-results.json`, main/extended results, accessibility/contrast results and staging check. Former Glass/Orbit evidence is historical; obsolete chart-specific test scripts were removed. The old game smoke-test boundaries below still apply, with no additional all-game compatibility claim.
+
+---
+
+## Historical report follows
+
+## Historical Glass Edition 2.0
 
 This section supersedes the earlier visual, font, schema and Pages-activation status below; the initial report remains as historical evidence. The original source/integrity and game-compatibility limits are unchanged.
 

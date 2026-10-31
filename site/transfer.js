@@ -15,10 +15,10 @@ export async function validate(bytes,entry){
  }
  return new Blob([bytes],{type:'text/html'});
 }
-export async function fetchGame(entry,commit,signal,progress,state){
+export async function fetchGame(entry,commit,signal,progress,state,urlOverride){
  if(entry.size>LIMIT)throw Error('File too large for browser preparation; use mirror.py.');
  state('fetching');let response;
- try{response=await fetch(sourceURL(commit,entry.path),{signal});}catch(e){if(e.name==='AbortError')throw e;throw Error('Network or CORS failure: '+e.message);}
+ try{response=await fetch(urlOverride||sourceURL(commit,entry.path),{signal});}catch(e){if(e.name==='AbortError')throw e;throw Error('Network or CORS failure: '+e.message);}
  if(!response.ok)throw Error(`Upstream HTTP ${response.status}`);
  const type=response.headers.get('content-type')||'';
  if(!/text\/|application\/octet-stream|application\/xhtml/i.test(type))throw Error('Unexpected MIME: '+type);
@@ -29,3 +29,10 @@ export async function fetchGame(entry,commit,signal,progress,state){
  const blob=await validate(bytes,entry);signal.throwIfAborted();state('ready');return blob;
 }
 export function saveBlob(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.rel='noopener';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);}
+
+export function hostedURL(config,commit,path,base){
+ if(!config.baseUrl)return sourceURL(commit,path);
+ if(config.commit!==commit)throw Error('Hosted game revision does not match the pinned catalog.');
+ const root=new URL(config.baseUrl,base);if(!['http:','https:'].includes(root.protocol)||root.username||root.password||root.search||root.hash)throw Error('Invalid game hosting URL.');
+ if(!root.pathname.endsWith('/'))root.pathname+='/';return new URL(encodePath(path),root).href;
+}

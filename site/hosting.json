@@ -1,0 +1,5 @@
+{
+  "baseUrl": null,
+  "commit": "3fda1220656f4d4d7b6c1fb53272cae52faf29b3",
+  "note": "No self-hosted collection is deployed. Null uses pinned upstream raw bytes. Configure only a verified, authorized, size-capable HTML/static game origin."
+}

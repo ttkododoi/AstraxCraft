@@ -1,6 +1,6 @@
 import {options} from '../tools/browser-runtime.mjs';
 import {chromium} from 'playwright';import serverChromium from '@sparticuz/chromium';import assert from 'node:assert/strict';import fs from 'node:fs/promises';
-const browser=await chromium.launch(await options());const context=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));const url='http://localhost:8080/';const checks=[];const check=(s)=>{checks.push(s);console.log('PASS',s);};
+const browser=await chromium.launch(await options());const context=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true});await context.addInitScript(()=>{try{const p=JSON.parse(localStorage.getItem('astrax-v1'))||{};p.autoStart=false;localStorage.setItem('astrax-v1',JSON.stringify(p));}catch{}});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));const url='http://localhost:8080/';const checks=[];const check=(s)=>{checks.push(s);console.log('PASS',s);};
 await fs.mkdir('artifacts',{recursive:true});
 try{
  await page.goto(url);await page.locator('.hero').waitFor();await page.screenshot({path:'artifacts/desktop.png'});check('startup and default composition');
