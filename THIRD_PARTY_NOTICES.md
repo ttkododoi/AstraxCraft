@@ -1,0 +1,10 @@
+# Credits and third-party boundaries
+
+- **Astrax Launcher**, Astrax Interactive: original shell implementation, inline SVG icons, favicon and geometric block landscape. No claim to Mojang/Microsoft affiliation. The original landscape is not GX's `fixed2.png`.
+- **GX Launcher**, https://github.com/GX-Launcher/GX-Launcher.github.io : visual/behavioral reference, inspected revision `79f6397399a7578d291daecb516b328a58c3d9fb`, displayed v2.4.2. Its shell was read as data, not executed or bundled wholesale. No GX logos, game files, skins, WISP bundle or mod collection are shipped. `resources/fixed2.png` is the declared reference-image provenance, not a licensed Astrax asset.
+- **UserArham/version**, https://github.com/UserArham/version : sole source for catalogued third-party game files. Pinned commit `3fda1220656f4d4d7b6c1fb53272cae52faf29b3`. Repository API reports license=null; no detected repository license, so no blanket redistribution right is asserted. Builds can contain third-party notices and restrictions; retain the exact originals and review them before redistribution. File names, source links, blob hashes and sizes are factual inventory data, not authorship/compatibility claims.
+- **Minecraft / Eaglercraft / named clients**: names identify upstream entries only. Credits/permissions for embedded assets and client code remain with their respective authors. Game files are fetched only when explicitly requested; selection and mirroring never execute them.
+- System fonts are used; no external font files or font CSS are bundled.
+- Dev dependencies (not shipped as launcher runtime): Playwright/@playwright/test (Apache-2.0) and @sparticuz/chromium (MIT package wrapper; Chromium includes its own BSD-style and third-party notices). Install from the pinned package lock for tests; consult installed LICENSE files and Chromium notices for browser redistribution. Portable source does not include node_modules or browser binaries.
+
+No additional license for third-party game code is granted by this repository. The absence of a bundled upstream license is a dependency to resolve before copying the full collection onto another public host.

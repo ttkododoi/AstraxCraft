@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "startup and default composition",
+    "case-insensitive exact search, favorite without closure, favorites filter, select",
+    "selection persists, empty search, Escape restores focus",
+    "category filter isolates Beta builds",
+    "theme, 150% scale, mode and profile persist",
+    "server rejection, persistence and removal",
+    "popup blocked is recoverable, not false success",
+    "real 66,325-byte upstream fixture prepares in tab; no automatic execution",
+    "original filename and exact downloaded bytes",
+    "local HTML, repeated selection, wrong extension, never executes on selection",
+    "malformed storage recovers",
+    "six desktop/tablet/phone viewports: no body overflow, upward picker contained",
+    "150% scale: mobile/tablet/desktop picker and settings controls reachable",
+    "denied localStorage still starts",
+    "no application page errors"
+  ],
+  "errors": []
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "file": "Aero Client JS.html",
+    "title": "Aero Client 1.12.2",
+    "text": "",
+    "canvases": 1,
+    "errors": [],
+    "failedRequests": []
+  },
+  {
+    "file": "EaglercraftX_1.8_WASM-GC.html",
+    "title": "EaglercraftX 1.8 WASM-GC",
+    "text": "",
+    "canvases": 1,
+    "errors": [],
+    "failedRequests": [],
+    "screenshotError": "page.screenshot: Timeout 5000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n"
+  }
+]
