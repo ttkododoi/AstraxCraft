@@ -1,16 +1,11 @@
-/** Interaction-only motion: no timers, endless animation loops or game-time background work. */
+/** Small spring-based transitions; no continuous global animation loop. */
 export function installMotion({onSearch}){
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- reduced.addEventListener('change',()=>{if(reduced.matches)document.querySelectorAll('.click-ripple').forEach(n=>n.remove());});
- document.addEventListener('click',event=>{
-  if(reduced.matches)return;
-  const target=event.target.closest('button');if(!target||target.disabled)return;
-  const rect=target.getBoundingClientRect(),ripple=document.createElement('span');ripple.className='click-ripple';ripple.setAttribute('aria-hidden','true');
-  const radius=Math.max(rect.width,rect.height)*2;ripple.style.width=ripple.style.height=radius+'px';ripple.style.left=(event.detail?event.clientX-rect.left:rect.width/2)+'px';ripple.style.top=(event.detail?event.clientY-rect.top:rect.height/2)+'px';target.append(ripple);
-  const motion=ripple.animate([{opacity:.25,transform:'translate(-50%,-50%) scale(0)'},{opacity:0,transform:'translate(-50%,-50%) scale(1)'}],{duration:620,easing:'cubic-bezier(.16,1,.3,1)'});motion.onfinish=()=>ripple.remove();
- });
- document.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='k'){event.preventDefault();onSearch();}});
- // Parallax follows deliberate pointer movement only; it never runs on touch or in the background.
- document.addEventListener('pointermove',event=>{if(reduced.matches||event.pointerType!=='mouse')return;const visual=event.target.closest('.orbit-visual');if(!visual)return;const rect=visual.getBoundingClientRect();visual.style.setProperty('--tilt-x',((event.clientY-rect.top)/rect.height-.5)*-10+'deg');visual.style.setProperty('--tilt-y',((event.clientX-rect.left)/rect.width-.5)*12+'deg');});
- document.addEventListener('pointerout',event=>{const visual=event.target.closest('.orbit-visual');if(visual&&!visual.contains(event.relatedTarget)){visual.style.setProperty('--tilt-x','0deg');visual.style.setProperty('--tilt-y','0deg');}});
+ const spring=[{transform:'scale(.985)',opacity:.8},{transform:'scale(1.008)',opacity:1,offset:.65},{transform:'scale(1)',opacity:1}];
+ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();onSearch();}});
+ document.addEventListener('click',e=>{if(reduced.matches)return;const target=e.target.closest('button');if(!target||target.disabled||!target.isConnected)return;target.animate(spring,{duration:300,easing:'cubic-bezier(.2,.7,.3,1)'});});
+ // A refractive highlight follows a pointer only while hovering a glass card.
+ document.addEventListener('pointermove',e=>{if(reduced.matches||e.pointerType!=='mouse')return;const panel=e.target.closest('.glass-panel');if(!panel)return;const r=panel.getBoundingClientRect();panel.style.setProperty('--light-x',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');panel.style.setProperty('--light-y',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');});
+ document.addEventListener('pointerout',e=>{const panel=e.target.closest('.glass-panel');if(panel&&!panel.contains(e.relatedTarget)){panel.style.removeProperty('--light-x');panel.style.removeProperty('--light-y');}});
+ reduced.addEventListener('change',()=>{if(reduced.matches)document.getAnimations().forEach(a=>a.cancel());});
 }

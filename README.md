@@ -1,6 +1,6 @@
 # Astrax Launcher
 
-A real, buildless browser launcher for Astrax Interactive, featuring the **Orbit Edition purple workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is an original orbital workspace with floating navigation, an interactive home, glass surfaces and reduced-motion-aware transitions—not a GX lookalike. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
+A real, buildless browser launcher for Astrax Interactive, featuring the **Glass Edition light pearl/lavender workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is a minimal, light workspace with locally hosted Inter typography, genuinely translucent panels, catalog-backed charts and reduced-motion-aware transitions—not a GX lookalike. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
 
 ## Downloads and documentation
 
@@ -8,9 +8,9 @@ A real, buildless browser launcher for Astrax Interactive, featuring the **Orbit
 - [Complete machine-readable inventory](site/catalog.json) — all 143 tracked upstream files and 140 HTML entries, with exact filenames, sizes and Git blob hashes.
 - [Verification report](VERIFICATION.md) — actual tests, execution boundaries and remaining features.
 - [Reference audit](REFERENCE_AUDIT.md) and [credits / third-party notices](THIRD_PARTY_NOTICES.md).
-- [GitHub pull request](https://github.com/ttkododoi/AstraxCraft/pull/1) — current launcher changes awaiting merge.
+- [GitHub pull request](https://github.com/ttkododoi/AstraxCraft/pull/1) — development history and review.
 
-All launcher source, public assets, tools, tests, documentation and the portable ZIP are included in this repository. The upstream game collection is catalogued, not bundled; use the mirror command below to obtain it. GitHub Pages activation still requires administrator setup; this README does not claim a permanent deployed site.
+All launcher source, public assets, tools, tests, documentation and the portable ZIP are included in this repository. The upstream game collection is catalogued, not bundled; use the mirror command below to obtain it. GitHub Pages is enabled at https://ttkododoi.github.io/AstraxCraft/; the included workflow publishes pushes to the current default branch. See the verification report for browser and deployment-check boundaries.
 
 ## Run immediately
 
@@ -50,7 +50,7 @@ Allow **at least 3 GB free plus temporary headroom** for the pinned tree. It con
 
 - `site/`: complete static public application, original SVG artwork/favicon, no build step or third-party runtime dependency.
 - `site/transfer.js`: streamed fetch, size/HTML/LFS/MIME/integrity validation and original downloads.
-- `site/store.js`: validated schema-1 metadata storage with safe defaults/session fallback. Future incompatible migrations must be reviewed; no game databases are inspected or reset.
+- `site/store.js`: validated schema-2 metadata storage (including a schema-1 migration) with safe defaults/session fallback. Future incompatible migrations must be reviewed; no game databases are inspected or reset.
 - `site/runner.*`: explicit preparation/execution boundary, channel handshake, progress and cancellation.
 - `tools/sync-catalog.py`: fetch current metadata, resolve main to a commit, generate reviewable catalog. Refuses truncated recursive trees; if a future tree truncates, add subtree enumeration before publishing. Run deliberately; never called on page load.
 - `tools/verify-catalog.py`: offline checks for this pinned release.
@@ -76,13 +76,15 @@ node tests/extended.mjs
 node tests/execution.mjs
 ```
 
+Additional current-release checks: `node tests/glass.mjs`, `node tests/accessibility.mjs`, and `node tests/theme-contrast.mjs`.
+
 The locked @sparticuz/chromium package supplies the Linux x64 test browser and libraries, unpacked under `/tmp`. Other platforms: set `PLAYWRIGHT_EXECUTABLE_PATH` to a compatible local Chromium. Browser tests intercept the pinned raw request with **real hash-verified upstream bytes** because the sandbox cannot reach raw.githubusercontent.com. This tests the browser pipeline, not live raw-host CORS/service availability. Normal users' browsers need access to that raw host. There is no silent third-party mirror fallback. See VERIFICATION.md.
 
 ## Hosting and GitHub
 
 This repository was already public. No visibility change was made. The small shell, source, catalog, tests, reports and `downloads/Astrax-Launcher-source.zip` are intended for this GitHub repository. **All game builds remain in the specified upstream GitHub repository**; they have not been duplicated into this checkout.
 
-A GitHub Pages Actions deployment is provided in `.github/workflows/pages.yml`, targeting the session branch. Automatic Pages creation failed with HTTP 403 `Resource not accessible by integration`; no permanent Pages deployment is claimed. A repository administrator can open **Settings → Pages → Build and deployment → GitHub Actions**, then rerun **Deploy Astrax Launcher**. Use the URL produced by the successful deployment, and verify assets/preparation there. Do not assume a predicted URL works. The running Arena preview is separate and temporary.
+The live GitHub Pages address is **https://ttkododoi.github.io/AstraxCraft/**. The Actions workflow in `.github/workflows/pages.yml` publishes `site/` after a push to `arena/fd59a27d-astraxcraft` (now the repository default). Pages activation initially failed, but an administrator subsequently enabled it and GitHub reported a successful Orbit deployment. This environment cannot directly fetch github.io hosts, so deployment completion is checked through the GitHub API/Actions rather than claiming a deployed-origin browser test. The Arena preview is separate and temporary. Versioned JS/CSS URLs avoid reusing the old Orbit assets for the Glass release.
 
 The 2026-10-31 GitHub documentation source states a **1 GB maximum published Pages site**, recommended source repository limit 1 GB, soft bandwidth limit 100 GB/month. Thus **the 2.88 GB game tree cannot be published as one Pages site**. GitHub regular-file and Git/LFS/release limits also differ: recheck your plan before uploading games. Largest indexed file is ~84 MB; that alone does not make the full tree suitable for Pages. Sources:
 - https://github.com/github/docs/blob/main/content/pages/getting-started-with-github-pages/github-pages-limits.md
@@ -97,7 +99,7 @@ Also, upstream has **no detected license**. Publicly accessible source is not bl
 - Skins supports original PNG import, signature/decode/dimension validation, crisp 2D texture preview and original-byte download. **No 3D model, gallery, slim conversion or automatic game application.** Local 3D preview remains a technical parity gap, not a licensing blocker.
 - WISP-named files are listed; no injection bundle, default endpoint, authenticated-server bypass or unreviewed server adapter is supplied.
 - Personal server bookmarks work. No fabricated live directory, player counts, TCP ping or automatic client mutation.
-- Ten themes include tinted backgrounds; scale/profile/settings persist. Uses local system fonts rather than packaged Rajdhani/Share Tech Mono. Original dim block landscape replaces GX's image; not pixel-identical artwork.
+- Twelve theme choices include a new light Pearl default, light accent themes and optional dark tinted variants. Inter is hosted locally under OFL 1.1 with system fallbacks. The Glass home uses factual SVG charts, not GX artwork. Scale/profile/settings persist.
 - Profile is a local display label, not login. Connectivity reflects navigator.onLine, not an authenticated account.
 - No service worker/offline cache, bulk offline archive, cloud saves, automatic world migration or fake hardware controls.
 - Full Firefox/Safari/iPad/touch-game testing has not occurred. A responsive launcher does not make games touch-compatible. WebAssembly presence is not GC/SIMD/thread support; source filenames are not proof of those capabilities.
@@ -117,3 +119,14 @@ The new home replaces the GX-style artwork screen with an original orbital ident
 Motion includes staggered content arrivals, spring-like hover lifts, click ripples, selection feedback, launch-button sheen and pointer-responsive orbital artwork. There are no endless animation loops. Reduced motion disables decorative entrances, ripples, hover transforms and parallax. The home scrolls independently while the launch dock remains available, including on phones.
 
 Additional interaction test: `node tests/orbit.mjs` (requires the local server). The existing launcher browser regression suite also remains available.
+
+## Glass Edition · 2.0 (current)
+
+- **Readable local Inter variable font**, bundled with its OFL license and pinned provenance in `site/assets/fonts/`. No Google Fonts or external CSS request. Startup waits for the local typeface, with a 2.5-second system-font fallback if it stalls.
+- **Light Pearl and lavender surfaces** with real `backdrop-filter` blur/saturation, translucent fills, layered edge reflections and pointer-responsive specular highlights. This is a web glass treatment, not a claim of Apple system-level optical refraction. Unsupported browsers receive opaque readable fallbacks.
+- **Real data charts**: runtime-label donut; category mixture; original file-size profiles; favorites fraction; selected-file, picker and download-list size meters; and measured cumulative byte-transfer plots. Hover/focus a source-size graph or use Left/Right/Home/End to inspect actual values. Sparklines follow pinned catalog order, **not dates, FPS, latency or benchmark results**.
+- **Actual startup screen**: waits for catalog/font tasks, has no fabricated progress/minimum delay, and provides Retry on failure. Catalog requests have a 15-second abort boundary. Loading and preparation never execute third-party game HTML.
+- **Quieter animation system**: restrained finite chart draws, eased panel arrivals, spring-based press feedback, small hover lifts and local light reflections. No giant click ripples, background rotation loop or parallax wobble. The loading indicator only animates while loading. Reduced motion disables decorative movement.
+- A schema-2 migration converts the old Purple default to Pearl once, preserving favorites, bookmarks, selection and launch preferences. Explicit schema-2 theme choices remain intact.
+
+Charts are included where there is meaningful data; identity/settings/skins do not invent metrics just to fill a graph. Download validation and all previously disclosed game/mod/WISP/skin compatibility limitations remain unchanged.

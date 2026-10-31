@@ -1,5 +1,34 @@
 # Verification report — 31 October 2026 UTC
 
+## Current release: Glass Edition 2.0
+
+This section supersedes the earlier visual, font, schema and Pages-activation status below; the initial report remains as historical evidence. The original source/integrity and game-compatibility limits are unchanged.
+
+- **Typography/provenance:** local Inter variable WOFF2 (352,240 bytes), checked against its pinned upstream Git blob and SHA-256. Full SIL OFL 1.1 license/provenance are bundled in `site/assets/fonts/`. No remote font service is used. Catalog startup waits for the font with a bounded 2.5-second system-font fallback.
+- **Light glass:** Pearl default and pastel-lavender/blue canvas, transparent panels, actual CSS backdrop blur/saturation, layered edge lighting and a pointer-driven specular layer. This is real browser translucency/backdrop filtering, **not** a physical-fluid simulation or Apple-native Liquid Glass implementation. A readable opaque fallback is supplied when backdrop filtering is unsupported; Safari-specific rendering has not been verified.
+- **Charts:** runtime filename-label donut totals 140 (51 WASM-named / 38 JS-named / 51 Unspecified); category counts, exact source-size profiles, saved-favorite proportion, picker/library/selection size meters, and real cumulative download-byte graphs. Source profiles follow catalog order, not time or release chronology. Graphs do not claim FPS, RAM, latency, benchmark or gameplay performance. Hover/focus and Left/Right/Home/End inspect exact source byte values. Live transfer plots are bounded to 64 real samples and redraw at most approximately ten times/second; they are not keyboard-scrubbable while being replaced.
+- **Loading:** actual pending catalog/typeface tasks, indeterminate progress, no random percentages or minimum artificial delay. 15-second catalog abort boundary; failed catalog/module loading exposes a tested Retry action. Font failure uses system fallbacks instead of a blank or permanently locked screen. Preparation remains separate from execution.
+- **Motion:** finite chart drawing, short eased panel arrivals and spring-based press feedback replace the earlier large ripples/parallax. No decorative perpetual loop remains after startup. All decorative motion honors reduced motion. The loading indicator stops when loading ends.
+- **Persistence:** schema 2 migrates the old schema-1 Purple default to Pearl once, keeping favorites, bookmarks, selection and launch preferences. Explicit schema-2 themes are preserved. No game database is changed.
+
+### Current actual checks
+
+`npm test`: **5/5 grouped cases passed**, including new chart-total and schema-migration assertions.
+
+Current browser suites passed: **15 main regression groups**, **6 home/keyboard groups**, **8 extended transfer/import/skin groups**, and **12 Glass groups** (41 recorded groups total). See `verification/browser-results.json`, `orbit-results.json`, `extended-results.json`, and `glass-results.json`.
+
+The new Glass checks specifically cover an intentionally delayed catalog and inert loading screen; actual local font/backdrop-filter activation; factual runtime and size plots; exact keyboard chart values; live favorites/selection; a real hash-verified 66,325-byte upstream fixture driving progress; reduced motion; six viewport sizes; catalog Retry; metadata-preserving migration; font-request failure; and module-request failure with Retry. Existing regressions also exercise 150% scaling at phone/tablet/desktop sizes. Browser downloads use real hash-verified local upstream fixtures because the sandbox cannot reach raw.githubusercontent.com; this does not verify current raw-host behavior on the deployed origin.
+
+Axe-core 4.10.2 automated WCAG 2 A/AA + 2.1 AA scans reported **zero violations on the tested home, settings, downloads and expanded picker views**. Separate homepage color-contrast scans reported zero violations across **12 themes**. Evidence: `verification/accessibility-results.json` and `verification/theme-contrast-results.json`. These are automated checks on these states, **not a complete WCAG certification, all-panel audit or manual screen-reader review**. Desktop/loading/phone screenshots were actually captured and inspected.
+
+GitHub Pages is now enabled at https://ttkododoi.github.io/AstraxCraft/ (initial activation was later completed by the repository administrator). The earlier Orbit release was reported successfully deployed by GitHub Actions. The deployment workflow now gates publication on catalog/core-test success. Direct github.io HTTP/browser access is still blocked in this sandbox: deployment status is checked through GitHub APIs/Actions, not misrepresented as deployed-origin response-header or full browser testing. JS/CSS module URLs are release-versioned for the new visual update.
+
+Chromium 141/Linux remains the tested browser. No new Safari/iPad/Firefox game compatibility or all-game boot claim follows from this redesign. The later historical sections retain the exact game execution smoke-test outcomes and source-dependent parity gaps.
+
+---
+
+## Historical initial report
+
 ## Executive result
 
 Working static launcher, portable source, exact catalog and verified mirroring tools delivered. **Not full GX feature parity; not all games tested; not an offline archive.** No permanent GitHub Pages deployment verified: enabling Pages returned HTTP 403 `Resource not accessible by integration`. The local HTTP/Arena preview runs on port 8080. The repository was already public; visibility was not changed.

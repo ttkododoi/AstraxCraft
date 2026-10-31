@@ -27,3 +27,7 @@ All requested shell resources were successfully retrieved via GitHub: `index.htm
 Shared shell/navigation, artwork-centered Game page, upward search/category picker, real favorites, persistent selection, compact launch bar/footer, ten themes (including tinted variants), settings scale/name/mode, browser file selection, pinned source details, byte/hash-verified downloads and explicit preparation, server manager and local skin texture workflow. Inline SVG navigation icons, optional scanlines/reduced-motion override. Original SVG replaces `https://gx-launcher.github.io/resources/fixed2.png`; the latter was **not redistributed** because no permission was established.
 
 Astrax browser screenshots were actually captured at 1366×768, 1440×900, 1920×1080, 1024×768, 390×844 and 430×932; overflow/picker positioning assertions pass. Reference desktop screenshot comparison remains unavailable. All unresolved execution/integration/3D/mode gaps are detailed in VERIFICATION.md and README.md.
+
+## Subsequent Glass Edition direction
+
+The user later requested a minimal, lighter, independent design rather than GX similarity. Glass Edition 2.0 uses licensed local Inter, a light Pearl palette, actual backdrop-filter glass, factual catalog/byte-transfer graphs and a real startup screen. The earlier GX-specific typography/layout comparison is historical, not the current visual acceptance target. No GX game/skin/mod/proxy dependencies were introduced.
