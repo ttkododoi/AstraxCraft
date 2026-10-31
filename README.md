@@ -95,3 +95,7 @@ Also, upstream has **no detected license**. Publicly accessible source is not bl
 **Active HTML and worlds:** Blob HTML can inherit the launcher origin, so execute only trusted files on a dedicated origin without credentials. The launcher does not inject a `<base>`, proxies, server options or a username. Resource resolution and worlds/storage may differ from a regular dedicated HTML host. In-game export/import is the reliable migration path. Reset only affects the small `astrax-v1` metadata key and never clears IndexedDB/world databases.
 
 To finish source-dependent parity, provide an authorized WISP bundle + supported-client list, an EF_MODS-compatible runtime/mod source + license, and (if desired) a permitted skin collection. Existing functionality does not depend on those additions.
+
+## Aurora visual update
+
+The current UI defaults to **Purple**, with translucent glass panels, tinted depth, grouped Play / Tools & Content / Launcher navigation, and refined spacing. Eleven theme choices remain available, including the original red Default theme. Existing explicit theme preferences are preserved; choose Purple in Launcher Settings to switch an older saved profile. Scanlines are off for new profiles. Panel entrances, artwork reveal and launch-button sheen are finite or interaction-triggered, never continuous background effects. All transitions/entrances honor reduced motion. Glass effects have solid-color fallbacks where backdrop filtering is unavailable.

@@ -74,3 +74,7 @@ Do not extrapolate these checks to 140 games, WASM GC/threads/SIMD compatibility
 7. Permanent Pages activation blocked by integration permissions; deployment is supplied but not claimed successful. Administrator action required.
 
 These are disclosed limitations, not a claim of complete GX equivalence.
+
+## Aurora UI follow-up
+
+Purple was added as the new-profile default without discarding existing theme choices. Glass panels, grouped sidebar navigation, refined settings/library rows, and finite entrance/hover motion replace the earlier squared red treatment at the user's request. Existing theme preferences remain intact. Scanlines default off for new profiles. `npm test` (4/4) and `npm run test:browser` (15 recorded groups) were rerun after this change and passed, including six viewport sizes and mobile/tablet/desktop 150% scale checks. This update changes the user's requested visual direction; the earlier GX pixel-parity constraints are no longer the target for the new glass treatment. No additional game compatibility is claimed.
