@@ -1,6 +1,16 @@
 # Astrax Launcher
 
-A real, buildless browser launcher for Astrax Interactive. Compact GX-inspired shell; **only UserArham/version provides game files**. This is an independent implementation, not an official GX fork or a claim that every build works.
+A real, buildless browser launcher for Astrax Interactive, featuring the **Aurora purple glass UI**, grouped navigation, searchable builds, favorites and verified HTML preparation. Originally inspired by GX's compact desktop composition, now styled with translucent panels and reduced-motion-aware transitions. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
+
+## Downloads and documentation
+
+- [Portable source ZIP](downloads/Astrax-Launcher-source.zip) — unzip and follow the startup command below.
+- [Complete machine-readable inventory](site/catalog.json) — all 143 tracked upstream files and 140 HTML entries, with exact filenames, sizes and Git blob hashes.
+- [Verification report](VERIFICATION.md) — actual tests, execution boundaries and remaining features.
+- [Reference audit](REFERENCE_AUDIT.md) and [credits / third-party notices](THIRD_PARTY_NOTICES.md).
+- [GitHub pull request](https://github.com/ttkododoi/AstraxCraft/pull/1) — current launcher changes awaiting merge.
+
+All launcher source, public assets, tools, tests, documentation and the portable ZIP are included in this repository. The upstream game collection is catalogued, not bundled; use the mirror command below to obtain it. GitHub Pages activation still requires administrator setup; this README does not claim a permanent deployed site.
 
 ## Run immediately
 
