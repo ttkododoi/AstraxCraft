@@ -1,6 +1,50 @@
 # Verification report — 31 October 2026 UTC
 
-## Current release: Panorama 2.3
+## Current release: Real Minecraft / Purple Glass 2.4
+
+This supersedes older background descriptions below. Default is an actual Minecraft
+Beta gameplay screenshot by Xbox México, CC BY 3.0, stored locally with visible
+credit/license and source/change metadata. Original JPEG copy 960×509; WebP crop
+960×406 plus 640px mobile derivative. **Not Tiny Takeover, not 1080p.** No image
+synthesis/upscaling. Procedural grove assets, generator and legacy SVG landscape
+removed. Authorized local panorama import remains; no official 26.1 textures
+redistributed. `DESIGN_RESEARCH.md` records actual source/license checks, including
+rejection of a stale search result whose Commons file was deleted for infringement.
+
+### Implemented and checked
+
+- Original logo/yellow splash and compact Quick Play; versions/bookmarks/skins/
+  settings actions are real. Quick Play delegates directly to the synchronous
+  existing launch function; busy/disabled state mirrors the dock.
+- Glass3D-inspired original multi-layer shadow/inner-edge CSS with lower-opacity
+  purple transmission; Uiverse-inspired gradient-edge Play; 60fps-inspired tactile
+  press/release and real-trigger picker origin; 21st Limelight-inspired active edge
+  and reusable accessible menu tooltip. Research/partial/gated-source boundaries
+  documented; no copied paid source or new runtime packages.
+- Core **7**; main browser **15**; extended **8**; Dusk **7**; motion **14**;
+  background/Quick Play **13**; UI polish **5** groups. Motion's no-hero-replay check
+  excludes only the explicitly persistent CSS splash, not entrance animations.
+- New background checks cover real local source, no default canvas, photo movement,
+  persistent layers, independent pause preferences, live choices, import storage/
+  rejection, synthetic test-only cubemap rotation, real graphics loss/recovery,
+  simulated hidden visibility, phone/tablet/desktop cropping, actual verified 4K
+  Quick Play launch and functional Multiplayer/Skins actions. See current
+  `verification/panorama-results.json` (older version overwritten intentionally).
+- UI checks cover original mark/splash/disclaimer, honest disabled Quick Play,
+  keyboard tooltip lifecycle, real picker/Escape restoration, independent motion
+  settings, reduced motion and 150% home-action reachability with persistent dock.
+- Axe: zero reported scoped violations on 4 tested states; contrast: zero reported
+  scoped issues on 13 tested homepage themes. No full/manual WCAG certification.
+- Desktop/mobile screenshots inspected. Chromium software graphics only; no
+  native GPU, physical Safari/iPad, battery or sustained 60/120 FPS benchmarks.
+
+The reference screenshot license does not establish rights for the game tree.
+Full 2.88 GB hosting, all-game compatibility and origin-safety limits remain
+unchanged. Package contains source/credited screenshot, not game blobs or secrets.
+
+---
+
+## Historical release: Panorama 2.3 (procedural scenery removed in 2.4)
 
 The current background supersedes the older default-aurora statements below.
 **Official Tiny Takeover art is not bundled.** Reference study found the 26.1

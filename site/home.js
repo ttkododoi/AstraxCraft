@@ -6,25 +6,29 @@ export function createHome(options){
  const {onBrowse,onUpload}=options;
  const home=node('div','hero quiet-home orbit-home');
  const intro=node('div','quiet-intro'),heading=node('h1');
+ const brand=node('div','craft-brand'),mark=node('img','craft-mark');mark.src='assets/craft-mark.svg';mark.alt='';mark.width=mark.height=40;brand.append(mark,node('span','craft-wordmark','ASTRAXCRAFT'));const splash=node('span','craft-splash','One more world!');brand.append(splash);
  heading.append(node('span','hero-line','Pick a world.'),document.createTextNode('\n'),node('span','hero-line','Make it yours.'));
- intro.append(node('span','quiet-eyebrow','YOUR SPACE TO PLAY'),heading,node('p','','Your builds, your favorites, one simple launcher.'));
+ intro.append(brand,node('span','quiet-eyebrow','YOUR SPACE TO PLAY'),heading,node('p','','Your builds, your favorites, one simple launcher.'));
  const card=node('section','glass-panel play-card');
  const title=node('h2','home-current'),metadata=node('p','home-current-description');
- card.append(node('span','home-kicker','NEXT UP'),title,metadata);
+ card.append(node('span','home-kicker','QUICK PLAY'),title,metadata);
+ const play=action('Play','home-play',()=>views.get(home).options.onLaunch());play.setAttribute('aria-label','Play selected build');
  const actions=node('div','home-actions'),browse=action('Explore the library ↗','primary-action',()=>onBrowse(''));
- actions.append(browse,action('Import local HTML','secondary-action',onUpload));card.append(actions);
+ actions.append(play,browse,action('Import local HTML','secondary-action',onUpload));card.append(actions);
  const details=action('View selected source →','text-action',()=>{const state=views.get(home);if(state.options.selected)state.options.onDetails(state.options.selected);});
  details.hidden=true;card.append(details);
  const favorites=node('div','quiet-favorites');favorites.hidden=true;card.append(favorites);
- home.append(intro,card,node('p','play-disclosure','Play runs third-party HTML. No installation required. Some games still need an in-game click for sound or controls.'));
- views.set(home,{options,title,metadata,browse,details,favorites,favoriteKey:''});
+ const menu=node('nav','home-menu');menu.setAttribute('aria-label','Launcher shortcuts');for(const [label,route,hint] of [['Versions',null,'Search all 140 original builds'],['Multiplayer','Servers','Saved server addresses; copy into a compatible game'],['Skins','Skins','Import and preview a local PNG texture'],['Settings','Launcher Settings','Appearance and launch preferences']]){const b=action(label,'menu-action',()=>route?views.get(home).options.onNavigate(route):views.get(home).options.onBrowse(''));b.dataset.hint=hint;menu.append(b);}
+ const credit=node('p','scene-credit');credit.append(document.createTextNode('Scene: Xbox México · '));const license=node('a','','CC BY 3.0');license.href='https://creativecommons.org/licenses/by/3.0/';license.target='_blank';license.rel='noopener';credit.append(license);const source=node('a','','source / crop notes');source.href='assets/minecraft/CREDITS.md';source.target='_blank';source.rel='noopener';credit.append(document.createTextNode(' · '),source);
+ home.append(intro,card,menu,credit,node('p','minecraft-disclaimer','Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.'),node('p','play-disclosure','Play runs third-party HTML. No installation required. Some games still need an in-game click for sound or controls.'));
+ views.set(home,{options,title,metadata,browse,play,details,favorites,favoriteKey:''});
  updateHome(home,options);return home;
 }
 export function updateHome(home,options){
  const state=views.get(home);if(!state)return;
- state.options=options;const {selected,catalog,prefs,onSelect}=options;
- const label=selected?.label||'Something new is waiting.';
- const detail=selected?`${selected.runtime} · ${(selected.size/1048576).toFixed(2)} MiB`:'Choose a build. Press Play. We’ll load and validate the original file, then open it automatically.';
+ state.options=options;state.play.disabled=!!options.busy||!options.selected||!!options.selected.utility;state.play.textContent=options.busy?'Preparing…':'Play';state.play.setAttribute('aria-busy',String(!!options.busy));const {selected,catalog,prefs,onSelect}=options;
+ const label=selected?.label||'Choose your build.';
+ const detail=selected?`${selected.runtime} · ${(selected.size/1048576).toFixed(2)} MiB`:'Choose a build. Play fetches and verifies the original HTML before opening it.';
  if(state.title.textContent!==label)state.title.textContent=label;
  if(state.metadata.textContent!==detail)state.metadata.textContent=detail;
  state.browse.textContent=selected?'Change build ↗':'Explore the library ↗';

@@ -1,11 +1,12 @@
 # Astrax Launcher
 
-A real, buildless browser launcher for Astrax Interactive, featuring the **Dusk Edition minimal smoked-glass workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is a minimal dusk-purple glass workspace with locally hosted Inter and a genuinely rotating cubemap background. Official Tiny Takeover textures are not bundled: the default uses an original block-built Grove fallback until authorized faces are imported. No charts or dashboard counters. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
+A real, buildless browser launcher for Astrax Interactive, featuring the **Dusk Edition minimal smoked-glass workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is a purple-glass Minecraft-inspired workspace with an original AstraxCraft mark, yellow splash and functional Quick Play. The default background is a real Xbox México Minecraft gameplay screenshot, CC BY 3.0, served locally with visible attribution. No procedural/generated scenery ships. Official Tiny Takeover textures are not bundled; authorized local cubemap import remains available. No charts or dashboard counters. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
 
 ## Downloads and documentation
 
 - [Portable source ZIP](downloads/Astrax-Launcher-source.zip) — unzip and follow the startup command below.
 - [Complete machine-readable inventory](site/catalog.json) — all 143 tracked upstream files and 140 HTML entries, with exact filenames, sizes and Git blob hashes.
+- [Inspected design resources and adaptations](DESIGN_RESEARCH.md).
 - [Panorama setup, asset rights and performance](PANORAMA.md).
 - [Verification report](VERIFICATION.md) — actual tests, execution boundaries and remaining features.
 - [Reference audit](REFERENCE_AUDIT.md) and [credits / third-party notices](THIRD_PARTY_NOTICES.md).
@@ -77,6 +78,7 @@ npm run test:dusk
 npm run test:motion
 npm run test:a11y
 npm run test:panorama
+npm run test:ui
 node tests/extended.mjs
 # Optional: executes the two larger third-party game files in isolated test browser contexts:
 node tests/execution.mjs
@@ -137,7 +139,29 @@ Additional interaction test: `node tests/dusk.mjs` (requires the local server). 
 
 Charts are included where there is meaningful data; identity/settings/skins do not invent metrics just to fill a graph. Download validation and all previously disclosed game/mod/WISP/skin compatibility limitations remain unchanged.
 
-## Tiny Takeover-ready Panorama · 2.3 (current)
+## Real Minecraft / Purple Glass · 2.4 (current)
+
+- Real Minecraft Overworld screenshot from Xbox México under CC BY 3.0, with
+  visible attribution and local optimized WebP files. **Not Tiny Takeover, not
+  1080p**: the accessible source copy is 960×509. No AI upscaling or fake scenery.
+- Procedural grove faces, original landscape and generator removed. Dusk Aurora
+  remains an alternative. Imported Panorama still supports your authorized set.
+- Original AstraxCraft mark, yellow splash, compact selected-build Quick Play and
+  real Versions/Multiplayer bookmarks/Skins/Settings shortcuts. Quick Play uses
+  the same synchronous popup, original bytes, validation and launch code.
+- Directional violet glass edges and layered soft shadows, restrained gradient
+  Play key, spring-inspired release, trigger-anchored picker, active-tab edge light,
+  and one keyboard-accessible tooltip. All extend the existing motion system.
+- [Research report](DESIGN_RESEARCH.md) documents actual Uiverse, 60fps, Glass3D
+  and 21st examples inspected, code-access limitations, license treatment and
+  file-level adaptations. No React, engine or extra runtime dependency.
+
+Current evidence: 7 core cases, 15 main / 8 extended / 7 Dusk / 14 motion browser
+checks, 13 background/Quick Play checks and 5 UI/keyboard/scaling checks. Axe scans
+4 states and 13 theme contrast checks; not full/manual certification or physical
+GPU/device benchmarks. See [VERIFICATION.md](VERIFICATION.md).
+
+## Tiny Takeover-ready Panorama · 2.3 (historical; procedural art removed in 2.4)
 
 A persistent six-face cubemap rotates slowly behind the existing purple glass,
 with correct perspective and crisp pixel textures. **The default is the original

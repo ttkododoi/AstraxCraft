@@ -54,7 +54,7 @@ reduced.addEventListener('change', () => setMotionPreference(preference));
 export function enterPage(content, {startup = false} = {}) {
   const home = content.querySelector('.quiet-home');
   if (home) {
-    const sequence = [home.querySelector('.quiet-eyebrow'), ...home.querySelectorAll('.hero-line'), home.querySelector('.quiet-intro > p'), home.querySelector('.play-card'), home.querySelector('.play-disclosure')];
+    const sequence = [home.querySelector('.craft-brand'), home.querySelector('.quiet-eyebrow'), ...home.querySelectorAll('.hero-line'), home.querySelector('.quiet-intro > p'), home.querySelector('.play-card'), home.querySelector('.play-disclosure')];
     sequence.forEach((node, i) => arrive(node, i * (startup ? 42 : 28), startup ? 500 : 330, startup ? 12 : 7));
     return;
   }
@@ -118,6 +118,7 @@ export function fitPicker(panel) {
   if (!parent || !anchor) return;
   const bounds = parent.getBoundingClientRect();
   const edge = Math.min(anchor.getBoundingClientRect().top - 10, bottom);
+  const panelBounds=panel.getBoundingClientRect(),anchorBounds=anchor.getBoundingClientRect();panel.style.transformOrigin=`${Math.max(10,Math.min(90,(anchorBounds.left+anchorBounds.width/2-panelBounds.left)/Math.max(1,panelBounds.width)*100))}% 100%`;
   panel.style.bottom = `${Math.max(12, bounds.bottom - edge)}px`;
   panel.style.maxHeight = `${Math.max(90, Math.min(580, edge - Math.max(top, bounds.top + 8)))}px`;
 }
@@ -277,6 +278,14 @@ export function installMotion({onSearch} = {}) {
     }
   });
   document.addEventListener('keyup', e => { if (e.key==='Enter'||e.key===' ') releaseAll(); });
+  let tip,tipAnchor,previousDescription;
+  const hideTip=()=>{if(tipAnchor){if(previousDescription===null)tipAnchor.removeAttribute('aria-describedby');else tipAnchor.setAttribute('aria-describedby',previousDescription);tipAnchor=null;}if(tip){cancel(tip,'tooltip');tip.hidden=true;}};
+  const showTip=anchor=>{if(!anchor||anchor.disabled||anchor===tipAnchor)return;hideTip();if(!tip){tip=document.createElement('div');tip.id='launcherTooltip';tip.setAttribute('role','tooltip');document.body.append(tip);}tipAnchor=anchor;previousDescription=anchor.getAttribute('aria-describedby');tip.textContent=anchor.dataset.hint;tip.hidden=false;anchor.setAttribute('aria-describedby',[previousDescription,tip.id].filter(Boolean).join(' '));const rect=anchor.getBoundingClientRect(),bounds=tip.getBoundingClientRect();tip.style.left=`${Math.max(12,Math.min(innerWidth-bounds.width-12,rect.left+rect.width/2-bounds.width/2))}px`;tip.style.top=`${Math.max(12,rect.top-bounds.height-8)}px`;animate(tip,'tooltip',[{opacity:0,translate:'0 4px'},{opacity:1,translate:'0 0'}],170);};
+  document.addEventListener('pointerover',e=>showTip(e.target.closest('[data-hint]')));
+  document.addEventListener('pointerout',e=>{if(tipAnchor&&!tipAnchor.contains(e.relatedTarget))hideTip();});
+  document.addEventListener('focusin',e=>showTip(e.target.closest('[data-hint]')));
+  document.addEventListener('focusout',hideTip);document.addEventListener('click',hideTip);document.addEventListener('pointerdown',hideTip,true);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')hideTip();});window.addEventListener('resize',hideTip);document.querySelector('#content')?.addEventListener('scroll',hideTip,{passive:true});
   // A short interpolation loop exists only while a pointer is moving or settling.
   let frame = 0;
   let lighting = null;

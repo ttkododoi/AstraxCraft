@@ -458,23 +458,58 @@ progress[hidden] + .measured-track { display: none; }
 :root[data-motion='off'] #shell, :root[data-motion='off'] aside, :root[data-motion='off'] .launchbar, :root[data-motion='off'] .play-card h2, :root[data-motion='off'] .play-card > p, :root[data-motion='off'] .sectionbar, :root[data-motion='off'] .settings-grid input[type='checkbox']::before { transition:none !important; }
 button { transition: scale 210ms var(--motion-snappy),transform var(--motion-hover) var(--motion-smooth),background-color var(--motion-hover),border-color var(--motion-hover),color var(--motion-hover),box-shadow var(--motion-hover),opacity var(--motion-hover); }
 button.is-pressed:not(:disabled), #launch.is-pressed:not(:disabled) { transition-duration:var(--motion-press); }
-/* Persistent panorama layer. Original cubemap assets; never a stretched promo poster. */
-#panorama, .scene-backdrop, .panorama-shade { position:fixed; inset:0; width:100%; height:100%; pointer-events:none; }
-#panorama { z-index:-2; display:none; }
-.scene-backdrop { z-index:-3; display:none; background:#7c9eb5 url('assets/panorama/static.jpg') center / cover no-repeat; }
-.panorama-shade { z-index:-1; display:none; background:linear-gradient(180deg,#1d14256e,#21162c70 55%,#171022a6),radial-gradient(ellipse at center,transparent 30%,#1e112744); }
-:root[data-background='panorama'] .scene-backdrop, :root[data-background='static'] .scene-backdrop,
-:root[data-background='panorama'] .panorama-shade, :root[data-background='static'] .panorama-shade { display:block; }
+/* 2.4: real licensed game photography, not generated scenery. */
+#panorama,.scene-backdrop,.panorama-shade { position:fixed;inset:0;width:100%;height:100%;pointer-events:none; }
+#panorama { z-index:-2;display:none; }
+.scene-backdrop { z-index:-3;display:none;background:#263c40 url('assets/minecraft/overworld.webp') center / cover no-repeat;transform:scale(1.025);animation:scene-drift 60s ease-in-out infinite alternate;animation-play-state:paused; }
+.panorama-shade { z-index:-1;display:none;background:linear-gradient(180deg,#18102380,#21152d69 48%,#140d20b8),radial-gradient(ellipse at center,transparent 35%,#190e2944); }
+:root[data-background='photo'] .scene-backdrop,:root[data-background='panorama'] .scene-backdrop,:root[data-background='static'] .scene-backdrop,
+:root[data-background='photo'] .panorama-shade,:root[data-background='panorama'] .panorama-shade,:root[data-background='static'] .panorama-shade { display:block; }
 :root[data-background='panorama'][data-panorama='ready'] #panorama { display:block; }
+:root[data-background='panorama'][data-panorama='ready'] .scene-backdrop { display:none; }
+.scene-moving .scene-backdrop { animation-play-state:running; }
 :root[data-background]:not([data-background='aurora']) .ambient { display:none; }
-:root[data-background]:not([data-background='aurora']) .aurora { animation-play-state:paused; will-change:auto; }
-:root[data-background='panorama'][data-surface='dark'] #shell, :root[data-background='static'][data-surface='dark'] #shell { background:#21182d57; }
-:root[data-background='panorama'][data-surface='dark'] body, :root[data-background='static'][data-surface='dark'] body { --muted:#cdc2db; }
-:root[data-background='panorama'] .quiet-intro, :root[data-background='static'] .quiet-intro { text-shadow:0 2px 15px #140e2099; }
-/* Keep landscape details visible; blur is limited to existing glass surfaces, never the scene. */
-:root[data-background='panorama'][data-surface='dark'] aside, :root[data-background='static'][data-surface='dark'] aside,
-:root[data-background='panorama'][data-surface='dark'] .glass-panel, :root[data-background='static'][data-surface='dark'] .glass-panel { background-color:#30263dcc; backdrop-filter:blur(12px) saturate(115%); -webkit-backdrop-filter:blur(12px) saturate(115%); }
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) {
- :root[data-background='panorama'][data-surface='dark'] .glass-panel, :root[data-background='static'][data-surface='dark'] .glass-panel,
- :root[data-background='panorama'][data-surface='dark'] aside, :root[data-background='static'][data-surface='dark'] aside { background-color:#30263d; }
-}
+:root[data-background]:not([data-background='aurora']) .aurora { animation-play-state:paused;will-change:auto; }
+:root[data-background]:not([data-background='aurora']):not([data-background='off'])[data-surface='dark'] #shell { background:#21182d38; }
+:root[data-background]:not([data-background='aurora']):not([data-background='off'])[data-surface='dark'] body { --muted:#dbd0e7; }
+:root[data-background]:not([data-background='aurora']):not([data-background='off']) .quiet-intro { text-shadow:0 2px 16px #140e2099; }
+/* Glass3D-inspired multiple shadow scales and directional inner edges; original CSS. */
+:root[data-surface='dark'] .play-card,:root[data-surface='dark'] aside,:root[data-surface='dark'] .launchbar { background:linear-gradient(135deg,#59436b30,transparent 65%),#2d213a70;backdrop-filter:blur(14px) saturate(125%);-webkit-backdrop-filter:blur(14px) saturate(125%);box-shadow:0 0 1px #11091c66,0 2px 4px #0d071c16,0 7px 14px #0d071c1c,0 18px 38px #0d071c26,inset 1px 1px .5px #f4e7ff3b,inset -1px -1px .5px #12091f33; }
+.play-card { width:min(520px,100%);padding:22px 26px; }
+.play-card::after { background:linear-gradient(125deg,#f2dcff72,#cab4ef0a 35%,#cfb7f42a 75%,#e3caff45); }
+.quiet-home { padding:22px 16px !important;justify-content:safe center; }
+.quiet-intro { margin-bottom:18px; }
+.craft-brand { position:relative;display:flex;align-items:center;justify-content:center;gap:10px;margin:0 auto 20px;width:fit-content; }
+.craft-mark { filter:drop-shadow(0 3px 5px #10091c44);flex-shrink:0; }
+.craft-wordmark { font-size:clamp(22px,2.4vw,30px);font-weight:820;letter-spacing:2px;line-height:1.1; }
+.craft-splash { position:absolute;bottom:-13px;right:-24px;font-size:11px;font-weight:650;letter-spacing:.15px;color:#ffe29b;rotate:-5deg;white-space:nowrap;text-shadow:0 2px 5px #15101ecc;animation:craft-splash 3s ease-in-out infinite alternate; }
+.home-menu { display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:16px 0 7px;padding:0;overflow:visible; }
+.menu-action { font-size:11px;min-height:34px;padding:6px 12px;background:#32243c6b;border-color:#d9c2f02b; }
+.home-play { background:linear-gradient(140deg,#d1b6ff,#aa86e0);color:#231630;font-weight:650;min-height:44px;box-shadow:0 3px 0 #765295,0 8px 18px #1a0b2830; }
+.home-play:hover:not(:disabled) { background:linear-gradient(140deg,#dec9ff,#b996ec);box-shadow:0 4px 0 #765295,0 9px 22px #1a0b2830; }
+.home-play.is-pressed:not(:disabled) { transform:translateY(2px);box-shadow:0 1px 0 #765295; }
+.home-play:disabled { box-shadow:none; }
+.scene-credit,.minecraft-disclaimer { font-size:10px;line-height:1.6;text-align:center;margin:4px auto;max-width:470px; }
+.scene-credit a { color:inherit;text-underline-offset:3px; }
+.minecraft-disclaimer { max-width:440px;color:var(--muted); }
+.play-disclosure { margin-top:8px;max-width:455px; }
+/* Uiverse: layered gradient-edge button treatment; adapted, not copied source. */
+#launch:not(:disabled) { border:1px solid transparent;background:linear-gradient(135deg,#c3a4ee,#af8ddd) padding-box,linear-gradient(135deg,#f5e9ff,#a57cd2) border-box;box-shadow:0 3px 0 #75508e,0 8px 18px #1a0b2830; }
+#launch.is-pressed:not(:disabled) { transform:translateY(2px);box-shadow:0 1px 0 #75508e; }
+#launch:hover:not(:disabled) .play-arrow { translate:3px 0; }
+/* 21st Limelight Nav pattern: light stays attached to the moving active surface. */
+#navHighlight::before { content:'';position:absolute;left:-1px;top:22%;height:56%;width:2px;border-radius:3px;background:linear-gradient(transparent,var(--accent),transparent);box-shadow:1px 0 9px #c9b1ed52; }
+/* 60fps tactile reference: quick downstroke, softly settled release; no haptic claims. */
+@supports (animation-timing-function:linear(0,1)) { button { transition-timing-function:linear(0,.46 14%,.8 32%,.97 52%,1.006 72%,1),var(--motion-smooth),ease,ease,ease,ease,ease; }button.is-pressed:not(:disabled) { transition-timing-function:var(--motion-snappy); } }
+#launcherTooltip { position:fixed;z-index:150;pointer-events:none;max-width:min(270px,calc(100vw - 24px));padding:8px 11px;border:1px solid #d0b9ef4d;border-radius:10px;background:#2d213af2;color:#eee4f8;box-shadow:0 8px 24px #10081f33;font-size:11px;line-height:1.5; }
+@keyframes scene-drift { from { transform:scale(1.025) translateX(-.25%); }to { transform:scale(1.045) translateX(.25%); } }
+@keyframes craft-splash { from { scale:.99; }to { scale:1.01; } }
+.tab-hidden .craft-splash,.is-preparing .craft-splash,.game-session .craft-splash { animation-play-state:paused; }
+:root[data-motion='off'] .craft-splash { animation:none; }
+@media(max-width:700px) { .scene-backdrop { background-image:url('assets/minecraft/overworld-mobile.webp'); }.craft-brand { margin-bottom:17px; }.craft-wordmark { letter-spacing:1px; }.craft-splash { right:0;font-size:10px; }.home-menu { gap:5px;margin-top:12px; }.menu-action { font-size:10px;padding:6px 9px; }.play-card { padding:20px 18px; }.home-play { padding:8px 12px; }.scene-credit,.minecraft-disclaimer { font-size:9px; }.quiet-home { padding:22px 5px !important; } }
+@media(prefers-reduced-motion:reduce) { .scene-backdrop,.craft-splash { animation:none !important; } }
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) { :root[data-surface='dark'] .play-card,:root[data-surface='dark'] aside,:root[data-surface='dark'] .launchbar { background-color:#30263d; } }
+.quiet-intro h1 { font-size:clamp(32px,3.4vw,44px);margin:12px 0; }
+.craft-brand { margin-bottom:16px; }
+.home-play { min-width:80px;text-transform:uppercase;letter-spacing:1px; }
+@media(max-width:700px) { .quiet-intro h1 { font-size:32px; }.home-actions { gap:8px !important; }.home-play { min-width:70px; }.play-card .primary-action { padding-left:11px;padding-right:11px; }.quiet-intro p { font-size:11px; }.quiet-intro { margin-bottom:13px; }.craft-brand { margin-bottom:14px; }.play-card > p { margin-bottom:15px; }.scene-credit { max-width:270px; } }

@@ -1,20 +1,18 @@
 {
   "checks": [
-    "default original cubemap genuinely renders and rotates; high-density framebuffer is capped",
-    "one persistent camera survives launcher navigation without resetting or duplicate canvases",
-    "animated-background setting and reduced motion stop rendering, not merely apparent movement",
-    "loading and running-game states stop the panorama frame loop",
-    "simulated hidden-tab visibility stops scheduled rendering and resumes without a camera jump",
-    "all four background choices apply live and persist without changing launch preferences",
-    "six-face authorized/user import is decoded atomically and survives reload through local IndexedDB",
-    "invalid imports preserve the last working set; removal restores the original fallback",
-    "desktop/tablet/phone viewport coverage and mobile resolution limits remain correct",
-    "actual validated 4K launch pauses panorama rendering; closing the game resumes the same camera",
-    "explicit local/manual game execution also pauses the parent panorama without autoexecuting imports",
-    "real WebGL context loss falls back safely and restoration rebuilds the panorama",
-    "WebGL-unavailable browser retains the original static scene and functional launcher",
-    "panorama image failure never gates startup or version selection",
-    "persisted Background Off starts without a WebGL canvas or any cubemap image requests"
+    "default is a locally hosted, credited real Minecraft screenshot with no WebGL allocation or procedural substitute",
+    "subtle screenshot motion and the same background layer persist across launcher pages",
+    "photo motion obeys the independent animation preference and device reduced motion",
+    "aurora, real static scene and Off apply live and persist with no reload dependency",
+    "authorized six-face import keeps genuine capped cubemap rotation and persistent camera support",
+    "local import persists through IndexedDB and a malformed replacement cannot displace the saved set",
+    "cubemap rendering stops during preparation, running-game states and reduced motion",
+    "simulated hidden-tab visibility stops scheduled rendering and resumes without elapsed-time jumps",
+    "real graphics context loss uses the licensed screenshot fallback and restoration rebuilds the imported panorama",
+    "removing imported faces restores real game imagery, never a fabricated landscape",
+    "desktop/tablet/phone coverage uses cover cropping rather than image stretching",
+    "new Quick Play synchronously launches verified real 4K HTML and pauses background motion while the game is open",
+    "homepage Multiplayer and Skins shortcuts reach real bookmark and local texture tools, not placeholder actions"
   ],
   "errors": []
 }
