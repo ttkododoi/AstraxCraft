@@ -1,0 +1,25 @@
+{
+  "name": "Original Grove",
+  "description": "Original procedural block geometry, pixel textures, cherry-colored trees and small cuboid animals. Not the official Tiny Takeover panorama.",
+  "generator": "tools/render-grove.py",
+  "inputAssets": [],
+  "faceSize": 768,
+  "faceOrder": [
+    "+Z",
+    "+X",
+    "-Z",
+    "-X",
+    "+Y",
+    "-Y"
+  ],
+  "license": "LICENSE.txt",
+  "sha256": {
+    "panorama_0.png": "0fe77c3fda74de10158ecd55611f93104b470516791d4e66c10d21ef7959dfd8",
+    "panorama_1.png": "e06120b80148fbf9e12e3cdd62af109c9b76a7325e8c017b2d08f390c7895511",
+    "panorama_2.png": "7888f166e3650fd50e889f4da0ff400e0db9c49c861db2a399f8622cff370ce2",
+    "panorama_3.png": "efa9bb1b34fbcb734c282d6c1283452ece173f0ae2c4ca2ee537f78622c09478",
+    "panorama_4.png": "202f2dae0b50824766d26943ab819f85b8c9afe4c971c284b41a31d28ad92a4b",
+    "panorama_5.png": "a8051f9588449178154de35d5cbccb37c2a66b2accc6ebb7180fb34b6dda78ac",
+    "static.jpg": "4844cf3442272332422048ac6f221720503fd169b214b5a374f0db7e039cb732"
+  }
+}

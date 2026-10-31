@@ -1,11 +1,12 @@
 # Astrax Launcher
 
-A real, buildless browser launcher for Astrax Interactive, featuring the **Dusk Edition minimal smoked-glass workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is a minimal dusk-purple workspace with locally hosted Inter, a genuinely animated original aurora background, smoked translucent glass and no charts or dashboard counters. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
+A real, buildless browser launcher for Astrax Interactive, featuring the **Dusk Edition minimal smoked-glass workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is a minimal dusk-purple glass workspace with locally hosted Inter and a genuinely rotating cubemap background. Official Tiny Takeover textures are not bundled: the default uses an original block-built Grove fallback until authorized faces are imported. No charts or dashboard counters. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
 
 ## Downloads and documentation
 
 - [Portable source ZIP](downloads/Astrax-Launcher-source.zip) — unzip and follow the startup command below.
 - [Complete machine-readable inventory](site/catalog.json) — all 143 tracked upstream files and 140 HTML entries, with exact filenames, sizes and Git blob hashes.
+- [Panorama setup, asset rights and performance](PANORAMA.md).
 - [Verification report](VERIFICATION.md) — actual tests, execution boundaries and remaining features.
 - [Reference audit](REFERENCE_AUDIT.md) and [credits / third-party notices](THIRD_PARTY_NOTICES.md).
 - [GitHub pull request](https://github.com/ttkododoi/AstraxCraft/pull/1) — development history and review.
@@ -75,6 +76,7 @@ npm run test:extended
 npm run test:dusk
 npm run test:motion
 npm run test:a11y
+npm run test:panorama
 node tests/extended.mjs
 # Optional: executes the two larger third-party game files in isolated test browser contexts:
 node tests/execution.mjs
@@ -135,7 +137,32 @@ Additional interaction test: `node tests/dusk.mjs` (requires the local server). 
 
 Charts are included where there is meaningful data; identity/settings/skins do not invent metrics just to fill a graph. Download validation and all previously disclosed game/mod/WISP/skin compatibility limitations remain unchanged.
 
-## Dusk Edition · 2.2 (current)
+## Tiny Takeover-ready Panorama · 2.3 (current)
+
+A persistent six-face cubemap rotates slowly behind the existing purple glass,
+with correct perspective and crisp pixel textures. **The default is the original
+Grove fallback, not Mojang’s official panorama.** The 26.1 cherry-grove/baby-animal
+reference was studied; no right to redistribute its official textures was
+established, so those assets are not bundled or hotlinked.
+
+Settings offers **Tiny Takeover Panorama**, **Original Dusk Aurora**, **Static
+Minecraft Scene**, and **Background Off**, with live changes and local
+persistence. Import six authorized `panorama_0.png` … `panorama_5.png` files to use
+them locally. The status explicitly distinguishes imported assets from the
+original fallback. Full instructions, provenance, limits and optional original
+art regeneration are in [PANORAMA.md](PANORAMA.md).
+
+The panorama pauses for hidden tabs, reduced motion, disabled background
+animation, game loading and running games. Mobile rendering/DPR and texture
+resolution are capped. No engine or runtime dependency was added. Failed graphics
+or images do not prevent launching; a static original scene is the fallback.
+
+`npm run test:panorama` covers 15 groups including real 4K launch/pause/resume,
+import persistence, live settings, graphics loss/recovery, failure handling and
+responsive/DPR limits. `npm test` checks original asset hashes and all twelve
+cubemap edges. This does not certify mobile GPU/battery performance.
+
+## Dusk Edition · 2.2 (previous)
 
 ### Premium motion, same focused workspace
 

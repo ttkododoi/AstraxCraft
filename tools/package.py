@@ -5,7 +5,7 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 paths=[]
 for folder in ['site','tools','tests','verification','.github/workflows']:
     paths.extend(p for p in (ROOT/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts)
-for name in ['README.md','REFERENCE_AUDIT.md','VERIFICATION.md','THIRD_PARTY_NOTICES.md','package.json','package-lock.json','.gitignore']:
+for name in ['README.md','PANORAMA.md','REFERENCE_AUDIT.md','VERIFICATION.md','THIRD_PARTY_NOTICES.md','package.json','package-lock.json','.gitignore']:
     paths.append(ROOT/name)
 out=ROOT/'downloads/Astrax-Launcher-source.zip';out.parent.mkdir(exist_ok=True)
 with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:

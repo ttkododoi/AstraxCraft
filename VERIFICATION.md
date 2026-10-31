@@ -1,6 +1,41 @@
 # Verification report — 31 October 2026 UTC
 
-## Current release: Dusk Motion 2.2
+## Current release: Panorama 2.3
+
+The current background supersedes the older default-aurora statements below.
+**Official Tiny Takeover art is not bundled.** Reference study found the 26.1
+cherry-grove/baby-animal panorama; redistribution permission was not established.
+The default Tiny Takeover Panorama setting therefore uses an explicitly labeled,
+original procedural Grove cubemap, with six-face authorized local import support.
+See `PANORAMA.md` for reference URLs, original asset license, provenance,
+orientation, rendering limits, privacy and setup.
+
+### Checks performed for 2.3
+
+- Core: **7 cases**, including two new groups for background preference validation,
+  asset SHA-256 hashes and all twelve cubemap edges. Edge tolerance is mean RGB
+  difference below 2/255, allowing raster rounding; not a pixel-identical claim.
+- Panorama browser suite: **15 groups** in `verification/panorama-results.json`:
+  genuine rendered rotation, one persistent canvas, pause settings/reduced motion,
+  loading/game states, simulated hidden visibility, live/persisted choices,
+  atomic local import and reload, invalid imports/removal, responsive/DPR limits,
+  actual hash-verified 4K and explicit local/manual launch with pause/resume, real WebGL context loss and
+  restoration, unavailable graphics, missing faces, and Off without texture fetches.
+- Existing main, motion, Dusk and extended browser regressions remain applicable.
+  Dusk's aurora-specific checks now explicitly select Original Dusk Aurora; the
+  new suite checks the actual default. Source fixtures are the same three pinned
+  originals, obtained through API transport into ignored `mirror/`, never bundled.
+- Automated accessibility and contrast scans remain scoped evidence, not manual
+  certification. No physical iPad/Safari, native GPU, battery, all-game world-boot
+  or sustained-frame-rate claim. Viewport and hidden-visibility emulations are
+  not hardware validation.
+
+Existing launch/transfer logic and full-hosting limitations are unchanged. No
+full collection mirroring, new remote panorama provider or bulk redistribution.
+
+---
+
+## Previous release: Dusk Motion 2.2
 
 Animation/interactions extend the existing Dusk workspace; no layout/framework rewrite or charts. `site/motion.js` owns keyed, cancelable Web Animations, serialized page/picker transitions, FLIP navigation, startup/page staggering, scoped selection/favorite feedback and toast lifetimes. Selection retains the existing hero/card DOM. Button compression is delegated on pointer/key down with CSS release feedback, replacing the former generic click spring rather than stacking another one.
 

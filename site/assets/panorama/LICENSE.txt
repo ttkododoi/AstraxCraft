@@ -1,0 +1,14 @@
+Original Grove — original AstraxCraft fallback panorama
+
+Applies only to panorama_0.png through panorama_5.png and static.jpg in this
+directory: original pixel textures and voxel geometry rendered by the included
+tools/render-grove.py, with no third-party image or game asset inputs.
+
+Permission is granted, free of charge, to use, copy, modify, publish, distribute,
+sublicense and sell these original images for any purpose, without attribution.
+The images are provided "AS IS", without warranty of any kind.
+
+This permission does NOT cover Minecraft/Mojang/Microsoft textures, logos,
+screenshots or user-imported images. No official Tiny Takeover assets are
+bundled. Minecraft is a trademark of Mojang/Microsoft. This is not an official
+Minecraft product and is not approved by or associated with Mojang/Microsoft.

@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "default original cubemap genuinely renders and rotates; high-density framebuffer is capped",
+    "one persistent camera survives launcher navigation without resetting or duplicate canvases",
+    "animated-background setting and reduced motion stop rendering, not merely apparent movement",
+    "loading and running-game states stop the panorama frame loop",
+    "simulated hidden-tab visibility stops scheduled rendering and resumes without a camera jump",
+    "all four background choices apply live and persist without changing launch preferences",
+    "six-face authorized/user import is decoded atomically and survives reload through local IndexedDB",
+    "invalid imports preserve the last working set; removal restores the original fallback",
+    "desktop/tablet/phone viewport coverage and mobile resolution limits remain correct",
+    "actual validated 4K launch pauses panorama rendering; closing the game resumes the same camera",
+    "explicit local/manual game execution also pauses the parent panorama without autoexecuting imports",
+    "real WebGL context loss falls back safely and restoration rebuilds the panorama",
+    "WebGL-unavailable browser retains the original static scene and functional launcher",
+    "panorama image failure never gates startup or version selection",
+    "persisted Background Off starts without a WebGL canvas or any cubemap image requests"
+  ],
+  "errors": []
+}

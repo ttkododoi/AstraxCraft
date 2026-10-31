@@ -1,6 +1,6 @@
 {
   "name": "astrax-launcher",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,7 +9,8 @@
     "test:a11y": "node tests/accessibility.mjs && node tests/theme-contrast.mjs",
     "test:dusk": "node tests/dusk.mjs",
     "test:motion": "node tests/motion.mjs",
-    "test:extended": "node tests/extended.mjs"
+    "test:extended": "node tests/extended.mjs",
+    "test:panorama": "node tests/panorama.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.10.2",

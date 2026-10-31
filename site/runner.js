@@ -1,12 +1,12 @@
-import {installMotion,setMotionPreference,measuredProgress,progressPhase} from './motion.js?v=dusk-motion-22';
-import {load} from './store.js?v=dusk-motion-22';
-import {saveBlob} from './transfer.js?v=dusk-motion-22';
+import {installMotion,setMotionPreference,measuredProgress,progressPhase} from './motion.js?v=tiny-23';
+import {load} from './store.js?v=tiny-23';
+import {saveBlob} from './transfer.js?v=tiny-23';
 setMotionPreference(load().value.interfaceMotion);installMotion();
 const $=s=>document.querySelector(s),token=location.hash.slice(1);let blob,path,url,autoStart=false,opening=false,expectedBytes=0;
 function start(manual=false){
  if(!blob||opening)return;
  if(manual&&!confirm('Execute this third-party HTML? It can access this hosting origin’s storage. Export important worlds first.'))return;
- opening=true;url=URL.createObjectURL(blob);$('#message').textContent='Validated. Opening game document…';location.replace(url);
+ opening=true;const lifecycle=new BroadcastChannel('astrax-game-'+token);lifecycle.postMessage({type:'executing'});lifecycle.close();url=URL.createObjectURL(blob);$('#message').textContent='Validated. Opening game document…';location.replace(url);
  // Do not revoke during navigation: the document may still need the URL.
 }
 measuredProgress($('#progress'));
