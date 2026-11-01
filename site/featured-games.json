@@ -64,364 +64,416 @@
       "size": 15285870,
       "sha": "e7b456803892cfaf3ab793fca5d0ac17df66943a",
       "compressedBytes": 11556994,
-      "compressedSHA256": "b1513dfcc3e2ef28650196005254c12d84f022d520836fc66d9d2ce2f472ed96"
+      "compressedSHA256": "b1513dfcc3e2ef28650196005254c12d84f022d520836fc66d9d2ce2f472ed96",
+      "releaseAsset": "Huzzium-Client.html.gz"
     },
     {
       "path": "Mega Client-JS.html",
       "size": 16339833,
       "sha": "c93340cae14341677071578bb98d120135b641e0",
       "compressedBytes": 7971082,
-      "compressedSHA256": "b21ff4860bea5189137aeb92958fa485041eb080fbc31a4c40c15e9b5733b283"
+      "compressedSHA256": "b21ff4860bea5189137aeb92958fa485041eb080fbc31a4c40c15e9b5733b283",
+      "releaseAsset": "Mega.Client-JS.html.gz"
     },
     {
       "path": "N0VA CLIENT.html",
       "size": 16880201,
       "sha": "996c50d421833e43961e63b693435504300af7ff",
       "compressedBytes": 8150985,
-      "compressedSHA256": "007c8ab73c684ce5b58df17a6a6c4e75f69062762890ae376f25841329a44b5e"
+      "compressedSHA256": "007c8ab73c684ce5b58df17a6a6c4e75f69062762890ae376f25841329a44b5e",
+      "releaseAsset": "N0VA.CLIENT.html.gz"
     },
     {
       "path": "Novix_26.1.2.html",
       "size": 18178021,
       "sha": "60336a0da2a11d3fbea8e9decb0aa77c31bdb6f9",
       "compressedBytes": 13757889,
-      "compressedSHA256": "03a4308b480834053c8907032429247a314a3c6bb4380d77c22a04f173db7df9"
+      "compressedSHA256": "03a4308b480834053c8907032429247a314a3c6bb4380d77c22a04f173db7df9",
+      "releaseAsset": "Novix_26.1.2.html.gz"
     },
     {
       "path": "EB Client Nextgen CU4.html",
       "size": 21390589,
       "sha": "4b07d7761b94eae833e8d20b07c9a5c33cb4c0af",
       "compressedBytes": 15598787,
-      "compressedSHA256": "eeabaf9b87284868b3ce3ed249ef834932d66401ea73c3f249a521e226ffe793"
+      "compressedSHA256": "eeabaf9b87284868b3ce3ed249ef834932d66401ea73c3f249a521e226ffe793",
+      "releaseAsset": "EB.Client.Nextgen.CU4.html.gz"
     },
     {
       "path": "EaglyMC.html",
       "size": 25322043,
       "sha": "6d3b71dcc9ef8b83540c1dd5fa834cc851ab623a",
       "compressedBytes": 19157967,
-      "compressedSHA256": "dab0ee19ab7ecbfe448a2194bb21544d358bf3a0764d531a7adb43ab0a57188d"
+      "compressedSHA256": "dab0ee19ab7ecbfe448a2194bb21544d358bf3a0764d531a7adb43ab0a57188d",
+      "releaseAsset": "EaglyMC.html.gz"
     },
     {
       "path": "Water Client.html",
       "size": 27635603,
       "sha": "aed88515a56180246de22419f3fe660dc8c5aa36",
       "compressedBytes": 16524869,
-      "compressedSHA256": "265cffd1d11ae4a2ebaff8b91c55295de45ef146d0d4558461149ba8ef32155a"
+      "compressedSHA256": "265cffd1d11ae4a2ebaff8b91c55295de45ef146d0d4558461149ba8ef32155a",
+      "releaseAsset": "Water.Client.html.gz"
     },
     {
       "path": "WurstX.html",
       "size": 27847113,
       "sha": "3296da20cd709caf90f88b087a7c8ff37dac0025",
       "compressedBytes": 12540150,
-      "compressedSHA256": "d42a7fcaff4d4bd91307575e7a19c460462172a73d80ba4daa059cea28ab3eed"
+      "compressedSHA256": "d42a7fcaff4d4bd91307575e7a19c460462172a73d80ba4daa059cea28ab3eed",
+      "releaseAsset": "WurstX.html.gz"
     },
     {
       "path": "Tuff_Client_WASM.html",
       "size": 30871933,
       "sha": "c3fb7466926f622c3189b98a4d263761530bcb48",
       "compressedBytes": 23358155,
-      "compressedSHA256": "a8cfc87b5ba2cbd43f6529ceeb289797e0fecf84186e7c7d98de6f4834c1d386"
+      "compressedSHA256": "a8cfc87b5ba2cbd43f6529ceeb289797e0fecf84186e7c7d98de6f4834c1d386",
+      "releaseAsset": "Tuff_Client_WASM.html.gz"
     },
     {
       "path": "Prism-Client.html",
       "size": 40225633,
       "sha": "7642095e39da75ef88d060141226adb49b4a0fd3",
       "compressedBytes": 22557105,
-      "compressedSHA256": "e6c057ac89e7b5b3c2418dae5cfd84e3f90985148607bb9f2974e69b0c765af3"
+      "compressedSHA256": "e6c057ac89e7b5b3c2418dae5cfd84e3f90985148607bb9f2974e69b0c765af3",
+      "releaseAsset": "Prism-Client.html.gz"
     },
     {
       "path": "Eclipse Client.html",
       "size": 46774588,
       "sha": "95c81b92e48a3d0744dc983a87940c3bf438057a",
       "compressedBytes": 27000169,
-      "compressedSHA256": "fb2b5724cab1ca8b1bbe0205360b6741dbf343c60e05632848794f6226de224b"
+      "compressedSHA256": "fb2b5724cab1ca8b1bbe0205360b6741dbf343c60e05632848794f6226de224b",
+      "releaseAsset": "Eclipse.Client.html.gz"
     },
     {
       "path": "EaglercraftZ.html",
       "size": 51974743,
       "sha": "c0f5e8ab5f7989a29838008de3e2666168b8b4ee",
       "compressedBytes": 30456611,
-      "compressedSHA256": "de0cc239a2c3e624185ab5c14c79d695ca3706e0a26d71726149b8b807c9b66f"
+      "compressedSHA256": "de0cc239a2c3e624185ab5c14c79d695ca3706e0a26d71726149b8b807c9b66f",
+      "releaseAsset": "EaglercraftZ.html.gz"
     },
     {
       "path": "eaglercraft-26.1.2-WASM_Novix.html",
       "size": 65694777,
       "sha": "550ce866a380b40bec026d5e23989d2620fedd93",
       "compressedBytes": 15604185,
-      "compressedSHA256": "cf8aea38eb65d742f0ee2578e9c2c8c3a3cb6f9c5b4148c8dceb109408c5031e"
+      "compressedSHA256": "cf8aea38eb65d742f0ee2578e9c2c8c3a3cb6f9c5b4148c8dceb109408c5031e",
+      "releaseAsset": "eaglercraft-26.1.2-WASM_Novix.html.gz"
     },
     {
       "path": "Myven-Client-WASM.html",
       "size": 84032731,
       "sha": "33dd6b2fc1cf22bd3556c3ef263c8a583f212b06",
       "compressedBytes": 42053686,
-      "compressedSHA256": "01ace04f72fc4f6d78e3dc7a42baf772282731ee59f54ec9a09c04332b2f95dd"
+      "compressedSHA256": "01ace04f72fc4f6d78e3dc7a42baf772282731ee59f54ec9a09c04332b2f95dd",
+      "releaseAsset": "Myven-Client-WASM.html.gz"
     },
     {
       "path": "Eaglercraft_1.1.html",
       "size": 8158025,
       "sha": "9f3111ab5f8e2c24babe0cfdd006ed820cd4f278",
       "compressedBytes": 4332724,
-      "compressedSHA256": "f29f1e7a7f55ee2547aa79e5ba21730bc87642ed28ea6873c7f0a0b5ffdc245e"
+      "compressedSHA256": "f29f1e7a7f55ee2547aa79e5ba21730bc87642ed28ea6873c7f0a0b5ffdc245e",
+      "releaseAsset": "Eaglercraft_1.1.html.gz"
     },
     {
       "path": "Eaglercraft-1.7-wasm.html",
       "size": 12158342,
       "sha": "230854002f1dbe95944aa9d6311981056bdea205",
       "compressedBytes": 9188348,
-      "compressedSHA256": "6295fa5b14758e16b18130ac7ca8f5c6fc67cd4f9ac1412b6e2ce38509d5d288"
+      "compressedSHA256": "6295fa5b14758e16b18130ac7ca8f5c6fc67cd4f9ac1412b6e2ce38509d5d288",
+      "releaseAsset": "Eaglercraft-1.7-wasm.html.gz"
     },
     {
       "path": "Eaglercraft-1.6.4-Forge-WASM.html",
       "size": 12350486,
       "sha": "d6bed977cd3f2249a3cbb9393a772d9c2349398f",
       "compressedBytes": 9329939,
-      "compressedSHA256": "930a7552d1076894f292e3ac8c4f1563e2ecf8324fca4c5f0723b72e901c8b50"
+      "compressedSHA256": "930a7552d1076894f292e3ac8c4f1563e2ecf8324fca4c5f0723b72e901c8b50",
+      "releaseAsset": "Eaglercraft-1.6.4-Forge-WASM.html.gz"
     },
     {
       "path": "Eaglercraft-1.6.4-Forge.html",
       "size": 14855152,
       "sha": "1381b49704496f39b01c49f8ab7bea3a03f9eafb",
       "compressedBytes": 11230169,
-      "compressedSHA256": "e24f19fab7e750da487f2391acc972fa11125c2c8b6f1c1866f7b088c5a33eb0"
+      "compressedSHA256": "e24f19fab7e750da487f2391acc972fa11125c2c8b6f1c1866f7b088c5a33eb0",
+      "releaseAsset": "Eaglercraft-1.6.4-Forge.html.gz"
     },
     {
       "path": "EaglercraftX_1.8_WASM-GC.html",
       "size": 15135451,
       "sha": "589bad91b2e2e68655c5e307fcdd7693d14a91b3",
       "compressedBytes": 11443291,
-      "compressedSHA256": "d4869317e41b02ef3bb7f92f0f4082b85f6e2eb8dfc23806990c0db7614e5ae5"
+      "compressedSHA256": "d4869317e41b02ef3bb7f92f0f4082b85f6e2eb8dfc23806990c0db7614e5ae5",
+      "releaseAsset": "EaglercraftX_1.8_WASM-GC.html.gz"
     },
     {
       "path": "eaglercraftx-194.html",
       "size": 17838810,
       "sha": "b0c42e9a69b57f10582c3d05bf6a6877a1ea5f5c",
       "compressedBytes": 13509468,
-      "compressedSHA256": "7383d51566afceafcb6c0b4d4f6dc5562058f5152e09a9419ee2bf8a9edce721"
+      "compressedSHA256": "7383d51566afceafcb6c0b4d4f6dc5562058f5152e09a9419ee2bf8a9edce721",
+      "releaseAsset": "eaglercraftx-194.html.gz"
     },
     {
       "path": "Eaglercraft 1.7.10-Javascript.html",
       "size": 18463253,
       "sha": "23d7ec46d3330f00f1426021331bd9ee73ab2d3d",
       "compressedBytes": 8355253,
-      "compressedSHA256": "38a7555604581f4ec6ad3f00b95c0b8a30478738b9442df7248a0a2ff082a9aa"
+      "compressedSHA256": "38a7555604581f4ec6ad3f00b95c0b8a30478738b9442df7248a0a2ff082a9aa",
+      "releaseAsset": "Eaglercraft.1.7.10-Javascript.html.gz"
     },
     {
       "path": "1.5.2.html",
       "size": 23535795,
       "sha": "f7204e4c4be9c87908991effa5f42c9539586097",
       "compressedBytes": 9349316,
-      "compressedSHA256": "c4025942fffee29581b62f3c0e558d1aa5df9eba4a65584e6be5b1f5fc6321bd"
+      "compressedSHA256": "c4025942fffee29581b62f3c0e558d1aa5df9eba4a65584e6be5b1f5fc6321bd",
+      "releaseAsset": "1.5.2.html.gz"
     },
     {
       "path": "Eaglercraft_1.2.3_WASM-GC.html",
       "size": 23859783,
       "sha": "a4bbc006f2b6e08b7bcd03055fb294f2637cfe28",
       "compressedBytes": 18051833,
-      "compressedSHA256": "29bc51a43c400050ee310df5d054c961c19bafa0735ac5b26ed24693ac646fed"
+      "compressedSHA256": "29bc51a43c400050ee310df5d054c961c19bafa0735ac5b26ed24693ac646fed",
+      "releaseAsset": "Eaglercraft_1.2.3_WASM-GC.html.gz"
     },
     {
       "path": "Eaglercraft_1.2.5_wasm.html",
       "size": 23891362,
       "sha": "2e826adb532f0aaf081be85435cffee38a65cf1b",
       "compressedBytes": 18075940,
-      "compressedSHA256": "95d2d740f04dc6216f01f06b3a7389f8e228300e37c0e3f22f0f7049d3530704"
+      "compressedSHA256": "95d2d740f04dc6216f01f06b3a7389f8e228300e37c0e3f22f0f7049d3530704",
+      "releaseAsset": "Eaglercraft_1.2.5_wasm.html.gz"
     },
     {
       "path": "Eaglercraft_b1.1.html",
       "size": 24414617,
       "sha": "e04af00e2d7e4de90cd396252b3533ade217a28a",
       "compressedBytes": 17397462,
-      "compressedSHA256": "17bd1e0acac4a273f922213472d320cb53ac9b98d5277e60c0f660120c3735bd"
+      "compressedSHA256": "17bd1e0acac4a273f922213472d320cb53ac9b98d5277e60c0f660120c3735bd",
+      "releaseAsset": "Eaglercraft_b1.1.html.gz"
     },
     {
       "path": "Eaglercraft_1_0_0.html",
       "size": 25273320,
       "sha": "d9d94505b13e069e8fd82b7db3eabbb30eae5701",
       "compressedBytes": 17308964,
-      "compressedSHA256": "2408faa4cc2c436f15e0b8e5ecd2f24800f34c434162c6894fbccc59747d84cd"
+      "compressedSHA256": "2408faa4cc2c436f15e0b8e5ecd2f24800f34c434162c6894fbccc59747d84cd",
+      "releaseAsset": "Eaglercraft_1_0_0.html.gz"
     },
     {
       "path": "Eaglercraft 1.6.4.html",
       "size": 27066713,
       "sha": "f194705a83c80b43cb3a3d63ba61cf98dbceb6d3",
       "compressedBytes": 10221681,
-      "compressedSHA256": "7e8a796a42ce9212959a656559ac6b4f8f3ab167707c16e9b0df3b68d93f75d9"
+      "compressedSHA256": "7e8a796a42ce9212959a656559ac6b4f8f3ab167707c16e9b0df3b68d93f75d9",
+      "releaseAsset": "Eaglercraft.1.6.4.html.gz"
     },
     {
       "path": "Eaglercraft_1.2.5_JS.html",
       "size": 27932756,
       "sha": "5064b14f76cf8a717fea006354a2948ec04b50c2",
       "compressedBytes": 17996948,
-      "compressedSHA256": "be70436a39f41e9ab7af0492bc14824ffa102a4b3252d135035c05dd03040b73"
+      "compressedSHA256": "be70436a39f41e9ab7af0492bc14824ffa102a4b3252d135035c05dd03040b73",
+      "releaseAsset": "Eaglercraft_1.2.5_JS.html.gz"
     },
     {
       "path": "Eaglercraft_1.2.3_JS.html",
       "size": 27989140,
       "sha": "81b63fae9d684cd33c04e85e56c91907517ef24f",
       "compressedBytes": 17966903,
-      "compressedSHA256": "1ac1e418e1f5b6380476fcbf2a38681fb20023676c0c040be339a35bf171ef2c"
+      "compressedSHA256": "1ac1e418e1f5b6380476fcbf2a38681fb20023676c0c040be339a35bf171ef2c",
+      "releaseAsset": "Eaglercraft_1.2.3_JS.html.gz"
     },
     {
       "path": "Eaglercraft-1.11.2.html",
       "size": 28584406,
       "sha": "be83129bd9f8f765062750bb39d4dfd90eb975b4",
       "compressedBytes": 13365367,
-      "compressedSHA256": "490130732191554841ceb3c5af88b3c2569d7afbe53ab13def4f769f61f3d3b9"
+      "compressedSHA256": "490130732191554841ceb3c5af88b3c2569d7afbe53ab13def4f769f61f3d3b9",
+      "releaseAsset": "Eaglercraft-1.11.2.html.gz"
     },
     {
       "path": "Eaglercraft_1_3_2.html",
       "size": 28948501,
       "sha": "f813906f4a43a83407a2e5ddcc5af8baf21dba15",
       "compressedBytes": 19736486,
-      "compressedSHA256": "8c29ff268bb21c9d35a255ca7c21d954627f338f4777eebdf42a03df3e7cfd44"
+      "compressedSHA256": "8c29ff268bb21c9d35a255ca7c21d954627f338f4777eebdf42a03df3e7cfd44",
+      "releaseAsset": "Eaglercraft_1_3_2.html.gz"
     },
     {
       "path": "Eaglercraft_1.14.4_WASM-GC.html",
       "size": 35208712,
       "sha": "c3df038d41ae46ac70b05575cf4e26bd953e3bbb",
       "compressedBytes": 26646715,
-      "compressedSHA256": "36a5d57397ba2cafca63254045107ee586e3be2f8d77b43ecf1d76c9cf11615e"
+      "compressedSHA256": "36a5d57397ba2cafca63254045107ee586e3be2f8d77b43ecf1d76c9cf11615e",
+      "releaseAsset": "Eaglercraft_1.14.4_WASM-GC.html.gz"
     },
     {
       "path": "Eaglercraft_1.14.4_WASM-GC_U1.html",
       "size": 36009903,
       "sha": "d0cdc1b4525aa34185501ef2cc58078762a01de5",
       "compressedBytes": 27250976,
-      "compressedSHA256": "0773c72b40e746f50b32ed8d74e558d8710e09a3e006718b474bdf533101c160"
+      "compressedSHA256": "0773c72b40e746f50b32ed8d74e558d8710e09a3e006718b474bdf533101c160",
+      "releaseAsset": "Eaglercraft_1.14.4_WASM-GC_U1.html.gz"
     },
     {
       "path": "Eaglercraft_1.4.7-WASM.html",
       "size": 39499282,
       "sha": "2625a38c1afee85445c2d141cc7d7a6a8193bf2f",
       "compressedBytes": 29895704,
-      "compressedSHA256": "d8bb699eb974f605811db9beac759b011a8a31435b86d91ed97a890a478aca1a"
+      "compressedSHA256": "d8bb699eb974f605811db9beac759b011a8a31435b86d91ed97a890a478aca1a",
+      "releaseAsset": "Eaglercraft_1.4.7-WASM.html.gz"
     },
     {
       "path": "Eaglercraft 1.21.11 WASM.html",
       "size": 48776304,
       "sha": "1c49622acb69181c55c5f424641439b95951a8a6",
       "compressedBytes": 36923046,
-      "compressedSHA256": "d6092477317a462d67cc5ce0de1b5b404a4dc2ff2064c5e6ab229317147bad28"
+      "compressedSHA256": "d6092477317a462d67cc5ce0de1b5b404a4dc2ff2064c5e6ab229317147bad28",
+      "releaseAsset": "Eaglercraft.1.21.11.WASM.html.gz"
     },
     {
       "path": "Eaglercraft-1-21-11_wasm.html",
       "size": 48844682,
       "sha": "83f913e3ece86c673b961604b9168ce9348afbf7",
       "compressedBytes": 36975094,
-      "compressedSHA256": "e097f7766b0c4ccde288e839e8d3149bdaed86b15ed336346c685582188cd62a"
+      "compressedSHA256": "e097f7766b0c4ccde288e839e8d3149bdaed86b15ed336346c685582188cd62a",
+      "releaseAsset": "Eaglercraft-1-21-11_wasm.html.gz"
     },
     {
       "path": "eaglercraft-1.17-wasm_gc.html",
       "size": 50168187,
       "sha": "e7d93b19f28deb09eb7f21e6638f4200632371fb",
       "compressedBytes": 37976227,
-      "compressedSHA256": "44c43afebe4bbb091ca178bd039179c0cfa204b3c78220d221bf40d40c9e3b38"
+      "compressedSHA256": "44c43afebe4bbb091ca178bd039179c0cfa204b3c78220d221bf40d40c9e3b38",
+      "releaseAsset": "eaglercraft-1.17-wasm_gc.html.gz"
     },
     {
       "path": "Eaglercraft 1.16.5 WASM.html",
       "size": 53138540,
       "sha": "69cf297ae9304143abe71c0e44f103b4b3ca75ea",
       "compressedBytes": 40216266,
-      "compressedSHA256": "2b3c923886b9ff304caa0db0cf82cca67d407393e2c7372c3bacd105e05421b8"
+      "compressedSHA256": "2b3c923886b9ff304caa0db0cf82cca67d407393e2c7372c3bacd105e05421b8",
+      "releaseAsset": "Eaglercraft.1.16.5.WASM.html.gz"
     },
     {
       "path": "Eaglercraft 1.13.2-WASM.html",
       "size": 54245148,
       "sha": "3d784af5fd9988fb53ac6727c80a546494bd358b",
       "compressedBytes": 41061901,
-      "compressedSHA256": "34314714dcaf8b0e0b75122f848a364f76fb853dc514fef9e92ea85756ee5306"
+      "compressedSHA256": "34314714dcaf8b0e0b75122f848a364f76fb853dc514fef9e92ea85756ee5306",
+      "releaseAsset": "Eaglercraft.1.13.2-WASM.html.gz"
     },
     {
       "path": "Eaglercraft_1.4.7-JS.html",
       "size": 67567085,
       "sha": "f2206d89f6ffb4a7c923216bc3eda04e276c9620",
       "compressedBytes": 31572883,
-      "compressedSHA256": "aa977214e581f17ef60b592f0996b33f1b38a6d508ec1e9066f97311231af3d8"
+      "compressedSHA256": "aa977214e581f17ef60b592f0996b33f1b38a6d508ec1e9066f97311231af3d8",
+      "releaseAsset": "Eaglercraft_1.4.7-JS.html.gz"
     },
     {
       "path": "eaglercraft-beta-1.3.html",
       "size": 4564603,
       "sha": "ede80af69a4ac5dcc5cff9bfc5c0d9039fa9f1b4",
       "compressedBytes": 2364494,
-      "compressedSHA256": "5e5e993d1d9f348a354302f1255c0a067b08be2914e46dbecf6b33e63ebee507"
+      "compressedSHA256": "5e5e993d1d9f348a354302f1255c0a067b08be2914e46dbecf6b33e63ebee507",
+      "releaseAsset": "eaglercraft-beta-1.3.html.gz"
     },
     {
       "path": "eagler-indev.html",
       "size": 1150936,
       "sha": "b17b1ffb5ee085d57f269428ee5ca69b34fa15cd",
       "compressedBytes": 445944,
-      "compressedSHA256": "5740fcc10b4e8f8102399b6566965b5658d28b88a56b938734fe101c66ca54aa"
+      "compressedSHA256": "5740fcc10b4e8f8102399b6566965b5658d28b88a56b938734fe101c66ca54aa",
+      "releaseAsset": "eagler-indev.html.gz"
     },
     {
       "path": "infdev-wasm-gc.html",
       "size": 1422446,
       "sha": "cfea42808c87c4141094aeeec58e383b36521ec5",
       "compressedBytes": 1054987,
-      "compressedSHA256": "ef18959b494f38925bb7c194335480827c5fd99a97f7709e3a1d7362cac65fc6"
+      "compressedSHA256": "ef18959b494f38925bb7c194335480827c5fd99a97f7709e3a1d7362cac65fc6",
+      "releaseAsset": "infdev-wasm-gc.html.gz"
     },
     {
       "path": "Alpha 1.0.1_01-JS.html",
       "size": 2309190,
       "sha": "1eaee222d9b9e1c3d5a788370c49983cdf4924a6",
       "compressedBytes": 788780,
-      "compressedSHA256": "c2de5595a2f51b0b5bfa7bf74b9b2927898b9e480d7579b19119d612e66d897e"
+      "compressedSHA256": "c2de5595a2f51b0b5bfa7bf74b9b2927898b9e480d7579b19119d612e66d897e",
+      "releaseAsset": "Alpha.1.0.1_01-JS.html.gz"
     },
     {
       "path": "Alpha 1.0.4-JS.html",
       "size": 2316607,
       "sha": "e5f9e73d61e7dfd3dbe0418a749853e5c2d9a1e1",
       "compressedBytes": 791244,
-      "compressedSHA256": "f663c0361ff667b1ff5eac6a05acb0ed24a7b2ab20a1b672f69407c5f3dae057"
+      "compressedSHA256": "f663c0361ff667b1ff5eac6a05acb0ed24a7b2ab20a1b672f69407c5f3dae057",
+      "releaseAsset": "Alpha.1.0.4-JS.html.gz"
     },
     {
       "path": "mc4k.html",
       "size": 59916,
       "sha": "077d7f949a4cdc0aaa9020b779071b91bf396d96",
       "compressedBytes": 13020,
-      "compressedSHA256": "7aeaf9757f8c6c9d6ec62f4183ea3aade86f5ef9c64495e503268130908b882e"
+      "compressedSHA256": "7aeaf9757f8c6c9d6ec62f4183ea3aade86f5ef9c64495e503268130908b882e",
+      "releaseAsset": "mc4k.html.gz"
     },
     {
       "path": "Minicraft.html",
       "size": 133457,
       "sha": "fd4e23053964ee35a44759610f6acf105b60d074",
       "compressedBytes": 39565,
-      "compressedSHA256": "a3829a36fa6479c2dde86d79894a15ff5d6d3afd8e5b3db0cdc40376207fea68"
+      "compressedSHA256": "a3829a36fa6479c2dde86d79894a15ff5d6d3afd8e5b3db0cdc40376207fea68",
+      "releaseAsset": "Minicraft.html.gz"
     },
     {
       "path": "rd-131655-WASM.html",
       "size": 938203,
       "sha": "d76d99a66b2cb5768ac26a75e69cf440d5b8b85b",
       "compressedBytes": 689797,
-      "compressedSHA256": "5581223ffccd41be4837ac63fe7b06fa2e17b6ca4b587c04f9c47c76139e5dc2"
+      "compressedSHA256": "5581223ffccd41be4837ac63fe7b06fa2e17b6ca4b587c04f9c47c76139e5dc2",
+      "releaseAsset": "rd-131655-WASM.html.gz"
     },
     {
       "path": "rd-132211-WASM.html",
       "size": 942631,
       "sha": "f7575f93e6834ea11c50bb2c38b657ab1495e385",
       "compressedBytes": 693202,
-      "compressedSHA256": "075f2bf13287bb1624019978413486f9960c8f707ab13452ee3fae27589f37cc"
+      "compressedSHA256": "075f2bf13287bb1624019978413486f9960c8f707ab13452ee3fae27589f37cc",
+      "releaseAsset": "rd-132211-WASM.html.gz"
     },
     {
       "path": "rd-132328-WASM.html",
       "size": 949671,
       "sha": "bdbd7900fac28f21dd0fa264a7e70a74e97d2f4e",
       "compressedBytes": 698514,
-      "compressedSHA256": "58fb5b3a65d35c98e11c0f5a07c6ef4cd815c7211cf16e264e91a257641b988d"
+      "compressedSHA256": "58fb5b3a65d35c98e11c0f5a07c6ef4cd815c7211cf16e264e91a257641b988d",
+      "releaseAsset": "rd-132328-WASM.html.gz"
     },
     {
       "path": "pre-release-160052.html",
       "size": 957174,
       "sha": "389847138c9c810a75e1d06a110c8fa077c17d38",
       "compressedBytes": 703981,
-      "compressedSHA256": "4a4f9d8c218478414e359c60933e2e513bb2b9f96969ede6c17e5891f4413c46"
+      "compressedSHA256": "4a4f9d8c218478414e359c60933e2e513bb2b9f96969ede6c17e5891f4413c46",
+      "releaseAsset": "pre-release-160052.html.gz"
     },
     {
       "path": "rd-161348-WASM.html",
       "size": 961499,
       "sha": "69f643aeeffd0f85ee8cd10d9f3b32301773674b",
       "compressedBytes": 707429,
-      "compressedSHA256": "d50270e376348b70f916d81fb638825868b57eb18c3217ca17868c70023b0b33"
+      "compressedSHA256": "d50270e376348b70f916d81fb638825868b57eb18c3217ca17868c70023b0b33",
+      "releaseAsset": "rd-161348-WASM.html.gz"
     }
   ],
   "originalBytes": 1455905726,

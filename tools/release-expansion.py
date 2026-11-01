@@ -8,7 +8,7 @@ def main():
  def prepare(f):
   r=mirror(f,m['commit'],ROOT/'mirror','api')
   if r['status']=='failed':raise ValueError(r)
-  target=dest/(f['path']+'.gz')
+  target=dest/f['releaseAsset']
   with (ROOT/'mirror'/f['path']).open('rb') as src,target.open('wb') as out,gzip.GzipFile(filename='',mode='wb',fileobj=out,compresslevel=9,mtime=0) as z:shutil.copyfileobj(src,z,1048576)
   if target.stat().st_size!=f['compressedBytes'] or hashlib.sha256(target.read_bytes()).hexdigest()!=f['compressedSHA256']:raise ValueError('Reproducible compression mismatch: '+f['path'])
   return f['path']

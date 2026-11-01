@@ -1,6 +1,32 @@
 # Verification report — 31 October 2026 UTC
 
-## Current release: Tiny Takeover / Featured GitHub Hosting 2.6
+## Current release: Premium Components / Expanded Hosting 2.7
+
+**109 grouped checks pass:** core 13; premium 10; featured 8 (now all 60 hosted
+files); profiles 16; browser 15; Dusk 7; motion 14; panorama 13; extended 8; UI 5.
+21 accessibility state/theme scans are clean (17 original, 2 profile/modal,
+2 new picker/settings scans). Exact component sources, actual source adaptation,
+licenses, inaccessible-source limits and file list: `UI_COMPONENTS.md`.
+
+Hosting: 60 entries / 899,778,235 compressed game bytes / ~907.5 MB assembled
+site. All 52 additional archives were actually published through completed
+workflow 41341506668 to `astrax-games-2026-11-01`. Local/browser checks verify
+all 60 against pinned original bytes with upstream blocked; real 4K launch and
+original HTML export still pass. This does not establish all-game engine boots.
+
+New component checks exercise real shared-surface hosted filtering, keyboard
+selection, Clear/search focus, native material switch persistence, SVG favorites,
+interface Off/reduced motion, 150% responsive geometry and axe scans. Test fixes
+addressed actual CSS specificity and indicator box sizing. Heavy simultaneous
+SwiftShader suites caused timing/context-recovery failures and tool time limits;
+those suites were rerun separately to successful completion. Earlier preparatory
+branch pushes intentionally did not publish the incomplete expanded manifest;
+the final deployment assembles and verifies all assets before core tests/upload.
+
+No physical-device 60 FPS certification, Safari/iPad gameplay, full 140-build
+hosting, runtime authentication or identity injection is asserted.
+
+## Previous release: Tiny Takeover / Featured GitHub Hosting 2.6
 
 **Implemented:** genuine 26.1 Tiny Takeover six-face default, original source/hash
 metadata, static genuine fallback, recorded administrator-confirmed permission;

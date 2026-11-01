@@ -2,6 +2,14 @@
 
 A real, buildless browser launcher for Astrax Interactive, featuring the **Dusk Edition minimal smoked-glass workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is a purple-glass Minecraft-inspired workspace with an original AstraxCraft mark, yellow splash and functional Quick Play. The default background is the genuine Minecraft Java 26.1 Tiny Takeover six-face panorama, served locally with Mojang/Microsoft attribution and recorded administrator-confirmed permission. The older CC BY 3.0 Xbox México scene remains optional. No procedural/generated scenery ships; authorized local cubemap import remains available. No charts or dashboard counters. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
 
+## Premium native components and expanded hosting · 2.7
+
+60 builds now load from this GitHub Pages site; remaining entries use pinned upstream.
+52 additions are verified GitHub release assets assembled at deployment. New native
+components include spring shared-surface filters, search/Clear, material switches,
+SVG favorites, work-bound voxel loaders and dimensional purple glass.
+[Exact component/source links, implementation mapping and limitations](UI_COMPONENTS.md).
+
 ## Player profiles and real 3D skins · 2.5
 
 Open **Skins** or the sidebar profile switcher for multiple persistent browser-local
@@ -23,7 +31,7 @@ No account authentication or in-game username/skin injection is claimed.
 - [Reference audit](REFERENCE_AUDIT.md) and [credits / third-party notices](THIRD_PARTY_NOTICES.md).
 - [GitHub pull request](https://github.com/ttkododoi/AstraxCraft/pull/1) — development history and review.
 
-All launcher source, public assets, tools, tests, documentation and the portable ZIP are included in this repository. Eight approved featured game originals are hosted here in gzip form; the remaining catalog uses pinned upstream. The portable source ZIP excludes game archives and defaults to upstream fetching; use the mirror/staging tools to obtain and enable the local subset separately. GitHub Pages is enabled at https://ttkododoi.github.io/AstraxCraft/; the included workflow publishes pushes to the current default branch. See the verification report for browser and deployment-check boundaries.
+All launcher source, public assets, tools, tests, documentation and the portable ZIP are included in this repository. Sixty approved game originals are hosted here in gzip form; the remaining catalog uses pinned upstream. The portable source ZIP excludes game archives and defaults to upstream fetching; use the mirror/staging tools to obtain and enable the local subset separately. GitHub Pages is enabled at https://ttkododoi.github.io/AstraxCraft/; the included workflow publishes pushes to the current default branch. See the verification report for browser and deployment-check boundaries.
 
 ## Run immediately
 
@@ -218,7 +226,7 @@ The original aurora background really moves using CSS transforms. Smoked panels 
 
 The collection is **2,877,361,421 bytes**, whereas a published GitHub Pages site may be no larger than **1 GB**. Putting all game HTML under `site/` would make this Pages deployment invalid. A Git repository and a Pages site have different limits; storing GBs outside the site would still add large repository/history and bandwidth costs and would not turn raw URLs into directly HTML-serving pages. No GB-scale game copy was committed or silently republished. Upstream still has no detected repository license, so review redistribution rights before publishing elsewhere.
 
-**Current production configuration (2.6):** `site/hosting.json` routes eight approved featured games to same-origin gzip archives, with streaming decompression and original integrity checks. Other paths use pinned upstream. See `FEATURED_HOSTING.md`. This is still **not a full self-hosted collection**, and transfer/validation are not instantaneous.
+**Current production configuration (2.6):** `site/hosting.json` routes 60 approved games to same-origin gzip archives, with streaming decompression and original integrity checks. Other paths use pinned upstream. See `FEATURED_HOSTING.md`. This is still **not a full self-hosted collection**, and transfer/validation are not instantaneous.
 
 For an authorized, size-capable separate static host:
 

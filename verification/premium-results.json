@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "ported AnimatedBackground shared surface aligns with real 60-build hosted filter",
+    "segmented filter supports keyboard navigation and immediate unfiltered results",
+    "Uiverse search group preserves synchronous search, clear and focus restoration",
+    "animated SVG favorite updates actual persisted favorites without selecting or closing",
+    "new picker controls pass axe accessibility checks",
+    "Uiverse-derived native switch is keyboard operable and persists real settings",
+    "new settings switches retain accessible names and clean contrast",
+    "interface Off and device reduced motion suppress shared-surface spring animations",
+    "new search/filters fit phone, tablet and desktop at 150% without body overflow",
+    "no new application errors"
+  ],
+  "errors": []
+}

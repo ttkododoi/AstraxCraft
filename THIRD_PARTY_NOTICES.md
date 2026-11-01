@@ -42,3 +42,17 @@ No additional license for third-party game code is granted by this repository. T
   Original embedded notices are preserved. `FEATURED_HOSTING.md` and
   `site/featured-games.json` list exact files and hashes. Earlier statements that
   no game bytes or official 26.1 faces ship are superseded for this approved subset.
+
+## 2.7 integrated UI components and expanded hosting
+
+- Uiverse MIT code ports/adaptations: cssbuttons-io, adamgiebl, alexruix,
+  Pradeepsaranbishnoi and boryanakrasteva. Exact component links and code mappings
+  are in `UI_COMPONENTS.md`; full Uiverse MIT notice retained.
+- ibelick / Motion Primitives **AnimatedBackground**, MIT © 2024 ibelick; source
+  commit 120f64f6ca60348e251f929e9c81f11ccbe45eda. Native HTML/JS port, not React
+  runtime redistribution. Full license in `site/assets/licenses/Motion-Primitives-MIT.txt`.
+- 60fps public partial SwiftUI/descriptions and Glass3D generator CSS techniques:
+  exact access/reuse boundaries in `UI_COMPONENTS.md`; no gated source or example
+  artwork copied. CSS glass edges are not a claim of optical refraction.
+- Approved hosted collection is now 60 files (52 additional release assets), not
+  all 140. Rights remain administrator-confirmed; upstream has no blanket license.

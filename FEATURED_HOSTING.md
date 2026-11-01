@@ -1,3 +1,37 @@
+# Current hosting expansion — 2.7
+
+**60 builds** are now hosted: 899,778,235 compressed bytes representing
+1,455,905,726 original HTML bytes. The assembled site is about 907.5 MB, below a
+conservative decimal 1 GB cap. All 18 catalogued client entries are included.
+Other choices prioritize release versions, then earlier builds; WISP-prefixed
+variants and identical Git blobs are skipped. Remaining 80 catalog HTML entries
+remain upstream. Exact hosted/omitted lists and hashes: `site/featured-games.json`.
+
+Eight original archives remain in Git; 52 additions are real GitHub release assets:
+https://github.com/ttkododoi/AstraxCraft/releases/tag/astrax-games-2026-11-01
+The Pages workflow downloads them and `tools/assemble-games.py` checks exact asset
+allowlist, compressed size/SHA-256, bounded decoded size/Git blob SHA-1, then
+atomically installs exact original paths. Release asset-name spaces normalize to
+dots; each `releaseAsset` is explicitly mapped back to the original catalog path.
+Nothing fetches release assets or a GitHub API at browser startup. No CORS-dependent
+release download occurs in the browser. A failed/missing/mutated asset fails the
+build, rather than silently publishing broken hosted links.
+
+To reproduce additions, use `python tools/release-expansion.py` (requires the
+locked Python 3.11/bookworm zlib combination for byte-identical gzip), or download
+release assets with `gh release download astrax-games-2026-11-01 --pattern '*.html.gz'
+--dir game-host/release`, then `python tools/assemble-games.py game-host/release`.
+All downloads are pinned and checked; no game is executed by these tools. The
+publisher workflow has actually completed successfully and uploaded all 52 assets.
+The source ZIP excludes game archives and defaults to upstream, preserving its
+portable run-without-download behavior. Do not rerun the original eight-file
+stager below if you intend to retain the expanded configuration.
+
+The original rights confirmation, hosting/bandwidth limits and original-file
+boundaries below still apply. Older eight-file-only descriptions are historical.
+
+---
+
 # Featured games hosted on GitHub Pages — 2.6
 
 The repository administrator confirmed redistribution permission in this session

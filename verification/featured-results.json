@@ -2,7 +2,7 @@
   "checks": [
     "genuine six-face Tiny Takeover loads locally by default and actually rotates",
     "Tiny Takeover respects reduced motion without a generated replacement",
-    "all eight real hosted games stream/decompress/hash-verify in browser with upstream blocked",
+    "all 60 real hosted games stream/decompress/hash-verify in browser with upstream blocked",
     "one-click Play executes verified same-origin compressed 4K HTML and pauses Tiny Takeover",
     "Save HTML exports byte-identical original name/content, not a gzip archive",
     "optional older scene still works; returning to Tiny Takeover persists across reload",

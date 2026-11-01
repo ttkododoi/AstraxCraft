@@ -1,4 +1,7 @@
 /** Dusk motion: interruptible, dependency-free, and independent of launcher orchestration. */
+// Sample a damped physical spring once, then let WAAPI interpolate on the compositor.
+// 60fps public SwiftUI spring/press model, implemented independently in native JS.
+export function springFrames(make){const omega=23,zeta=.88,duration=.34,w=omega*Math.sqrt(1-zeta*zeta);return Array.from({length:25},(_,i)=>{const x=i/24,t=x*duration,value=i===24?1:1-Math.exp(-zeta*omega*t)*(Math.cos(w*t)+zeta*omega/w*Math.sin(w*t));return {...make(value),offset:x};});}
 const ease = 'cubic-bezier(.22,1,.36,1)';
 const snappy = 'cubic-bezier(.16,1,.3,1)';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -25,7 +28,7 @@ function animate(node, slot, frames, duration, delay = 0) {
   if (!node) return null;
   cancel(node, slot);
   if (!motionEnabled() || !node.isConnected) return null;
-  const animation = node.animate(frames, {duration:ms(duration), delay:ms(delay), easing:ease, fill:'both'});
+  const animation = node.animate(frames, {duration:ms(duration), delay:ms(delay), easing:frames.length>3?'linear':ease, fill:'both'});
   let slots = running.get(node);
   if (!slots) running.set(node, slots = new Map());
   slots.set(slot, animation);
@@ -136,7 +139,7 @@ export function showPicker(panel, open) {
     panel.style.pointerEvents = '';
     panel.dataset.state = 'open';
     fitPicker(panel);
-    animate(panel, 'popover', [from||{opacity:0, translate:'0 9px', scale:.985}, {opacity:1, translate:'0 0', scale:1}], 270);
+    animate(panel, 'popover', from?[from,{opacity:1,translate:'0 0',scale:1}]:springFrames(t=>({opacity:Math.max(0,Math.min(1,t)),translate:`0 ${9*(1-t)}px`,scale:.985+.015*t})), 300);
     [panel.querySelector('.picker-head'), panel.querySelector('#search'), panel.querySelector('.filters')].forEach((n, i) => arrive(n, 25 + i*24, 220, 4));
   } else {
     panel.dataset.state = 'closed';
@@ -171,10 +174,7 @@ export function moveNavigation(target, immediate = false) {
   cancel(highlight, 'nav');
   highlight.hidden = false;
   Object.assign(highlight.style, {left:`${row.left-box.left-1}px`, top:`${row.top-box.top-1}px`, width:`${row.width}px`, height:`${row.height}px`});
-  if (previous && !immediate) animate(highlight, 'nav', [
-    {transform:`translate(${previous.left-row.left}px,${previous.top-row.top}px) scale(${previous.width/row.width},${previous.height/row.height})`},
-    {transform:'translate(0,0) scale(1,1)'}
-  ], 300);
+  if (previous && !immediate) animate(highlight, 'nav', springFrames(t=>({transform:`translate(${(previous.left-row.left)*(1-t)}px,${(previous.top-row.top)*(1-t)}px) scale(${1+(previous.width/row.width-1)*(1-t)},${1+(previous.height/row.height-1)*(1-t)})`})), 340);
 }
 export function selectionFeedback(nodes, card) {
   nodes.filter(Boolean).forEach((n, i) => animate(n, 'selection', [{opacity:.5, translate:'0 4px'}, {opacity:1, translate:'0 0'}], 240, i*15));
@@ -260,12 +260,12 @@ export function installMotion({onSearch} = {}) {
   visibility();
   const pressed = new Set();
   const release = button => { button?.classList.remove('is-pressed'); pressed.delete(button); };
-  const releaseAll = () => { for (const b of pressed) b.classList.remove('is-pressed'); pressed.clear(); };
+  const releaseAll = () => { for (const b of pressed) {b.classList.remove('is-pressed');if(b.isConnected&&motionEnabled())animate(b,'release',springFrames(t=>({scale:String(.985+.015*t)})),340);} pressed.clear(); };
   document.addEventListener('pointerdown', e => {
     if (e.button !== 0) return;
     const button = e.target.closest('button');
     if (!button || button.disabled || !motionEnabled()) return;
-    button.classList.add('is-pressed'); pressed.add(button);
+    cancel(button,'release');button.classList.add('is-pressed'); pressed.add(button);
   }, true);
   document.addEventListener('pointerup', releaseAll, true);
   document.addEventListener('pointercancel', releaseAll, true);
@@ -274,7 +274,7 @@ export function installMotion({onSearch} = {}) {
     if (onSearch && (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); onSearch(); }
     if ((e.key==='Enter'||e.key===' ') && !e.repeat && motionEnabled()) {
       const button = e.target.closest('button');
-      if (button && !button.disabled) { button.classList.add('is-pressed'); pressed.add(button); }
+      if (button && !button.disabled) { cancel(button,'release');button.classList.add('is-pressed'); pressed.add(button); }
     }
   });
   document.addEventListener('keyup', e => { if (e.key==='Enter'||e.key===' ') releaseAll(); });
@@ -302,7 +302,7 @@ export function installMotion({onSearch} = {}) {
   document.addEventListener('pointermove', e => {
     for (const button of pressed) if (!button.contains(e.target)) release(button);
     if (!motionEnabled() || e.pointerType!=='mouse' || document.hidden || document.body.matches('.game-session,.is-preparing')) return;
-    const panel=e.target.closest('.play-card,.launchbar');
+    const panel=e.target.closest('.play-card,.launchbar,.character-workspace,.profile-panel,.profile-dialog');
     if (!panel) return;
     const rect=panel.getBoundingClientRect();
     if (lighting?.panel!==panel) lighting={panel,x:25,y:0,toX:25,toY:0};
@@ -310,7 +310,7 @@ export function installMotion({onSearch} = {}) {
     if (!frame) frame=requestAnimationFrame(settleLight);
   });
   document.addEventListener('pointerout', e => {
-    const panel=e.target.closest('.play-card,.launchbar');
+    const panel=e.target.closest('.play-card,.launchbar,.character-workspace,.profile-panel,.profile-dialog');
     if (panel && !panel.contains(e.relatedTarget) && motionEnabled()) {
       if (lighting?.panel!==panel) lighting={panel,x:50,y:30,toX:25,toY:0};
       lighting.toX=25; lighting.toY=0;

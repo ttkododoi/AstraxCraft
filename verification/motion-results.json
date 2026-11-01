@@ -16,7 +16,7 @@
     "byte completion switches to genuine unknown-duration integrity work, never premature ready/success"
   ],
   "searchTiming": {
-    "milliseconds": 3.5,
+    "milliseconds": 1.599999999627471,
     "count": 0
   },
   "errors": []

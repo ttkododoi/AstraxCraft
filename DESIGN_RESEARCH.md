@@ -82,3 +82,13 @@ All four were revisited for the profile task, not just the earlier homepage work
 The 3D model itself is licensed skinview3d geometry, not artwork borrowed from
 these design sites and not an AI model. See `PROFILES.md` and runtime licenses.
 The earlier statement that Skins is only a 2D tool is superseded by release 2.5.
+
+## 2.7 extensive component inspection and integration
+
+See `UI_COMPONENTS.md` for this task's new source-by-source record: full Uiverse
+code, actual public MIT Motion Primitives upstream behind 21st's gated component
+view, 21st hosted preview, both public 60fps snippets and Glass3D generated CSS.
+The new controls and motion are implemented in `site/components.js`,
+`site/components.css`, `site/motion.js` and integrated app markup. Not a list of
+recommendations. Access limits, failed 404, full source pin/license, native ports,
+performance/accessibility choices and modified files are recorded explicitly.
