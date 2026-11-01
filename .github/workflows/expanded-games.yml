@@ -1,6 +1,9 @@
 name: Publish verified expanded games
 on:
   workflow_dispatch:
+  push:
+    branches: [arena/fd59a27d-astraxcraft]
+    paths: [.github/workflows/expanded-games.yml]
 permissions:
   contents: write
 jobs:
