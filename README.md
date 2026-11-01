@@ -1,6 +1,6 @@
 # Astrax Launcher
 
-A real, buildless browser launcher for Astrax Interactive, featuring the **Dusk Edition minimal smoked-glass workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is a purple-glass Minecraft-inspired workspace with an original AstraxCraft mark, yellow splash and functional Quick Play. The default background is a real Xbox México Minecraft gameplay screenshot, CC BY 3.0, served locally with visible attribution. No procedural/generated scenery ships. Official Tiny Takeover textures are not bundled; authorized local cubemap import remains available. No charts or dashboard counters. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
+A real, buildless browser launcher for Astrax Interactive, featuring the **Dusk Edition minimal smoked-glass workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is a purple-glass Minecraft-inspired workspace with an original AstraxCraft mark, yellow splash and functional Quick Play. The default background is the genuine Minecraft Java 26.1 Tiny Takeover six-face panorama, served locally with Mojang/Microsoft attribution and recorded administrator-confirmed permission. The older CC BY 3.0 Xbox México scene remains optional. No procedural/generated scenery ships; authorized local cubemap import remains available. No charts or dashboard counters. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
 
 ## Player profiles and real 3D skins · 2.5
 
@@ -18,11 +18,12 @@ No account authentication or in-game username/skin injection is claimed.
 - [Inspected design resources and adaptations](DESIGN_RESEARCH.md).
 - [Panorama setup, asset rights and performance](PANORAMA.md).
 - [Player profiles, 3D controls, privacy and renderer rebuild](PROFILES.md).
+- [Eight hosted games, compression, authorization and exact manifest](FEATURED_HOSTING.md).
 - [Verification report](VERIFICATION.md) — actual tests, execution boundaries and remaining features.
 - [Reference audit](REFERENCE_AUDIT.md) and [credits / third-party notices](THIRD_PARTY_NOTICES.md).
 - [GitHub pull request](https://github.com/ttkododoi/AstraxCraft/pull/1) — development history and review.
 
-All launcher source, public assets, tools, tests, documentation and the portable ZIP are included in this repository. The upstream game collection is catalogued, not bundled; use the mirror command below to obtain it. GitHub Pages is enabled at https://ttkododoi.github.io/AstraxCraft/; the included workflow publishes pushes to the current default branch. See the verification report for browser and deployment-check boundaries.
+All launcher source, public assets, tools, tests, documentation and the portable ZIP are included in this repository. Eight approved featured game originals are hosted here in gzip form; the remaining catalog uses pinned upstream. The portable source ZIP excludes game archives and defaults to upstream fetching; use the mirror/staging tools to obtain and enable the local subset separately. GitHub Pages is enabled at https://ttkododoi.github.io/AstraxCraft/; the included workflow publishes pushes to the current default branch. See the verification report for browser and deployment-check boundaries.
 
 ## Run immediately
 
@@ -213,11 +214,11 @@ The original aurora background really moves using CSS transforms. Smoked panels 
 
 **Auto-start repository games after validation** is enabled by default. Local imported active content keeps a separate confirmation. You can turn automatic starting off to restore preparation-only mode. Main/extended regression tests deliberately turn it off to test the preparation boundary; `tests/dusk.mjs` tests default one-click automatic execution separately.
 
-### Full self-hosting: not deployed yet
+### Partial self-hosting deployed; full collection not deployed
 
 The collection is **2,877,361,421 bytes**, whereas a published GitHub Pages site may be no larger than **1 GB**. Putting all game HTML under `site/` would make this Pages deployment invalid. A Git repository and a Pages site have different limits; storing GBs outside the site would still add large repository/history and bandwidth costs and would not turn raw URLs into directly HTML-serving pages. No GB-scale game copy was committed or silently republished. Upstream still has no detected repository license, so review redistribution rights before publishing elsewhere.
 
-**Current production configuration:** `site/hosting.json` has `baseUrl: null`. Bytes are loaded from the exact pinned UserArham repository, then automatically opened after integrity checks. This already requires no game installation. It is **not a full self-hosted collection** and network transfer/validation are not instantaneous.
+**Current production configuration (2.6):** `site/hosting.json` routes eight approved featured games to same-origin gzip archives, with streaming decompression and original integrity checks. Other paths use pinned upstream. See `FEATURED_HOSTING.md`. This is still **not a full self-hosted collection**, and transfer/validation are not instantaneous.
 
 For an authorized, size-capable separate static host:
 

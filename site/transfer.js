@@ -15,13 +15,14 @@ export async function validate(bytes,entry){
  }
  return new Blob([bytes],{type:'text/html'});
 }
-export async function fetchGame(entry,commit,signal,progress,state,urlOverride){
+export async function fetchGame(entry,commit,signal,progress,state,urlOverride,compression){
  if(entry.size>LIMIT)throw Error('File too large for browser preparation; use mirror.py.');
  state('fetching');let response;
  try{response=await fetch(urlOverride||sourceURL(commit,entry.path),{signal});}catch(e){if(e.name==='AbortError')throw e;throw Error('Network or CORS failure: '+e.message);}
  if(!response.ok)throw Error(`Upstream HTTP ${response.status}`);
  const type=response.headers.get('content-type')||'';
- if(!/text\/|application\/octet-stream|application\/xhtml/i.test(type))throw Error('Unexpected MIME: '+type);
+ if(!/text\/|application\/octet-stream|application\/xhtml/i.test(type)&&!(compression==='gzip'&&/application\/(gzip|x-gzip)/i.test(type)))throw Error('Unexpected MIME: '+type);
+ if(compression==='gzip'){if(typeof DecompressionStream!=='function')throw Error('This browser cannot decompress hosted games. Choose a browser supporting DecompressionStream.');if(!response.body)throw Error('Compressed response has no stream.');response=new Response(response.body.pipeThrough(new DecompressionStream('gzip')));}
  const chunks=[];let count=0;
  if(response.body){const reader=response.body.getReader();try{for(;;){const {done,value}=await reader.read();if(done)break;count+=value.length;if(count>LIMIT||count>entry.size){await reader.cancel();throw Error('Unexpected oversized response');}chunks.push(value);progress(count,entry.size);}}finally{reader.releaseLock();}}
  else{const v=new Uint8Array(await response.arrayBuffer());chunks.push(v);count=v.length;progress(count,entry.size);}
@@ -33,6 +34,11 @@ export function saveBlob(blob,name){const url=URL.createObjectURL(blob),a=docume
 export function hostedURL(config,commit,path,base){
  if(!config.baseUrl)return sourceURL(commit,path);
  if(config.commit!==commit)throw Error('Hosted game revision does not match the pinned catalog.');
+ if(config.files!==undefined&&(!Array.isArray(config.files)||!config.files.every(f=>typeof f==='string')))throw Error('Invalid hosted file allowlist.');
+ if(config.compression!==undefined&&!['gzip','none'].includes(config.compression))throw Error('Invalid host compression.');
  const root=new URL(config.baseUrl,base);if(!['http:','https:'].includes(root.protocol)||root.username||root.password||root.search||root.hash)throw Error('Invalid game hosting URL.');
- if(!root.pathname.endsWith('/'))root.pathname+='/';return new URL(encodePath(path),root).href;
+ if(config.files&&!config.files.includes(path))return sourceURL(commit,path);
+ if(!root.pathname.endsWith('/'))root.pathname+='/';return new URL(encodePath(path)+(config.compression==='gzip'?'.gz':''),root).href;
 }
+
+export function hostedCompression(config,path){return config.baseUrl&&config.compression==='gzip'&&(!config.files||config.files.includes(path))?'gzip':undefined;}

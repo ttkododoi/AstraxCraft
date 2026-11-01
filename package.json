@@ -1,6 +1,6 @@
 {
   "name": "astrax-launcher",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,7 +13,8 @@
     "test:panorama": "node tests/panorama.mjs",
     "test:ui": "node tests/ui-polish.mjs",
     "test:profiles": "node tests/profiles.mjs",
-    "vendor:skins": "esbuild tools/skinview-entry.js --bundle --format=esm --minify --legal-comments=linked --outfile=site/vendor/skinview3d-3.4.2.js"
+    "vendor:skins": "esbuild tools/skinview-entry.js --bundle --format=esm --minify --legal-comments=linked --outfile=site/vendor/skinview3d-3.4.2.js",
+    "test:featured": "node tests/featured.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.10.2",

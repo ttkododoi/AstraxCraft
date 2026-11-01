@@ -9,6 +9,8 @@ reference/
 
 game-host/
 
-site/games/
+site/games/**
+!site/games/3fda1220656f4d4d7b6c1fb53272cae52faf29b3/
+!site/games/3fda1220656f4d4d7b6c1fb53272cae52faf29b3/*.html.gz
 
 .venv/

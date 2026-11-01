@@ -1,0 +1,65 @@
+{
+  "commit": "3fda1220656f4d4d7b6c1fb53272cae52faf29b3",
+  "selection": "Curated shortlist, not an independently measured popularity ranking.",
+  "authorization": "Repository administrator confirmed redistribution permission in this session on 2026-11-01. Upstream repository still declares no blanket license; no additional rights are granted.",
+  "files": [
+    {
+      "path": "Eaglercraft 1.8.8 .html",
+      "size": 27147422,
+      "sha": "46186c0120c7b63e3911896db915b167c0e808b5",
+      "compressedBytes": 12163764,
+      "compressedSHA256": "801bd8d14f7f091fd239df4a0e81550f04fa1af7fc73aa30c8b66c387516840c"
+    },
+    {
+      "path": "Eaglercraft-1.12.html",
+      "size": 25066316,
+      "sha": "d58eed2b42bbb92d9f7c9627d99ff9ce34d101f6",
+      "compressedBytes": 18964717,
+      "compressedSHA256": "39bee8069a740734ddc4181962457af3d120d2de2a49245f49f2365ea26349bb"
+    },
+    {
+      "path": "Eaglercraft-1.5.2.html",
+      "size": 16523010,
+      "sha": "d8294c9b14ad8b808189b7aca8dc1f8122c93689",
+      "compressedBytes": 8110082,
+      "compressedSHA256": "2217138517e14914810379e130b25c7fb0c9f71ee26817b514ddaa01cd0ea53d"
+    },
+    {
+      "path": "Eaglercraft-4k-JS.html",
+      "size": 66325,
+      "sha": "0c3829c7e3678b4dd252c96b989f249d5540239e",
+      "compressedBytes": 32529,
+      "compressedSHA256": "9e952a77d8b727e5e1e5a945469ace34bf15738f90632f360be1c62f133e806b"
+    },
+    {
+      "path": "Aero Client JS.html",
+      "size": 41608092,
+      "sha": "872428450168da25529609107301634b7a9e1298",
+      "compressedBytes": 23129132,
+      "compressedSHA256": "31d4fa0d105540564ed77d237fe1d1afba8075a3adde825e26ce15ada1f5eb0d"
+    },
+    {
+      "path": "PixelClient 1.8.8 JS.html",
+      "size": 17522039,
+      "sha": "16afc5fb6cb6c9979528d8d43d95007c51c9ffdf",
+      "compressedBytes": 13266894,
+      "compressedSHA256": "d42789d71de6b44af1ab94229dddbfb7a96631b68f3538023e4aad97df6bc83f"
+    },
+    {
+      "path": "Koneclient-1.8.8.html",
+      "size": 9611227,
+      "sha": "8013f470009dac88a0119fad23ee6bc62f5f5b5e",
+      "compressedBytes": 1617079,
+      "compressedSHA256": "f193eed8b8178f5e9e224da4f2b10afe385ac04143b33e131fa945d76ea75fb3"
+    },
+    {
+      "path": "Precision.html",
+      "size": 19287529,
+      "sha": "4d0a03614b05a90e52e2adc6933ceb01aa670a33",
+      "compressedBytes": 11835543,
+      "compressedSHA256": "2b5c4a0dda363477e34182fa30ba70fc2bf4b58ca6d01246413b03c4fc3030e9"
+    }
+  ],
+  "originalBytes": 156831960,
+  "hostedBytes": 89119740
+}

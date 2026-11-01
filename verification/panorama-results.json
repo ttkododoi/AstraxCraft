@@ -1,6 +1,6 @@
 {
   "checks": [
-    "default is a locally hosted, credited real Minecraft screenshot with no WebGL allocation or procedural substitute",
+    "optional classic scene remains a locally hosted credited screenshot without a procedural substitute",
     "subtle screenshot motion and the same background layer persist across launcher pages",
     "photo motion obeys the independent animation preference and device reduced motion",
     "aurora, real static scene and Off apply live and persist with no reload dependency",

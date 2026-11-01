@@ -1,6 +1,35 @@
 # Verification report — 31 October 2026 UTC
 
-## Current release: Player Profiles / Real 3D Skin Studio 2.5
+## Current release: Tiny Takeover / Featured GitHub Hosting 2.6
+
+**Implemented:** genuine 26.1 Tiny Takeover six-face default, original source/hash
+metadata, static genuine fallback, recorded administrator-confirmed permission;
+eight approved games on same-origin GitHub Pages as deterministic gzip originals.
+156,831,960 original bytes / 89,119,740 hosted bytes. Remaining catalog paths use
+upstream. No full-collection, offline-cache, all-game boot or popularity-stat claim.
+
+**99 grouped checks passed this release:** Node/core 13; featured browser 8; profiles 16; browser 15;
+Dusk 7; motion 14; classic/import panorama 13; extended 8; UI polish 5. All 17
+existing state/theme axe scans and both profile-page/dialog axe scans are clean.
+`verification/featured-results.json` records real local HTTP tests: all eight
+compressed files decompressed and pinned-hash verified with upstream blocked;
+4K Play reached the actual game canvas; Save HTML matched original bytes; Tiny
+Takeover rotated, stopped for reduced motion/running game, persisted through
+reload and recovered from a real WebGL context loss with a genuine static image.
+
+Original upstream failure/cancel tests now explicitly disable partial hosting in
+their fixtures. A separate production-config suite verifies same-origin hosting;
+this avoids accidentally testing a mocked upstream response instead of real local
+archives. Dusk fixture cleanup removes only its temporary uncompressed file, never
+the committed game archive directory. An initial parallel browser extraction raced
+with ETXTBSY; after extraction completed, affected suites were rerun and passed.
+
+Tiny Takeover assets and game permissions are administrator-confirmed, not an
+independent legal audit or a grant to third parties. Current source ZIP excludes
+large game archives. Physical Safari/iPad, all-client engine boots and production
+CDN bandwidth capacity are not asserted.
+
+## Previous release: Player Profiles / Real 3D Skin Studio 2.5
 
 The unchanged 2.4 background and launch behavior described below remain intact.
 New renderer: locally bundled MIT skinview3d 3.4.2 + skinview-utils 0.7.1 +

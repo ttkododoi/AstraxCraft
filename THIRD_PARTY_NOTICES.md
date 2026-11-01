@@ -27,3 +27,18 @@ No additional license for third-party game code is granted by this repository. T
 - Profile-specific Uiverse/60fps/Glass3D/21st research and access restrictions are
   recorded in `DESIGN_RESEARCH.md`. Only licensed CSS/pattern adaptations and
   independent implementations are used; no gated source is redistributed.
+
+## 2.6 Tiny Takeover and approved featured games
+
+- **Tiny Takeover Java 26.1 panorama**, Mojang Studios / Microsoft: six genuine
+  1024×1024 title-screen faces from a pinned Minecraft asset mirror, retained
+  byte-for-byte, plus a static WebP derivative. Copyright reserved, **not MIT or
+  CC BY**. Included following the administrator's permission confirmation, not an
+  independent rights audit. Full provenance and rights notice in
+  `site/assets/tiny-takeover/CREDITS.md` and `source.json`.
+- **Eight featured UserArham/version files** are now hosted as losslessly gzip-
+  compressed original HTML. Administrator confirmed redistribution permission on
+  2026-11-01; the upstream still declares no blanket license and we grant none.
+  Original embedded notices are preserved. `FEATURED_HOSTING.md` and
+  `site/featured-games.json` list exact files and hashes. Earlier statements that
+  no game bytes or official 26.1 faces ship are superseded for this approved subset.

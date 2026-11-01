@@ -2,7 +2,7 @@ import {
   validateSkin,
   thumbnail,
   mountSkinViewer,
-} from "./skin-view.js?v=craft-25";
+} from "./skin-view.js?v=craft-26";
 const node = (tag, cls, text) => {
   const n = document.createElement(tag);
   if (cls) n.className = cls;

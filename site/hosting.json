@@ -1,5 +1,16 @@
 {
-  "baseUrl": null,
+  "baseUrl": "games/3fda1220656f4d4d7b6c1fb53272cae52faf29b3/",
   "commit": "3fda1220656f4d4d7b6c1fb53272cae52faf29b3",
-  "note": "No self-hosted collection is deployed. Null uses pinned upstream raw bytes. Configure only a verified, authorized, size-capable HTML/static game origin."
+  "compression": "gzip",
+  "files": [
+    "Eaglercraft 1.8.8 .html",
+    "Eaglercraft-1.12.html",
+    "Eaglercraft-1.5.2.html",
+    "Eaglercraft-4k-JS.html",
+    "Aero Client JS.html",
+    "PixelClient 1.8.8 JS.html",
+    "Koneclient-1.8.8.html",
+    "Precision.html"
+  ],
+  "note": "Eight featured originals mirrored with repository administrator-confirmed redistribution permission. All other catalog paths use pinned upstream. Gzip transport decompresses to original hash-verified HTML, without patching."
 }

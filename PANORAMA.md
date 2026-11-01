@@ -1,3 +1,31 @@
+# Current default: genuine Tiny Takeover · 2.6
+
+The six original 1024×1024 Java Edition **26.1 Tiny Takeover** title-screen faces
+are now bundled locally in `site/assets/tiny-takeover/`, pinned to
+InventivetalentDev/minecraft-assets commit `1a751e5f4f158777313d1df6909f63a60c3964bf`.
+This is actual Minecraft imagery, not procedural or AI-generated scenery.
+Mojang/Microsoft retain copyright; administrator-confirmed permission is recorded,
+not represented as MIT, CC BY or independently audited authorization. See the
+asset's `CREDITS.md` and `source.json` for provenance, six hashes and rights limits.
+
+The default uses the existing bounded slow cubemap renderer, no mouse-follow
+camera. Hidden tabs, game preparation/execution, reduced motion and the background
+motion switch stop rotation; resize renders on demand. Context/asset failure shows
+a real static WebP derivative of Tiny Takeover face 0, never a fabricated scene.
+All six original PNGs remain byte-identical to the pinned source. No upscaling.
+
+Schema 4 migrates only the older default Minecraft Overworld preference to Tiny
+Takeover; existing imported panoramas, Aurora, Off and Static choices remain.
+Minecraft Overworld remains selectable as the separately licensed classic scene.
+The old `Tiny Takeover Panorama` legacy key continues to mean Imported Panorama,
+so its locally saved faces are not lost; the new choice is `Tiny Takeover (26.1)`.
+Uploading/removing a local panorama does not erase the bundled Tiny Takeover set.
+
+The earlier screenshot-only default description below is historical for 2.4/2.5;
+its source/CC BY license still applies **only** to the optional Xbox México scene.
+
+---
+
 # Real Minecraft background and local panoramas — AstraxCraft 2.4
 
 ## Default: real gameplay, not a generated stand-in

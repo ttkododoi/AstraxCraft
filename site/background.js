@@ -1,5 +1,8 @@
-/** Real licensed photo or local six-face panorama. No runtime hotlinks, engine or mouse camera. */
-const modes=['Minecraft Overworld','Original Dusk Aurora','Static Minecraft Scene','Background Off','Imported Panorama'];
+/** Genuine bundled Tiny Takeover, licensed classic screenshot or local six-face panorama. */
+const modes=['Minecraft Overworld','Original Dusk Aurora','Static Minecraft Scene','Background Off','Imported Panorama','Tiny Takeover (26.1)'];
+const tinyStatus='Tiny Takeover · genuine Minecraft Java 26.1 panorama · Mojang / Microsoft';
+const isCubemap=()=>selection===modes[4]||selection===modes[5];let bundledFaces;
+async function readBundled(){if(!bundledFaces)bundledFaces=Promise.all(Array.from({length:6},async(_,i)=>{const r=await fetch(`assets/tiny-takeover/panorama_${i}.png`);if(!r.ok)throw Error('Tiny Takeover face '+i+' HTTP '+r.status);return r.blob();})).catch(e=>{bundledFaces=null;throw e;});return bundledFaces;}
 const photoStatus='Real Minecraft screenshot · Xbox México · CC BY 3.0. Not Tiny Takeover.';
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 let uniforms,importSerial=0;
@@ -29,16 +32,16 @@ export async function importPanorama(files){
  // Fully decode before replacing the saved set; corrupt uploads cannot displace a working panorama.
  for(const face of ordered)await decode(face.blob);
  await storeImported(ordered.map(f=>f.blob),epoch);if(epoch!==importSerial)return;
- invalidateTextures();imported=true;tell('Imported panorama · stored only on this browser. Asset rights remain yours to verify.');
+ if(selection===modes[4])invalidateTextures();imported=true;tell('Imported panorama · stored only on this browser. Asset rights remain yours to verify.');
  if(selection===modes[4])await loadSet(ordered.map(f=>f.blob),true);
 }
 function invalidateTextures(){++serial;stop();textures.forEach(t=>gl?.deleteTexture(t));textures=[];document.documentElement.dataset.panorama='fallback';}
-export async function clearPanorama(){const epoch=++importSerial;await storeImported(null,epoch);if(epoch!==importSerial)return;invalidateTextures();imported=false;tell(photoStatus);if(selection===modes[4])await loadSet(null,false);}
+export async function clearPanorama(){const epoch=++importSerial;await storeImported(null,epoch);if(epoch!==importSerial)return;imported=false;if(selection===modes[4]){invalidateTextures();tell(photoStatus);await loadSet(null,false);}else tell(selection===modes[5]?tinyStatus:photoStatus);}
 function shader(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){gl.deleteShader(s);throw Error('Panorama shader unsupported');}return s;}
 function createRenderer(){
  if(initialized)return !!gl&&!gl.isContextLost();initialized=true;
  canvas=document.createElement('canvas');canvas.id='panorama';canvas.setAttribute('aria-hidden','true');canvas.setAttribute('role','presentation');document.body.prepend(canvas);
- canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();failed=true;stop();document.documentElement.dataset.panorama='fallback';tell('Graphics context lost · licensed screenshot fallback selected.');});
+ canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();failed=true;stop();document.documentElement.dataset.panorama='fallback';tell('Graphics context lost · real Minecraft static fallback selected.');});
  canvas.addEventListener('webglcontextrestored',()=>{gl=null;program=null;textures=[];initialized=false;failed=false;canvas.remove();void activate();});
  try{
   gl=canvas.getContext('webgl',{alpha:false,antialias:false,depth:false,stencil:false,powerPreference:'low-power'});if(!gl)throw Error('WebGL unavailable');
@@ -53,7 +56,7 @@ function createRenderer(){
   uniforms=Object.fromEntries(['aspect','yaw','pitch'].map(key=>[key,gl.getUniformLocation(program,key)]));
   for(let i=0;i<6;i++)gl.uniform1i(gl.getUniformLocation(program,`face${i}`),i);
   return true;
- }catch{failed=true;document.documentElement.dataset.panorama='fallback';tell('Panorama graphics unavailable · licensed screenshot fallback selected.');return false;}
+ }catch{failed=true;document.documentElement.dataset.panorama='fallback';tell('Panorama graphics unavailable · real Minecraft static fallback selected.');return false;}
 }
 async function loadSet(blobs,isImported){
  if(!blobs){invalidateTextures();tell(photoStatus);sync();return;}
@@ -64,19 +67,19 @@ async function loadSet(blobs,isImported){
   const next=[];
   try{for(let i=0;i<6;i++){let image=images[i];const limit=Math.min(1024,gl.getParameter(gl.MAX_TEXTURE_SIZE));if(image.width>limit){const small=document.createElement('canvas');small.width=small.height=limit;const ctx=small.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.drawImage(image,0,0,limit,limit);image=small;}const texture=gl.createTexture();next.push(texture);gl.activeTexture(gl.TEXTURE0+i);gl.bindTexture(gl.TEXTURE_2D,texture);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,image);if(gl.getError()!==gl.NO_ERROR)throw Error('Texture upload failed');}}
   catch(error){next.forEach(t=>gl.deleteTexture(t));throw error;}
-  textures.forEach(t=>gl.deleteTexture(t));textures=next;failed=false;imported=isImported;document.documentElement.dataset.panorama='ready';tell(isImported?'Imported panorama · stored only on this browser. Asset rights remain yours to verify.':photoStatus);draw();sync();
+  textures.forEach(t=>gl.deleteTexture(t));textures=next;failed=false;imported=isImported;document.documentElement.dataset.panorama='ready';tell(isImported?'Imported panorama · stored only on this browser. Asset rights remain yours to verify.':selection===modes[5]?tinyStatus:photoStatus);draw();sync();
  }catch{
   if(token!==serial)return;
-  if(blobs){tell('Imported faces could not load · using the licensed screenshot.');await loadSet(null,false);}
-  else{failed=true;stop();document.documentElement.dataset.panorama='fallback';tell('Panorama images could not load · licensed screenshot fallback selected.');}
+  if(blobs){tell('Imported faces could not load · using the real Minecraft static image.');await loadSet(null,false);}
+  else{failed=true;stop();document.documentElement.dataset.panorama='fallback';tell('Panorama images could not load · real Minecraft static fallback selected.');}
  }
 }
 function dimensions(){const dpr=Math.min(devicePixelRatio||1,innerWidth<700?1:1.25),factor=Math.min(dpr,1600/innerWidth,1100/innerHeight);const w=Math.max(1,Math.round(innerWidth*factor)),h=Math.max(1,Math.round(innerHeight*factor));if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}gl.viewport(0,0,w,h);}
-function draw(){if(!gl||failed||textures.length!==6||selection!==modes[4])return;dimensions();gl.useProgram(program);textures.forEach((t,i)=>{gl.activeTexture(gl.TEXTURE0+i);gl.bindTexture(gl.TEXTURE_2D,t);});gl.uniform1f(uniforms.aspect,innerWidth/innerHeight);gl.uniform1f(uniforms.yaw,angle);gl.uniform1f(uniforms.pitch,.1745329);gl.drawArrays(gl.TRIANGLES,0,6);canvas.dataset.frames=String(++frames);canvas.dataset.yaw=String(angle);}
-function canMove(){return selection===modes[4]&&animated&&!reduced.matches&&!document.hidden&&!document.body.matches('.is-preparing,.game-session')&&textures.length===6&&!failed;}
+function draw(){if(!gl||failed||textures.length!==6||!isCubemap())return;dimensions();gl.useProgram(program);textures.forEach((t,i)=>{gl.activeTexture(gl.TEXTURE0+i);gl.bindTexture(gl.TEXTURE_2D,t);});gl.uniform1f(uniforms.aspect,innerWidth/innerHeight);gl.uniform1f(uniforms.yaw,angle);gl.uniform1f(uniforms.pitch,.1745329);gl.drawArrays(gl.TRIANGLES,0,6);canvas.dataset.frames=String(++frames);canvas.dataset.yaw=String(angle);}
+function canMove(){return isCubemap()&&animated&&!reduced.matches&&!document.hidden&&!document.body.matches('.is-preparing,.game-session')&&textures.length===6&&!failed;}
 function tick(now){raf=0;if(!canMove())return;const interval=1000/(innerWidth<700?24:30);if(now-last>=interval){const elapsed=last?Math.min(now-last,100):0;last=now;angle=(angle+elapsed*.00000523599)%(Math.PI*2);draw();}raf=requestAnimationFrame(tick);}
 function stop(){cancelAnimationFrame(raf);raf=0;last=0;}
-function sync(){const moving=animated&&!reduced.matches&&!document.hidden&&!document.body.matches('.is-preparing,.game-session')&&(selection===modes[0]||(selection===modes[4]&&(textures.length!==6||failed)));if(document.body.classList.contains('scene-moving')!==moving)document.body.classList.toggle('scene-moving',moving);if(canMove()){if(!raf)raf=requestAnimationFrame(tick);}else stop();}
-async function activate(){if(selection!==modes[4]){++serial;sync();return;}if(textures.length===6&&!failed){draw();sync();return;}const token=serial;const saved=await readImported();if(selection!==modes[4]||token!==serial)return;await loadSet(saved,!!saved);}
+function sync(){const moving=animated&&!reduced.matches&&!document.hidden&&!document.body.matches('.is-preparing,.game-session')&&(selection===modes[0]||(isCubemap()&&(textures.length!==6||failed)));if(document.body.classList.contains('scene-moving')!==moving)document.body.classList.toggle('scene-moving',moving);if(canMove()){if(!raf)raf=requestAnimationFrame(tick);}else stop();}
+async function activate(){if(!isCubemap()){++serial;sync();return;}if(textures.length===6&&!failed){draw();sync();return;}const token=serial;const wanted=selection;let saved;try{saved=selection===modes[5]?await readBundled():await readImported();}catch{if(token===serial){tell('Tiny Takeover could not load · static fallback active.');document.documentElement.dataset.panorama='fallback';sync();}return;}if(selection!==wanted||token!==serial)return;await loadSet(saved,selection===modes[4]&&!!saved);}
 let installed=false;
-export function setBackground(mode,motion){selection=mode==='Tiny Takeover Panorama'?modes[4]:modes.includes(mode)?mode:modes[0];animated=motion!==false;document.documentElement.dataset.background=selection===modes[4]?'panorama':selection===modes[0]?'photo':selection===modes[1]?'aurora':selection===modes[2]?'static':'off';if(!installed){installed=true;new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['class']});document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);window.addEventListener('resize',()=>{if(!document.hidden&&selection===modes[4])draw();},{passive:true});}sync();void activate();}
+export function setBackground(mode,motion){const previous=selection;selection=mode==='Tiny Takeover Panorama'?modes[4]:modes.includes(mode)?mode:modes[0];if(selection!==previous){invalidateTextures();tell(selection===modes[5]?'Loading genuine Tiny Takeover faces…':selection===modes[4]?'Loading local imported panorama…':photoStatus);}animated=motion!==false;document.documentElement.dataset.panoramaSource=selection===modes[5]?'tiny-takeover':'other';document.documentElement.dataset.background=isCubemap()?'panorama':selection===modes[0]?'photo':selection===modes[1]?'aurora':selection===modes[2]?'static':'off';if(!installed){installed=true;new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['class']});document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);window.addEventListener('resize',()=>{if(!document.hidden&&isCubemap())draw();},{passive:true});}sync();void activate();}
