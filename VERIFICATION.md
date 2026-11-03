@@ -1,6 +1,42 @@
-# Verification report — 31 October 2026 UTC
+# Verification report — 3 November 2026
 
-## Current release: Premium Components / Expanded Hosting 2.7
+## Current release: In-page Play Hub 2.8
+
+**123 grouped checks pass in this working tree:** core 14; in-page player 13;
+premium 10; featured 8; profiles 16; browser 15; Dusk 7; motion 14; panorama 13;
+extended 8; UI 5. **25 axe state/theme scans** are clean, including four new
+hub/player states (desktop, phone, preparation-only and failure). Results are in
+`verification/player-results.json` and the existing per-suite reports. The old
+runner-focused suites now explicitly use Open separately when a hosted build
+opens inline; their popup assertions do not describe default hosted Play.
+
+The new Play handler creates the same-page workspace synchronously. Download,
+gzip decompression and original Git blob/size verification still precede game
+execution. Real 4K HTML reached its titled Blob iframe and canvas. Closing removes
+the iframe, revokes its URL, aborts pending work and restores launcher controls.
+Tests cover real HTTP 503/retry, cancellation with no late execution, preparation
+only, explicit Start, Save HTML and separate-window fallback. Browser verification
+also rechecked all 60 hosted files with upstream blocked; **not all 60 engines
+were booted**.
+
+Verified Blobs use an LRU bounded to 96 MiB (48 MiB on initial phone-width
+viewports), keyed by catalog commit and original Git blob SHA-1. Oversized files
+are not retained. Repeat 4K launch was measured as zero additional game requests.
+This is memory-only reuse: no startup game prefetch, service worker, persistent
+cache, offline guarantee or instant-engine-readiness claim. Reload discards it.
+The iframe uses same-origin compatibility permissions and is **not a security
+boundary**; trusted third-party game code can access the hosting origin's storage.
+
+The entire hub is rebuilt as horizontal navigation, asymmetric hero/play card,
+six real hosted selectors and a full-viewport game workspace. The genuine Tiny
+Takeover panorama, profile/skin tools, bookmarks, source links and native component
+ports remain. Phone/tablet/desktop tests include 150% scaling. Early test failures
+exposed an outdated home selector in favorites; fixed to keep the new hub live.
+Old heading/splash assertions were updated to the redesigned content. A short
+fixed-time background assertion was replaced with an observed frame change;
+sequential final suites pass. No physical-device frame-rate certification.
+
+## Previous release: Premium Components / Expanded Hosting 2.7
 
 **109 grouped checks pass:** core 13; premium 10; featured 8 (now all 60 hosted
 files); profiles 16; browser 15; Dusk 7; motion 14; panorama 13; extended 8; UI 5.

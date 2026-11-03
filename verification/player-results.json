@@ -1,0 +1,18 @@
+{
+  "checks": [
+    "Desktop hub axe scan",
+    "six real hosted shortcuts and horizontal navigation render after startup",
+    "Play immediately opens same-page workspace, verifies/decompresses real 4K, runs canvas without popup",
+    "Back removes frame/restores shell and repeated verified launch makes zero extra game requests",
+    "Preparation-only player axe scan",
+    "preparation-only preference prevents execution; Save HTML and explicit Start work",
+    "Open separately retains explicit original runner/preparation fallback",
+    "Failure player axe scan",
+    "real HTTP failure executes nothing; Retry successfully prepares original",
+    "Back cancels in-flight preparation without late iframe creation or stuck busy state",
+    "phone/tablet/desktop hub and picker remain reachable at 150% scale",
+    "Mobile hub axe scan",
+    "no launcher JavaScript errors"
+  ],
+  "errors": []
+}

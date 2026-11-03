@@ -168,7 +168,7 @@ export function moveNavigation(target, immediate = false) {
   const nav = target.closest('nav');
   if (nav) {
     const clip = nav.getBoundingClientRect();
-    if (row.top < clip.top || row.bottom > clip.bottom) { highlight.hidden = true; return; }
+    if (row.top < clip.top || row.bottom > clip.bottom || row.left < clip.left || row.left+row.width > clip.right) { highlight.hidden = true; return; }
   }
   const previous = highlight.hidden ? null : highlight.getBoundingClientRect();
   cancel(highlight, 'nav');

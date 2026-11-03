@@ -1,44 +1,15 @@
-const views = new WeakMap();
-const node=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls;if(text!==undefined)n.textContent=text;return n;};
-const action=(label,cls,fn)=>{const b=node('button',cls,label);b.onclick=fn;return b;};
-/** Stable home nodes: updating a selection never restarts the hero or replaces the card. */
+const views=new WeakMap();
+const node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
+const action=(text,cls,fn)=>{const n=node('button',cls,text);n.type='button';n.onclick=fn;return n;};
 export function createHome(options){
- const {onBrowse,onUpload}=options;
- const home=node('div','hero quiet-home orbit-home');
- const intro=node('div','quiet-intro'),heading=node('h1');
- const brand=node('div','craft-brand'),mark=node('img','craft-mark');mark.src='assets/craft-mark.svg';mark.alt='';mark.width=mark.height=40;brand.append(mark,node('span','craft-wordmark','ASTRAXCRAFT'));const splash=node('span','craft-splash','One more world!');brand.append(splash);
- heading.append(node('span','hero-line','Pick a world.'),document.createTextNode('\n'),node('span','hero-line','Make it yours.'));
- intro.append(brand,node('span','quiet-eyebrow','YOUR SPACE TO PLAY'),heading,node('p','','Your builds, your favorites, one simple launcher.'));
- const card=node('section','glass-panel play-card');
- const title=node('h2','home-current'),metadata=node('p','home-current-description');
- card.append(node('span','home-kicker','QUICK PLAY'),title,metadata);
- const play=action('Play','home-play',()=>views.get(home).options.onLaunch());play.setAttribute('aria-label','Play selected build');
- const actions=node('div','home-actions'),browse=action('Explore the library ↗','primary-action',()=>onBrowse(''));
- actions.append(play,browse,action('Import local HTML','secondary-action',onUpload));card.append(actions);
- const details=action('View selected source →','text-action',()=>{const state=views.get(home);if(state.options.selected)state.options.onDetails(state.options.selected);});
- details.hidden=true;card.append(details);
- const favorites=node('div','quiet-favorites');favorites.hidden=true;card.append(favorites);
- const menu=node('nav','home-menu');menu.setAttribute('aria-label','Launcher shortcuts');for(const [label,route,hint] of [['Versions',null,'Search all 140 original builds'],['Multiplayer','Servers','Saved server addresses; copy into a compatible game'],['Skins','Skins','Import and preview a local PNG texture'],['Settings','Launcher Settings','Appearance and launch preferences']]){const b=action(label,'menu-action',()=>route?views.get(home).options.onNavigate(route):views.get(home).options.onBrowse(''));b.dataset.hint=hint;menu.append(b);}
- const credit=node('p','scene-credit');credit.append(document.createTextNode('Scenes: Tiny Takeover © Mojang / Microsoft · '));const source=node('a','','26.1 source / credits');source.href='assets/tiny-takeover/CREDITS.md';source.target='_blank';source.rel='noopener';credit.append(source,document.createTextNode(' · Classic screenshot: Xbox México / CC BY 3.0'));
-
- home.append(intro,card,menu,credit,node('p','minecraft-disclaimer','Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.'),node('p','play-disclosure','Play runs third-party HTML. No installation required. Some games still need an in-game click for sound or controls.'));
- views.set(home,{options,title,metadata,browse,play,details,favorites,favoriteKey:''});
- updateHome(home,options);return home;
+ const home=node('div','hero quiet-home launch-hub'),intro=node('div','quiet-intro'),brand=node('div','craft-brand'),mark=node('img','craft-mark');mark.src='assets/craft-mark.svg';mark.alt='';brand.append(mark,node('span','craft-wordmark','ASTRAXCRAFT'));intro.append(brand,node('span','quiet-eyebrow','YOUR NEXT CHAPTER STARTS HERE'));const h=node('h1');h.append(node('span','hero-line','Your world.'),node('span','hero-line','One click away.'));intro.append(h,node('p','hub-description','Pick your build. Make yourself at home. Hosted games now open right here, without another tab.'));
+ const hero=node('div','hub-hero'),card=node('section','glass-panel play-card'),title=node('h2','home-current'),metadata=node('p','home-current-description'),badge=node('span','home-kicker','CONTINUE YOUR ADVENTURE'),play=action('Play in this page','home-play',()=>views.get(home).options.onLaunch());play.setAttribute('aria-label','Play selected build');const actions=node('div','home-actions'),browse=action('Choose a build','primary-action',()=>views.get(home).options.onBrowse(''));actions.append(play,browse);const details=action('View selected source →','text-action',()=>{const v=views.get(home);if(v.options.selected)v.options.onDetails(v.options.selected);});card.append(badge,title,metadata,actions,details,node('small','hub-launch-note','Verified original files. First launch downloads; repeat launches can reuse this session’s verified copy.'));
+ hero.append(intro,card);const favorites=node('div','quiet-favorites');favorites.hidden=true;
+ const section=node('section','hub-library'),head=node('div','hub-section-head'),heading=node('div');heading.append(node('span','quiet-eyebrow','NO DETOURS. JUST PLAY.'),node('h2','','Ready on this site'));head.append(heading,action('Explore all builds ↗','text-action',()=>views.get(home).options.onBrowse('')));const builds=node('div','hub-builds');section.append(head,builds);
+ const menu=node('nav','home-menu');menu.setAttribute('aria-label','Launcher shortcuts');for(const [label,route]of [['Versions',null],['Multiplayer','Servers'],['Skins','Skins'],['Settings','Launcher Settings']]){const b=action(label,'menu-action',()=>route?views.get(home).options.onNavigate(route):views.get(home).options.onBrowse(''));b.dataset.hint={Versions:'Search all 140 original builds',Multiplayer:'Your personal WebSocket bookmarks',Skins:'Local profiles and interactive 3D skins',Settings:'Appearance, motion and launch preferences'}[label];menu.append(b);}const bottom=node('div','hub-bottom'),credit=node('p','scene-credit');credit.append(document.createTextNode('Tiny Takeover © Mojang / Microsoft · '));const source=node('a','','source & credits');source.href='assets/tiny-takeover/CREDITS.md';source.target='_blank';source.rel='noopener';credit.append(source);bottom.append(menu,credit,node('p','minecraft-disclaimer','Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.'));
+ home.append(hero,favorites,section,bottom,node('p','play-disclosure','Games are third-party HTML and can access this hosting origin’s storage. Use trusted builds. In-page loading is not a promise of an instant engine boot.'));
+ views.set(home,{options,title,metadata,browse,play,details,favorites,builds,badge,favoriteKey:'',buildKey:''});updateHome(home,options);return home;
 }
-export function updateHome(home,options){
- const state=views.get(home);if(!state)return;
- state.options=options;state.play.disabled=!!options.busy||!options.selected||!!options.selected.utility;state.play.textContent=options.busy?'Preparing…':'Play';state.play.setAttribute('aria-busy',String(!!options.busy));const {selected,catalog,prefs,onSelect}=options;
- const label=selected?.label||'Choose your build.';
- const detail=selected?`${selected.runtime} · ${(selected.size/1048576).toFixed(2)} MiB`:'Choose a build. Play fetches and verifies the original HTML before opening it.';
- if(state.title.textContent!==label)state.title.textContent=label;
- if(state.metadata.textContent!==detail)state.metadata.textContent=detail;
- state.browse.textContent=selected?'Change build ↗':'Explore the library ↗';
- state.details.hidden=!selected;
- const entries=catalog.entries.filter(e=>prefs.favorites.includes(e.id)).slice(0,3);
- const key=entries.map(e=>e.id).join('|');
- if(key!==state.favoriteKey){
-  state.favoriteKey=key;state.favorites.replaceChildren();state.favorites.hidden=!entries.length;
-  if(entries.length)state.favorites.append(node('span','home-kicker','FAVORITES'));
-  for(const entry of entries){const b=action(entry.label+' ↗','saved-build',()=>onSelect(entry));b.title=entry.path;state.favorites.append(b);}
- }
-}
+export function updateHome(home,options){const s=views.get(home);if(!s)return;s.options=options;const {selected,busy,catalog,prefs,hosting,cache,onSelect}=options,hosted=selected&&hosting.files?.includes(selected.path),cached=selected&&cache.has(catalog.commit+':'+selected.sha);s.play.disabled=busy||!selected||selected.utility;s.play.textContent=busy?'Preparing…':hosted?'Play in this page':'Play build';s.play.setAttribute('aria-busy',String(!!busy));s.title.textContent=selected?.label||'Where will you go?';s.metadata.textContent=selected?`${hosted?'Hosted here':'Upstream build'} · ${(selected.size/1048576).toFixed(2)} MiB · ${cached?'Verified in this session':'Verified before execution'}`:'Choose from the hosted collection or explore the complete version library.';s.badge.textContent=cached?'YOUR SESSION IS READY':'CONTINUE YOUR ADVENTURE';s.browse.textContent=selected?'Change build':'Choose a build';s.details.hidden=!selected;
+ const priority=['Eaglercraft 1.8.8 .html','Eaglercraft-1.12.html','Eaglercraft-1.5.2.html','Aero Client JS.html','PixelClient 1.8.8 JS.html','Eaglercraft-4k-JS.html'],entries=priority.map(p=>catalog.entries.find(e=>e.path===p&&hosting.files?.includes(p))).filter(Boolean),key=entries.map(e=>e.id+(selected?.id===e.id?'!':'')).join('|');if(s.buildKey!==key){s.buildKey=key;s.builds.replaceChildren();for(const [i,e]of entries.entries()){const b=action('','hub-build',()=>onSelect(e));b.setAttribute('aria-pressed',String(selected?.id===e.id));const glyph=node('span','build-glyph',e.category==='Clients'?'↗':'◈');glyph.dataset.tone=String(i%3);const text=node('span','hub-build-label');text.append(node('strong','',e.label),node('small','',`${(e.size/1048576).toFixed(1)} MiB · Hosted here`));b.append(glyph,text,node('span','build-select-arrow','→'));s.builds.append(b);}}
+ const favorites=catalog.entries.filter(e=>prefs.favorites.includes(e.id)).slice(0,5),fk=favorites.map(e=>e.id).join('|');if(fk!==s.favoriteKey){s.favoriteKey=fk;s.favorites.replaceChildren();s.favorites.hidden=!favorites.length;if(favorites.length)s.favorites.append(node('span','home-kicker','YOUR FAVORITES'));for(const e of favorites)s.favorites.append(action(e.label,'saved-build',()=>onSelect(e)));}}

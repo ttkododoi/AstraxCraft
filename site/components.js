@@ -1,7 +1,7 @@
 /** Native port of ibelick/Motion Primitives AnimatedBackground (MIT, 2024 ibelick).
  * Original React source/license: assets/licenses/Motion-Primitives-MIT.txt.
  * One persistent shared surface; no React/Motion/Tailwind runtime required. */
-import {motionEnabled,springFrames} from './motion.js?v=craft-27';
+import {motionEnabled,springFrames} from './motion.js?v=craft-28';
 export function segmentedControl(root,onChange){
  const buttons=[...root.querySelectorAll('button')],surface=document.createElement('span');surface.className='segment-surface';surface.setAttribute('aria-hidden','true');root.prepend(surface);let current=buttons[0],animation;
  function paint(instant=false){if(!root.isConnected||root.getBoundingClientRect().width===0)return;const r=root.getBoundingClientRect(),b=current.getBoundingClientRect(),old=surface.getBoundingClientRect();animation?.cancel();Object.assign(surface.style,{left:`${current.offsetLeft}px`,top:`${current.offsetTop}px`,width:`${current.offsetWidth}px`,height:`${current.offsetHeight}px`});if(motionEnabled()&&!instant&&old.width)animation=surface.animate(springFrames(t=>({transform:`translate(${(old.left-b.left)*(1-t)}px,${(old.top-b.top)*(1-t)}px) scale(${1+(old.width/b.width-1)*(1-t)},1)`})),{duration:340,easing:'linear'});}

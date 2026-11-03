@@ -2,7 +2,7 @@
   "checks": [
     "minimal dusk home has no charts, dashboard metrics or category cards",
     "original aurora really animates, and smoked-glass backdrop filtering is enabled",
-    "one Play click automatically opens validated real 4K HTML; no install, save, or second Start action; ambient motion pauses for game",
+    "explicit separate-window fallback opens validated real 4K HTML; no install, save, or second Start action; ambient motion pauses for game",
     "local HTML still waits for a separate explicit execution action",
     "background setting persists and device reduced motion takes precedence",
     "six desktop/tablet/phone layouts keep the picker and Play reachable",

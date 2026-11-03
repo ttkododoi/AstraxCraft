@@ -1,6 +1,22 @@
 # Astrax Launcher
 
-A real, buildless browser launcher for Astrax Interactive, featuring the **Dusk Edition minimal smoked-glass workspace**, grouped navigation, searchable builds, favorites and verified HTML preparation. The current design is a purple-glass Minecraft-inspired workspace with an original AstraxCraft mark, yellow splash and functional Quick Play. The default background is the genuine Minecraft Java 26.1 Tiny Takeover six-face panorama, served locally with Mojang/Microsoft attribution and recorded administrator-confirmed permission. The older CC BY 3.0 Xbox México scene remains optional. No procedural/generated scenery ships; authorized local cubemap import remains available. No charts or dashboard counters. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
+A real, buildless browser launcher for Astrax Interactive, featuring the **Dusk Edition minimal smoked-glass workspace**, horizontal navigation, searchable builds, favorites and verified HTML preparation. The current design is a purple-glass Minecraft-inspired workspace with an original AstraxCraft mark, asymmetric play hub and same-page hosted Play. The default background is the genuine Minecraft Java 26.1 Tiny Takeover six-face panorama, served locally with Mojang/Microsoft attribution and recorded administrator-confirmed permission. The older CC BY 3.0 Xbox México scene remains optional. No procedural/generated scenery ships; authorized local cubemap import remains available. No charts or dashboard counters. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
+
+## Same-page Play and a new hub · 2.8
+
+Hosted **Play opens a full-viewport player on this page immediately**, rather than
+opening a preparation tab. The original file still downloads/decompresses and
+passes size/hash checks before execution; the engine itself may take time to boot.
+Back, Fullscreen, Open separately, failure Retry and preparation-only Start/Save
+are available. Upstream/local builds retain the existing runner; local imports
+never execute automatically.
+
+Previously verified files can be reused from a bounded memory-only LRU (96 MiB,
+48 MiB at initial phone widths). No startup prefetch, persistent game caching or
+offline promise. The compatible same-origin iframe is not a security boundary:
+run only trusted builds. The redesigned hub includes top navigation, a large
+selected-build card and six hosted shortcuts. Existing settings, profiles and
+3D skins are preserved. See [actual tests and limits](VERIFICATION.md).
 
 ## Premium native components and expanded hosting · 2.7
 
@@ -12,7 +28,7 @@ SVG favorites, work-bound voxel loaders and dimensional purple glass.
 
 ## Player profiles and real 3D skins · 2.5
 
-Open **Skins** or the sidebar profile switcher for multiple persistent browser-local
+Open **Skins** or the top profile switcher for multiple persistent browser-local
 profiles, a real drag/zoom 3D Minecraft skin viewer, classic/slim models, walk/idle,
 outer layers, PNG import/export, and per-profile build/Blob/Popup preferences.
 Licensed skinview3d is bundled locally and lazy-loaded. Original Astrax default
@@ -26,7 +42,7 @@ No account authentication or in-game username/skin injection is claimed.
 - [Inspected design resources and adaptations](DESIGN_RESEARCH.md).
 - [Panorama setup, asset rights and performance](PANORAMA.md).
 - [Player profiles, 3D controls, privacy and renderer rebuild](PROFILES.md).
-- [Eight hosted games, compression, authorization and exact manifest](FEATURED_HOSTING.md).
+- [Hosted games, compression, authorization and exact manifest](FEATURED_HOSTING.md).
 - [Verification report](VERIFICATION.md) — actual tests, execution boundaries and remaining features.
 - [Reference audit](REFERENCE_AUDIT.md) and [credits / third-party notices](THIRD_PARTY_NOTICES.md).
 - [GitHub pull request](https://github.com/ttkododoi/AstraxCraft/pull/1) — development history and review.
