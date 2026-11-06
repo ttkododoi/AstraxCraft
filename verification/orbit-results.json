@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "original Orbit home and four category routes render",
+    "explore action and Ctrl K open/focus real catalog",
+    "category shortcut, live favorites and selected build stay synchronized",
+    "home source shortcut opens actual selected metadata",
+    "reduced motion disables artwork entrances and click ripples",
+    "mobile Orbit home keeps dock accessible without body overflow"
+  ],
+  "errors": []
+}

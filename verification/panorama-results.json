@@ -1,0 +1,18 @@
+{
+  "checks": [
+    "optional classic scene remains a locally hosted credited screenshot without a procedural substitute",
+    "subtle screenshot motion and the same background layer persist across launcher pages",
+    "photo motion obeys the independent animation preference and device reduced motion",
+    "aurora, real static scene and Off apply live and persist with no reload dependency",
+    "authorized six-face import keeps genuine capped cubemap rotation and persistent camera support",
+    "local import persists through IndexedDB and a malformed replacement cannot displace the saved set",
+    "cubemap rendering stops during preparation, running-game states and reduced motion",
+    "simulated hidden-tab visibility stops scheduled rendering and resumes without elapsed-time jumps",
+    "real graphics context loss uses the licensed screenshot fallback and restoration rebuilds the imported panorama",
+    "removing imported faces restores real game imagery, never a fabricated landscape",
+    "desktop/tablet/phone coverage uses cover cropping rather than image stretching",
+    "Quick Play separate-window fallback launches verified real 4K HTML and pauses background motion while the game is open",
+    "homepage Multiplayer and Skins shortcuts reach real bookmark and local texture tools, not placeholder actions"
+  ],
+  "errors": []
+}

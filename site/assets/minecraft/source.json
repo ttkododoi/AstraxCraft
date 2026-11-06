@@ -1,0 +1,24 @@
+{
+  "title": "Minecraft Beta 1.8.1 Gameplay Screenshot",
+  "author": "Xbox M\u00e9xico",
+  "license": "CC BY 3.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/3.0/",
+  "source": "https://commons.wikimedia.org/wiki/File:Minecraft_Beta_1.8.1_Gameplay_Screenshot.png",
+  "sourceVideo": "https://www.youtube.com/watch?v=T1Ua2SVUhYw&t=74s",
+  "retrievedVia": "https://github.com/msayers01/Short-Explorations-in-Computer-Science/blob/f731142d218d75bdcac7d3f07af69323f646cb5a/img/minecraft-beta-landscape.jpg",
+  "sourceCopySize": [
+    960,
+    509
+  ],
+  "originalCommonsSize": [
+    1494,
+    791
+  ],
+  "changes": "JPEG source copy retained. WebP derivatives crop away version text and HUD, then compress; mobile derivative reduced to 640px. No generative edits, painted pixels or AI upscaling.",
+  "limitations": "Not Tiny Takeover. No baby animals. Accessible source copy is below 1080p. Official 26.1 panorama redistribution permission not established.",
+  "sha256": {
+    "overworld.jpg": "e13e0f021ffe9ee44b2e1a36bf0531f2bbad5979c1b57be4c6d02329d5b50089",
+    "overworld.webp": "fbb6499f85da4a1e632631afac40bd21daabbdd4aa3e2d82144ce6c15c837b46",
+    "overworld-mobile.webp": "98feeb68815c3f6be1c726e8c16e73359fa6dcf58c6a19bec6a94409bb3b7a59"
+  }
+}

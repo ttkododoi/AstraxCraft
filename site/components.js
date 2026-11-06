@@ -1,0 +1,11 @@
+/** Native port of ibelick/Motion Primitives AnimatedBackground (MIT, 2024 ibelick).
+ * Original React source/license: assets/licenses/Motion-Primitives-MIT.txt.
+ * One persistent shared surface; no React/Motion/Tailwind runtime required. */
+import {motionEnabled,springFrames} from './motion.js?v=craft-281';
+export function segmentedControl(root,onChange){
+ const buttons=[...root.querySelectorAll('button')],surface=document.createElement('span');surface.className='segment-surface';surface.setAttribute('aria-hidden','true');root.prepend(surface);let current=buttons[0],animation;
+ function paint(instant=false){if(!root.isConnected||root.getBoundingClientRect().width===0)return;const r=root.getBoundingClientRect(),b=current.getBoundingClientRect(),old=surface.getBoundingClientRect();animation?.cancel();Object.assign(surface.style,{left:`${current.offsetLeft}px`,top:`${current.offsetTop}px`,width:`${current.offsetWidth}px`,height:`${current.offsetHeight}px`});if(motionEnabled()&&!instant&&old.width)animation=surface.animate(springFrames(t=>({transform:`translate(${(old.left-b.left)*(1-t)}px,${(old.top-b.top)*(1-t)}px) scale(${1+(old.width/b.width-1)*(1-t)},1)`})),{duration:340,easing:'linear'});}
+ function select(button){current=button;for(const b of buttons){b.dataset.checked=String(b===button);b.setAttribute('aria-pressed',String(b===button));}onChange(button.dataset.scope);paint();}
+ for(const b of buttons)b.addEventListener('click',()=>select(b));root.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const i=buttons.indexOf(document.activeElement),next=e.key==='Home'?0:e.key==='End'?buttons.length-1:(i+(e.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length;buttons[next].focus();select(buttons[next]);});
+ const preference=new MutationObserver(()=>{if(!motionEnabled()){animation?.cancel();paint(true);}});preference.observe(document.documentElement,{attributes:true,attributeFilter:['data-motion']});const observer=new ResizeObserver(()=>paint(true));observer.observe(root);return {refresh:()=>paint(true),set(scope){select(buttons.find(b=>b.dataset.scope===scope)||buttons[0]);},dispose(){animation?.cancel();observer.disconnect();preference.disconnect();}};
+}

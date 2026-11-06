@@ -1,0 +1,67 @@
+[
+  {
+    "url": "https://gx-launcher.github.io/clients.html",
+    "bytes": 14755,
+    "sha256": "e03a3028fe08a86a2cb8651896609c497a37e526d1ad3468ede270c24cde7417"
+  },
+  {
+    "url": "https://gx-launcher.github.io/downloads-data.js",
+    "bytes": 19967,
+    "sha256": "4a91a719ec1d486f37e5665e4327d50603c3a0e791abab04a6b0831b630a2ac9"
+  },
+  {
+    "url": "https://gx-launcher.github.io/downloads.html",
+    "bytes": 19617,
+    "sha256": "fb4da83882f7af54532218f58d676ab73fc0cf04f1c7d33a40e2c6a7e4089451"
+  },
+  {
+    "url": "https://gx-launcher.github.io/index.html",
+    "bytes": 28604,
+    "sha256": "6f9a57c02b0f703dd2679fd3a221d50ac733bb76e5dab484844416556575288d"
+  },
+  {
+    "url": "https://gx-launcher.github.io/mods.html",
+    "bytes": 25997,
+    "sha256": "8dc4f9c3f1c493e52916c0a21066af0ba6df5f21345d5dda6b38e5927f734e2a"
+  },
+  {
+    "url": "https://gx-launcher.github.io/nav-visibility.js",
+    "bytes": 246,
+    "sha256": "a72f9b2ea0e1b28624a8480bba0ed96f8b591c07c7c7577cee0859627a912286"
+  },
+  {
+    "url": "https://gx-launcher.github.io/news.html",
+    "bytes": 18874,
+    "sha256": "9974d794cfd32092d317fb11fee3ee32b815935ffa1e94fab94fe4b09c8895a1"
+  },
+  {
+    "url": "https://gx-launcher.github.io/otherclients.html",
+    "bytes": 7949,
+    "sha256": "0c95942aebbc663d977d487edbf2721ea7ff15dda729b63bffb72c79b33b029f"
+  },
+  {
+    "url": "https://gx-launcher.github.io/script.js",
+    "bytes": 37860,
+    "sha256": "5922c51b704dd8d84c8bc2680286545f9c12c7b03f052b5450aa1dba3e75593e"
+  },
+  {
+    "url": "https://gx-launcher.github.io/servers.html",
+    "bytes": 25615,
+    "sha256": "e9873c19d4d9522b92cbd1c8babb41abc301617b9a05c8ca4caa2ea73e29cf94"
+  },
+  {
+    "url": "https://gx-launcher.github.io/settings.html",
+    "bytes": 16654,
+    "sha256": "2fb97ff5450ee666cda63fd2d934fd70acb293338e81ea047e5fc73f46baf4ff"
+  },
+  {
+    "url": "https://gx-launcher.github.io/skins.html",
+    "bytes": 25594,
+    "sha256": "684057d41a270b41dcd0315cffad4bbb6a164be84205304059f6317223d81035"
+  },
+  {
+    "url": "https://gx-launcher.github.io/styles.css",
+    "bytes": 19945,
+    "sha256": "21caf224e3b2e291c837627de71e23eef173604d0d5ad070c8fc163a7089f7cc"
+  }
+]

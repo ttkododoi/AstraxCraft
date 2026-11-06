@@ -1,0 +1,21 @@
+name: Publish verified expanded games
+on:
+  workflow_dispatch:
+  push:
+    branches: [arena/fd59a27d-astraxcraft]
+    paths: [.github/workflows/expanded-games.yml]
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reproduce approved archives with Python 3.11 / Debian bookworm zlib
+        run: docker run --rm -v "$PWD:/work" -w /work python:3.11-bookworm python tools/release-expansion.py
+      - name: Publish administrator-authorized archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view astrax-games-2026-11-01 || gh release create astrax-games-2026-11-01 --target arena/fd59a27d-astraxcraft --title "AstraxCraft authorized expanded game archives" --notes "52 additional original HTML builds, stored as deterministic gzip files. Administrator confirmed redistribution permission. Original notices retained. Each archive is checked against committed compressed SHA-256 and original pinned Git blob identity. No blanket license or all-game boot claim. See FEATURED_HOSTING.md and site/featured-games.json."
+          find game-host/release -name '*.gz' -print0 | xargs -0 -n 1 -P 3 gh release upload astrax-games-2026-11-01 --clobber

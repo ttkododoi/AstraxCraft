@@ -1,0 +1,6 @@
+{
+  "expectedExitCode": 1,
+  "status": "incomplete",
+  "missingOrInvalidCount": 140,
+  "note": "Only the three previously acquired games are present. Full 143-file mirroring/staging has not occurred."
+}

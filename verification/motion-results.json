@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "coordinated startup leaves the real shell usable with accessible line-by-line hero text",
+    "rapid navigation commits only the final page and the single FLIP highlight lands precisely",
+    "pointer-down compression and release feedback use a single button interaction system",
+    "picker close disables hit-testing immediately, restores focus and survives repeated open/close interruptions",
+    "favorites stay synchronized and selection feedback preserves home/card DOM without replaying the hero",
+    "all-140 search updates synchronously without per-row entrance animations",
+    "repeated notifications interrupt exits safely and dismiss without an invisible hit-target",
+    "real busy/cancel states preserve dock geometry and truthful zero-byte progress before a delayed response",
+    "disabling motion mid-navigation flushes the pending page once, without stale or duplicate content",
+    "interface motion preferences persist independently of the background and honor device reduced motion",
+    "picker geometry follows a simulated reduced visual viewport rather than being covered by a keyboard",
+    "startup remains tied to actual pending work with indeterminate—not invented—progress",
+    "real catalog and module failures expose Retry and recover without animation concealing the error",
+    "byte completion switches to genuine unknown-duration integrity work, never premature ready/success"
+  ],
+  "searchTiming": {
+    "milliseconds": 1.3999999999650754,
+    "count": 0
+  },
+  "errors": []
+}

@@ -1,0 +1,10 @@
+[
+  "Aero Client JS.html: real upstream bytes, browser Git blob validation, prepared but not executed",
+  "EaglercraftX_1.8_WASM-GC.html: real upstream bytes, browser Git blob validation, prepared but not executed",
+  "cancel fetch releases active state and allows retry",
+  "HTTP 404 is surfaced; retry enabled",
+  "valid 64×64 PNG decoded and previewed",
+  "invalid PNG dimensions and signature rejected",
+  "explicit user-click execution of 4K file reached Blob document; screenshot and errors recorded, gameplay not asserted",
+  "reduced motion suppresses scanline overlay"
+]

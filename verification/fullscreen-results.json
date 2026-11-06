@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "launcher button enters and exits actual browser fullscreen with accurate state",
+    "build library fills phone/tablet/desktop viewport at 150%, searches and selects with restored focus",
+    "library fullscreen button works and keyboard focus stays within the library",
+    "desktop full-screen library axe scan is clean",
+    "phone full-screen library axe scan and no horizontal overflow",
+    "library follows reduced visual viewport and Escape returns to launcher",
+    "real same-page game keeps its toolbar and enters/exits browser fullscreen",
+    "denied fullscreen is explained without a false active state"
+  ],
+  "errors": []
+}

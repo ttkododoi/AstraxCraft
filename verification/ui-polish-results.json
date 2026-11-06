@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "distinct original logo, asymmetric hub, disabled honest Quick Play and non-endorsement are present",
+    "keyboard tooltip announces one description, Escape clears it, and Versions opens the functional picker",
+    "interface Off disables hero motion without disabling the independent real-scene background setting",
+    "device reduced motion freezes both scenery and decorative hero",
+    "home actions remain scroll-reachable at 150% scale on phone/tablet/desktop while dock stays visible"
+  ]
+}

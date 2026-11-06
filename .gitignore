@@ -1,0 +1,15 @@
+mirror/
+*.part
+mirror-report.json
+node_modules/
+__pycache__/
+.cache/
+artifacts/
+reference/
+
+game-host/
+
+site/games/**
+
+
+.venv/

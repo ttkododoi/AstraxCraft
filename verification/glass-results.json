@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "real loading screen waits for catalog, blocks premature actions, and invents no progress",
+    "startup exits on real readiness; local Inter and light backdrop-filter glass are active",
+    "runtime totals, category size charts and SVG coordinates are based on real catalog data",
+    "keyboard chart inspection exposes real first and last byte values",
+    "chart-rich library preserves favorite interaction and synchronized selection",
+    "real verified file drives byte chart, exact progress and dismissible transfer state",
+    "reduced motion disables data-draw and interaction animation",
+    "light glass and charts fit six desktop, tablet and phone viewports",
+    "catalog failure is recoverable through a real Retry startup action",
+    "schema migration switches the old purple default to Pearl without losing metadata",
+    "font network failure falls back to readable system typography without blocking startup",
+    "module download failure presents a working startup retry rather than a stuck loader"
+  ],
+  "errors": []
+}

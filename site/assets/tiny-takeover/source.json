@@ -1,0 +1,47 @@
+{
+  "title": "Minecraft Java Edition 26.1 Tiny Takeover title-screen panorama",
+  "author": "Mojang Studios / Microsoft",
+  "source": "https://github.com/InventivetalentDev/minecraft-assets/tree/1a751e5f4f158777313d1df6909f63a60c3964bf/assets/minecraft/textures/gui/title/background",
+  "sourceCommit": "1a751e5f4f158777313d1df6909f63a60c3964bf",
+  "version": "26.1",
+  "rights": "Minecraft assets are copyright Mojang/Microsoft, not MIT or public domain. Included following repository administrator confirmation of permission; no additional asset license is granted by this repository.",
+  "changes": "Six original PNG cubemap faces retained byte-for-byte. A static WebP derivative of face 0 is provided for graphics fallback. No AI, generated replacement scene or upscaling.",
+  "files": [
+    {
+      "file": "panorama_0.png",
+      "size": 1362584,
+      "gitBlob": "a2d4773cb9923460ea8e018b6b7f522017af4f05",
+      "sha256": "7b1373783a46dde953a640d8d4dfc33d02a9e370d3242299f64a27a2bef0e6d9"
+    },
+    {
+      "file": "panorama_1.png",
+      "size": 1248901,
+      "gitBlob": "e1c239a1aa4b1b650e5260ef0df9748d243c58d3",
+      "sha256": "9997a14ffded8fb053515d924c6028c8e1cc1b0696a2e69f86baf6d3cc24f7e3"
+    },
+    {
+      "file": "panorama_2.png",
+      "size": 1278549,
+      "gitBlob": "81485115d9a64fabb952117bc7841b3317d6d36d",
+      "sha256": "2fd612d9c43912c0ce2143d2c8d918e4d11a498270a69fa05dfb5e8d7c63859d"
+    },
+    {
+      "file": "panorama_3.png",
+      "size": 1548147,
+      "gitBlob": "0e92058cdf8ff3b2a047d552d2c46c48fd45c712",
+      "sha256": "296df4dccfb686c126a24aafda11d3043033ddbc4905b09992454aa7cbad4e59"
+    },
+    {
+      "file": "panorama_4.png",
+      "size": 513781,
+      "gitBlob": "da51ff9e2687093406ecde7bddc471ef7f8899f2",
+      "sha256": "ac8ca92b3b1fce7d11e16509b845c0528c73eac7627a4a0c1271e6707f800365"
+    },
+    {
+      "file": "panorama_5.png",
+      "size": 225478,
+      "gitBlob": "7f22970050850c852a3c0377b80ede83bf205595",
+      "sha256": "706243e7ceb857690adfb23e210939ab589164210b45ead721be9b1382cd91f0"
+    }
+  ]
+}
