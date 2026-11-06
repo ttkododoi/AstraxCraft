@@ -2,6 +2,18 @@
 
 A real, buildless browser launcher for Astrax Interactive, featuring the **Dusk Edition minimal smoked-glass workspace**, horizontal navigation, searchable builds, favorites and verified HTML preparation. The current design is a purple-glass Minecraft-inspired workspace with an original AstraxCraft mark, asymmetric play hub and same-page hosted Play. The default background is the genuine Minecraft Java 26.1 Tiny Takeover six-face panorama, served locally with Mojang/Microsoft attribution and recorded administrator-confirmed permission. The older CC BY 3.0 Xbox México scene remains optional. No procedural/generated scenery ships; authorized local cubemap import remains available. No charts or dashboard counters. **Only UserArham/version provides game files.** This is an independent implementation, not an official GX fork or a claim that every build works.
 
+## Fullscreen library and controls · 2.8.1
+
+**Choose a build** now opens a full-viewport library, not a small floating popup.
+Search, hosted/all filters, categories, favorites and local import stay available.
+Back or Escape returns to the launcher; selecting a build closes the library.
+Keyboard focus stays inside the library, and its list follows the visual viewport
+when a mobile keyboard reduces the available height.
+
+Use **Fullscreen** in the launcher header, build library or game toolbar to hide
+browser chrome where supported. Controls track real fullscreen state; denied or
+unsupported requests are explained instead of pretending they succeeded.
+
 ## Same-page Play and a new hub · 2.8
 
 Hosted **Play opens a full-viewport player on this page immediately**, rather than

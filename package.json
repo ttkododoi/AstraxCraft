@@ -1,6 +1,6 @@
 {
   "name": "astrax-launcher",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -15,6 +15,7 @@
     "test:profiles": "node tests/profiles.mjs",
     "vendor:skins": "esbuild tools/skinview-entry.js --bundle --format=esm --minify --legal-comments=linked --outfile=site/vendor/skinview3d-3.4.2.js",
     "test:featured": "node tests/featured.mjs",
+    "test:fullscreen": "node tests/fullscreen.mjs",
     "test:player": "node tests/player.mjs",
     "test:premium": "node tests/premium.mjs"
   },

@@ -1,6 +1,24 @@
-# Verification report — 3 November 2026
+# Verification report — 6 November 2026
 
-## Current release: In-page Play Hub 2.8
+## Current release: Fullscreen Library 2.8.1
+
+Targeted checks rerun successfully: fullscreen suite (8 grouped checks, including
+2 clean axe scans); premium components (10); same-page player (13, including
+4 clean axe scans); motion (14); accessibility/theme suite (17 clean axe scans).
+The fullscreen suite checks actual browser fullscreen entry/exit in the launcher,
+build library and a real 4K game, denied requests without false active state,
+full-viewport library bounds at 390/1024/1440 pixels and 150% scale, search and
+selection, inert launcher/focus wrapping, Escape and reduced visual viewport.
+Screenshots are generated under ignored `artifacts/`. These are Chromium checks,
+not physical mobile/Safari fullscreen certification. Games still require real
+transfer, verification and engine startup. Previous 2.8 full-suite results below
+are retained as historical results, not described as rerun for this patch.
+
+The picker is moved to the body as a full-viewport dialog, avoiding clipping by
+the launcher shell. Its background is solid for readable build browsing. Browser
+fullscreen is opt-in and distinct from the always-full-viewport library layout.
+
+## Previous release: In-page Play Hub 2.8
 
 **123 grouped checks pass in this working tree:** core 14; in-page player 13;
 premium 10; featured 8; profiles 16; browser 15; Dusk 7; motion 14; panorama 13;

@@ -114,6 +114,7 @@ export function isPopoverOpen(panel) { return popovers.get(panel)?.open === true
 export function fitPicker(panel) {
   if (!isPopoverOpen(panel)) return;
   const viewport = window.visualViewport;
+  if(panel.classList.contains('fullscreen-library')){panel.style.top=`${viewport?.offsetTop||0}px`;panel.style.left=`${viewport?.offsetLeft||0}px`;panel.style.width=`${viewport?.width||innerWidth}px`;panel.style.height=`${viewport?.height||innerHeight}px`;panel.style.bottom='auto';panel.style.maxHeight='none';return;}
   const top = (viewport?.offsetTop || 0) + 12;
   const bottom = (viewport?.offsetTop || 0) + (viewport?.height || innerHeight) - 12;
   const parent = panel.offsetParent;
@@ -139,7 +140,7 @@ export function showPicker(panel, open) {
     panel.style.pointerEvents = '';
     panel.dataset.state = 'open';
     fitPicker(panel);
-    animate(panel, 'popover', from?[from,{opacity:1,translate:'0 0',scale:1}]:springFrames(t=>({opacity:Math.max(0,Math.min(1,t)),translate:`0 ${9*(1-t)}px`,scale:.985+.015*t})), 300);
+    if(!panel.classList.contains('fullscreen-library'))animate(panel, 'popover', from?[from,{opacity:1,translate:'0 0',scale:1}]:springFrames(t=>({opacity:Math.max(0,Math.min(1,t)),translate:`0 ${9*(1-t)}px`,scale:.985+.015*t})), 300);
     [panel.querySelector('.picker-head'), panel.querySelector('#search'), panel.querySelector('.filters')].forEach((n, i) => arrive(n, 25 + i*24, 220, 4));
   } else {
     panel.dataset.state = 'closed';
